@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Basketball Transition Offense: Complete Coaching Guide</title>
+    <style>
+        :root {
+            /* Color System */
+            --primary-orange: #ff6b35;
+            --primary-orange-dark: #f7931e;
+            --secondary-blue: #3498db;
+            --secondary-blue-dark: #2980b9;
+            --accent-green: #27ae60;
+            --accent-purple: #9b59b6;
+            --danger-red: #e74c3c;
+            --warning-yellow: #f39c12;
+            
+            /* Neutral Colors */
+            --text-primary: #2c3e50;
+            --text-secondary: #34495e;
+            --text-muted: #7f8c8d;
+            --text-light: #95a5a6;
+            
+            /* Surface Colors */
+            --surface-primary: #ffffff;
+            --surface-secondary: #f8f9fa;
+            --surface-tertiary: #ecf0f1;
+            --surface-accent: #fff3cd;
+            
+            /* Border Colors */
+            --border-light: #e9ecef;
+            --border-medium: #dee2e6;
+            --border-dark: #ced4da;
+            
+            /* Background Gradients */
+            --bg-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-gradient-orange: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --bg-gradient-blue: linear-gradient(90deg, #3498db, #2980b9);
+            --bg-gradient-success: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            
+            /* Typography Scale */
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
+            --text-base: clamp(1rem, 0.95rem + 0.5vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+            --text-xl: clamp(1.25rem, 1rem + 1.25vw, 1.875rem);
+            --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+            --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+            
+            /* Z-Index Scale */
+            --z-base: 1;
+            --z-nav: 100;
+            --z-sticky: 200;
+            --z-dropdown: 300;
+            --z-modal-backdrop: 400;
+            --z-modal: 500;
+            --z-tooltip: 600;
+            --z-notification: 700;
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.2s ease;
+            --transition-slow: 0.3s ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-base: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-gradient-primary);
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling with offset for sticky header */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Main Layout Container */
+        .page-wrapper {
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
+            min-height: 100vh;
+            overflow: visible; /* Critical: Don't break sticky positioning */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+            background: var(--surface-primary);
+            box-shadow: var(--shadow-xl);
+            border-radius: 12px;
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            background: var(--bg-gradient-orange);
+            color: white;
+            padding: var(--space-2xl) var(--space-lg);
+            border-radius: 12px 12px 0 0;
+            margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-xl) calc(-1 * var(--space-lg));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: var(--text-lg);
+            opacity: 0.95;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Sticky Navigation */
+        .navigation {
+            position: sticky;
+            top: 0;
+            z-index: var(--z-sticky);
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            margin-bottom: var(--space-xl);
+            transition: all var(--transition-base);
+            will-change: transform;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-base);
+        }
+
+        .navigation.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(44, 62, 80, 0.98);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            padding: var(--space-lg);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 8px;
+            transition: all var(--transition-base);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            position: relative;
+            min-height: 44px; /* Touch-friendly */
+            display: flex;
+            align-items: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link.active {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange-dark);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .nav-link.active:hover {
+            background: var(--primary-orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+        }
+
+        .nav-link:focus {
+            outline: 3px solid rgba(255, 255, 255, 0.7);
+            outline-offset: 2px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl);
+            background: var(--surface-secondary);
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-orange);
+            position: relative;
+            scroll-margin-top: 100px;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-icon {
+            font-size: var(--text-xl);
+            color: var(--primary-orange);
+        }
+
+        .section-title {
+            color: var(--text-primary);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .subsection-title {
+            color: var(--text-secondary);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            margin: var(--space-xl) 0 var(--space-lg) 0;
+            padding: var(--space-md);
+            background: var(--bg-gradient-blue);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .subsection-subtitle {
+            color: var(--danger-red);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin: var(--space-lg) 0 var(--space-md) 0;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--surface-tertiary);
+            border-radius: 6px;
+            border-left: 4px solid var(--danger-red);
+        }
+
+        /* Grid Layouts */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+
+        .stat-card {
+            background: var(--surface-primary);
+            padding: var(--space-xl);
+            border-radius: 12px;
+            box-shadow: var(--shadow-base);
+            text-align: center;
+            border-top: 4px solid var(--secondary-blue);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-number {
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            color: var(--danger-red);
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        /* Card Components */
+        .drill-card {
+            background: var(--surface-primary);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow-base);
+            border-left: 4px solid var(--accent-green);
+            transition: all var(--transition-base);
+        }
+
+        .drill-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .drill-card h5 {
+            color: var(--accent-green);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .drill-card p {
+            margin-bottom: var(--space-sm);
+            line-height: 1.7;
+        }
+
+        /* Phase Cards */
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+
+        .phase-card {
+            background: var(--surface-primary);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-base);
+            border-top: 4px solid var(--accent-purple);
+            transition: all var(--transition-base);
+        }
+
+        .phase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .phase-title {
+            color: var(--accent-purple);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            background: var(--surface-secondary);
+            padding: var(--space-md);
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        /* Alert Boxes */
+        .alert-box {
+            border-radius: 10px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .alert-success {
+            background: #e6ffe6;
+            border-color: #99ff99;
+            color: #006600;
+        }
+
+        .alert-warning {
+            background: var(--surface-accent);
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+
+        .alert-danger {
+            background: #ffe6e6;
+            border-color: #ff9999;
+            color: #cc0000;
+        }
+
+        .alert-box h4 {
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            font-size: var(--text-lg);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--bg-gradient-success);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            margin: var(--space-lg) 0;
+            border-left: 5px solid #00b894;
+            position: relative;
+        }
+
+        .highlight-box strong {
+            color: #00b894;
+            font-size: var(--text-lg);
+            font-weight: 700;
+        }
+
+        /* Principles Grid */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+
+        .principle-card {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: var(--space-lg);
+            border-radius: 12px;
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .principle-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .principle-card h5 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-lg) 0;
+            background: var(--surface-primary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-base);
+        }
+
+        .data-table th {
+            background: var(--text-secondary);
+            color: white;
+            padding: var(--space-lg);
+            text-align: left;
+            font-weight: 600;
+            font-size: var(--text-sm);
+        }
+
+        .data-table td {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--border-light);
+            font-size: var(--text-sm);
+        }
+
+        .data-table tr:hover {
+            background: var(--surface-secondary);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Lists */
+        .content-section ul, .content-section ol {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-xl);
+        }
+
+        .content-section li {
+            margin-bottom: var(--space-sm);
+            line-height: 1.7;
+        }
+
+        .content-section li strong {
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: var(--space-lg);
+            right: var(--space-lg);
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: var(--text-lg);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-lg);
+            z-index: var(--z-tooltip);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 0.9;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--text-secondary);
+            color: white;
+            border-radius: 12px;
+            margin-top: var(--space-2xl);
+        }
+
+        .footer h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer p {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: var(--space-md);
+                padding: var(--space-md);
+            }
+            
+            .header h1 {
+                font-size: var(--text-2xl);
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .stats-grid,
+            .phases-grid,
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: var(--space-lg);
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-sm);
+            }
+
+            .data-table {
+                font-size: var(--text-xs);
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: var(--space-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: var(--space-sm);
+                padding: var(--space-sm);
+            }
+
+            .header {
+                padding: var(--space-lg);
+            }
+
+            .nav-container {
+                padding: var(--space-md);
+            }
+
+            .content-section {
+                padding: var(--space-md);
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .navigation {
+                border: 2px solid currentColor;
+            }
+            
+            .content-section {
+                border: 2px solid currentColor;
+                background: Canvas;
+                color: CanvasText;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .navigation,
+            .scroll-to-top {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 1rem;
+            }
+            
+            .content-section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="container">
+            <header class="header">
+                <h1>🏀 Advanced Basketball Transition Offense</h1>
+                <p>The Complete Coaching Guide for Championship Success</p>
+            </header>
+
+            <nav class="navigation" id="main-nav">
+                <div class="nav-container">
+                    <ul class="nav-list">
+                        <li><a href="#fundamentals" class="nav-link" data-nav-link="fundamentals">Why It Matters</a></li>
+                        <li><a href="#execution" class="nav-link" data-nav-link="execution">Execution Systems</a></li>
+                        <li><a href="#teaching" class="nav-link" data-nav-link="teaching">Teaching Methods</a></li>
+                        <li><a href="#drills" class="nav-link" data-nav-link="drills">Essential Drills</a></li>
+                        <li><a href="#advanced" class="nav-link" data-nav-link="advanced">Advanced Concepts</a></li>
+                        <li><a href="#evaluation" class="nav-link" data-nav-link="evaluation">Assessment</a></li>
+                        <li><a href="#troubleshooting" class="nav-link" data-nav-link="troubleshooting">Troubleshooting</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <section id="fundamentals" class="content-section" data-section="fundamentals">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <h2 class="section-title">Why Transition Offense Matters</h2>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>The Fundamental Truth:</strong> The worst transition offense is still more efficient than the best half-court offense. Teams with elite transition offense average 1.17-1.20 points per possession versus 1.10 league average, creating 7+ point advantages per game.
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">1.20</span>
+                        <div class="stat-label">Points per possession<br>Elite transition teams</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">48.79%</span>
+                        <div class="stat-label">Shots at the rim<br>Transition vs 33.94% half-court</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">64.11%</span>
+                        <div class="stat-label">Conversion rate<br>vs 57.53% half-court</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">13</span>
+                        <div class="stat-label">Point advantage<br>per 100 possessions</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Strategic Advantages</h3>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h5>🎯 High-Value Shots</h5>
+                        <p>Creates layups, open threes, and mismatches that half-court struggles can't produce</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>⚡ Pace Control</h5>
+                        <p>Forces defenses into frantic decisions and shifts momentum</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>🧠 Psychological Impact</h5>
+                        <p>Demoralizes opponents while building unstoppable momentum</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>📈 Analytics Edge</h5>
+                        <p>Measurable success through transition PPP and efficiency metrics</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">When to Initiate Transition</h3>
+                <div class="alert-box alert-warning">
+                    <h4>Key Triggers</h4>
+                    <ul>
+                        <li><strong>After defensive rebounds or steals</strong> - immediately</li>
+                        <li><strong>Made baskets</strong> - quick inbound and push</li>
+                        <li><strong>Stagnant half-court</strong> - change of pace</li>
+                        <li><strong>When trailing</strong> - need momentum shift</li>
+                        <li><strong>Neutral-read</strong> - defense not set within 3 seconds</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">Championship Correlation Data</h3>
+                <p>Nine-year NCAA tournament analysis shows offensive rating predicts tournament success 50% more effectively than defensive rating, with transition-heavy teams significantly overrepresented in Final Four appearances. NBA championship teams from 2015-2023 consistently rank high in transition metrics, with most combining elite frequency and efficiency.</p>
+            </section>
+
+            <section id="execution" class="content-section" data-section="execution">
+                <div class="section-header">
+                    <span class="section-icon">⚡</span>
+                    <h2 class="section-title">Championship-Level Execution Systems</h2>
+                </div>
+
+                <h3 class="subsection-title">Three-Phase Transition System</h3>
+                <div class="phases-grid">
+                    <div class="phase-card">
+                        <h4 class="phase-title">Primary Break</h4>
+                        <p><strong>Objective:</strong> Score within 7 seconds</p>
+                        <ul>
+                            <li>3-lane fast break with point guard on sideline</li>
+                            <li>Wings fill corners maintaining 15+ feet spacing</li>
+                            <li>First trailer to ball-side block</li>
+                            <li>Second trailer to weak-side elbow</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Secondary Break</h4>
+                        <p><strong>Objective:</strong> Create additional opportunities</p>
+                        <ul>
+                            <li>Ball reversal through trailing big men</li>
+                            <li>Back screen actions for lob opportunities</li>
+                            <li>Cross screen options for block-to-block scoring</li>
+                            <li>Drag screen concepts near 3-point line</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Flow to Half-Court</h4>
+                        <p><strong>Objective:</strong> Seamless transition to offense</p>
+                        <ul>
+                            <li>5-out secondary actions with zoom plays</li>
+                            <li>Away screens and spread drag variations</li>
+                            <li>Early offense concepts</li>
+                            <li>Motion-based continuations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Core Execution Principles</h3>
+                
+                <h4 class="subsection-subtitle">Spacing & Placement</h4>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h5>Wide Lanes</h5>
+                        <p>If ahead of ball, sprint wide down lanes - stay 15+ feet apart</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>Trailer Support</h5>
+                        <p>If behind, trail down middle to reverse or support</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>Avoid Clustering</h5>
+                        <p>Maintain structure and proper spacing throughout</p>
+                    </div>
+                </div>
+
+                <h4 class="subsection-subtitle">Vision & Pace Fundamentals</h4>
+                <div class="alert-box alert-warning">
+                    <h4>Speed with Precision Cues</h4>
+                    <ul>
+                        <li>Scan the floor early and sprint "free of clutter"</li>
+                        <li>Practice "lag-free" first steps - immediate reaction</li>
+                        <li>Keep head up while speed dribbling</li>
+                        <li>Win the first three steps to create advantage</li>
+                    </ul>
+                </div>
+
+                <h4 class="subsection-subtitle">Numbered Advantage Hierarchy</h4>
+                <div class="highlight-box">
+                    <strong>Recognition & Exploitation Priority:</strong>
+                    <ol>
+                        <li><strong>2-on-1:</strong> Drive and force help, finish or kick</li>
+                        <li><strong>3-on-2:</strong> Attack middle defender, read commitment</li>
+                        <li><strong>4-on-3:</strong> Pitch-ahead passing before half-court</li>
+                        <li><strong>5-on-4:</strong> Quick ball movement to open areas</li>
+                    </ol>
+                </div>
+
+                <h3 class="subsection-title">Role Assignments & Responsibilities</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Primary Responsibility</th>
+                            <th>Key Skills</th>
+                            <th>Decision Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Point Guard</strong></td>
+                            <td>Ball advancement and decision-making</td>
+                            <td>Speed dribbling, court vision, passing</td>
+                            <td>Push vs. slow, numerical advantages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wings</strong></td>
+                            <td>Lane filling and finishing</td>
+                            <td>Sprint speed, catch and shoot, cutting</td>
+                            <td>Shot vs. pass, spacing maintenance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trailer 1</strong></td>
+                            <td>Ball-side support and screening</td>
+                            <td>Ball handling, screening, posting</td>
+                            <td>Screen vs. post, early offense flow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trailer 2</strong></td>
+                            <td>Weak-side balance and rebounding</td>
+                            <td>Outlet passing, screening, rebounding</td>
+                            <td>Reset vs. continue, defensive balance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="teaching" class="content-section" data-section="teaching">
+                <div class="section-header">
+                    <span class="section-icon">🎓</span>
+                    <h2 class="section-title">Evidence-Based Teaching Methodologies</h2>
+                </div>
+
+                <h3 class="subsection-title">Progressive Development Framework</h3>
+                
+                <div class="phases-grid">
+                    <div class="phase-card">
+                        <h4 class="phase-title">Phase 1: Foundation (Weeks 1-2)</h4>
+                        <ul>
+                            <li>5v0 fundamental positions and spacing</li>
+                            <li>Basic outlet passing to wings</li>
+                            <li>Lane assignments and spacing concepts</li>
+                            <li>Two Trips Drill method</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Phase 2: Pressure (Weeks 2-3)</h4>
+                        <ul>
+                            <li>1-on-1 transition pressure skills</li>
+                            <li>2-on-2 basic passing and finishing</li>
+                            <li>3-on-2 core scenarios</li>
+                            <li>4-on-3 defensive reading</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Phase 3: Integration (Week 4+)</h4>
+                        <ul>
+                            <li>5-on-5 full court integration</li>
+                            <li>Secondary break options</li>
+                            <li>Multiple entry methods</li>
+                            <li>Situational training</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Individual Skill Development by Position</h3>
+
+                <div class="drill-card">
+                    <h5>Guards: Outlet Receiving & Speed Dribbling</h5>
+                    <p><strong>Focus:</strong> Proper positioning, sprint to angles, speed dribbling with head up</p>
+                    <p><strong>Progression:</strong> Stationary → Moving → Pressure → Game speed</p>
+                    <p><strong>Key Points:</strong> Immediate outlet positioning after every rebound, maintain control while pushing pace, communicate and direct teammates</p>
+                </div>
+
+                <div class="drill-card">
+                    <h5>Wings: Lane Filling & Cutting</h5>
+                    <p><strong>Focus:</strong> Wide sideline running, 45-degree cutting angles, catch-and-shoot preparation</p>
+                    <p><strong>Progression:</strong> Form running → Ball integration → Defensive pressure</p>
+                    <p><strong>Key Points:</strong> Maintain 15+ foot spacing from other players, sprint wide along sidelines, prepare for immediate shooting</p>
+                </div>
+
+                <div class="drill-card">
+                    <h5>Post Players: Rim Running & Outlet Passing</h5>
+                    <p><strong>Focus:</strong> Immediate sprinting upon possession change, clean outlet passes</p>
+                    <p><strong>Progression:</strong> Footwork → Passing accuracy → Game timing</p>
+                    <p><strong>Key Points:</strong> Sprint to basket immediately after defensive rebound, provide clean outlet passes under pressure</p>
+                </div>
+
+                <h3 class="subsection-title">Championship Coaching Cues</h3>
+                <div class="alert-box alert-warning">
+                    <h4>Cues That Stick</h4>
+                    <ul>
+                        <li><strong>"Layup or bust"</strong> - Primary objective clear</li>
+                        <li><strong>"Wide and fast, trail in the middle"</strong> - Spacing reminder</li>
+                        <li><strong>"Push ahead, don't dribble"</strong> - Ball movement priority</li>
+                        <li><strong>"See it, sprint it, finish it"</strong> - Decision speed</li>
+                        <li><strong>"Recognize the extra guy"</strong> - Numerical advantages</li>
+                        <li><strong>"Second you catch it, look up"</strong> - Court vision</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">Constraint-Based Training Methods</h3>
+                <div class="highlight-box">
+                    <strong>Modern Approach:</strong> Use constraints to guide learning rather than rigid instruction. Manipulate task, environment, and individual constraints to promote self-discovery and adaptability.
+                </div>
+
+                <h4 class="subsection-subtitle">Task Constraints Examples</h4>
+                <ul>
+                    <li><strong>Time Pressure:</strong> 8-second shot clocks, 5-second transition clocks</li>
+                    <li><strong>Scoring Rules:</strong> ROB shots only (Rhythm, Open, Balanced)</li>
+                    <li><strong>Player Numbers:</strong> 5-on-4+1 Paint Start drills</li>
+                    <li><strong>Space Limitations:</strong> Specific scoring zones, no-dribble areas</li>
+                </ul>
+            </section>
+
+            <section id="drills" class="content-section" data-section="drills">
+                <div class="section-header">
+                    <span class="section-icon">🏃‍♂️</span>
+                    <h2 class="section-title">Essential Drill Library</h2>
+                </div>
+
+                <h3 class="subsection-title">Foundation Drills</h3>
+
+                <div class="drill-card">
+                    <h5>Two Trips Drill</h5>
+                    <p><strong>Setup:</strong> 5v0 full court</p>
+                    <p><strong>Execution:</strong> Practice positions, spacing, passing patterns twice down court</p>
+                    <p><strong>Focus:</strong> Fundamental spacing and ball movement</p>
+                    <p><strong>Progression:</strong> Add time goals (28 layups in 2 minutes)</p>
+                </div>
+
+                <div class="drill-card">
+                    <h5>Full-Court Layup Drill</h5>
+                    <p><strong>Setup:</strong> Two lines, full court</p>
+                    <p><strong>Execution:</strong> Combine conditioning, passing, catching, finishing</p>
+                    <p><strong>Focus:</strong> Conditioning with skill integration</p>
+                    <p><strong>Target:</strong> 28 made layups in 2 minutes</p>
+                </div>
+
+                <h3 class="subsection-title">Advantage Drills</h3>
+
+                <div class="drill-card">
+                    <h5>3-on-2 Continuous</h5>
+                    <p><strong>Setup:</strong> Continuous transition both directions</p>
+                    <p><strong>Execution:</strong> Read numerical advantages, proper spacing</p>
+                    <p><strong>Focus:</strong> Decision-making under pressure</p>
+                    <p><strong>Key Points:</strong> Attack gap, look for trailer, finish strong</p>
+                </div>
+
+                <div class="drill-card">
+                    <h5>5-on-4+1 Advantage Drill</h5>
+                    <p><strong>Setup:</strong> Defense starts in paint, offense full court</p>
+                    <p><strong>Execution:</strong> Score before defense recovers</p>
+                    <p><strong>Focus:</strong> Quick decisions before neutral situations</p>
+                    <p><strong>Constraint:</strong> Must score within 8 seconds</p>
+                </div>
+
+                <h3 class="subsection-title">Advanced Game-Like Drills</h3>
+
+                <div class="drill-card">
+                    <h5>Dale Wellman's Advantage Transition</h5>
+                    <p><strong>Setup:</strong> 8-second shot clock, competitive scoring</p>
+                    <p><strong>Execution:</strong> Full-court transition with time pressure</p>
+                    <p><strong>Focus:</strong> Game-like decision making</p>
+                    <p><strong>Scoring:</strong> Track conversion rates and efficiency</p>
+                </div>
+
+                <div class="drill-card">
+                    <h5>Navy Transition Drill</h5>
+                    <p><strong>Setup:</strong> Coach slams ball while teams pursue</p>
+                    <p><strong>Execution:</strong> Immediate transition mentality</p>
+                    <p><strong>Focus:</strong> Mental toughness and conditioning</p>
+                    <p><strong>Benefit:</strong> Develops "every possession" mindset</p>
+                </div>
+
+                <h3 class="subsection-title">Drill Progression Reference</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Drill</th>
+                            <th>Focus</th>
+                            <th>Key Coaching Point</th>
+                            <th>Progression</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5v0 Lead-ups</td>
+                            <td>Spacing & finish</td>
+                            <td>"Wide options, immediate decision"</td>
+                            <td>Add defenders gradually</td>
+                        </tr>
+                        <tr>
+                            <td>2v1 / 3v2 Situations</td>
+                            <td>Advantage recognition</td>
+                            <td>"Attack the gap—read defender"</td>
+                            <td>Increase tempo and pressure</td>
+                        </tr>
+                        <tr>
+                            <td>Outlet Pass Drill</td>
+                            <td>Push initiation</td>
+                            <td>"First pass fast, receivers sprint"</td>
+                            <td>Add defensive pressure</td>
+                        </tr>
+                        <tr>
+                            <td>4-on-3 Continuous</td>
+                            <td>Conditioning + spacing</td>
+                            <td>"Rotate—don't crowd"</td>
+                            <td>Add secondary actions</td>
+                        </tr>
+                        <tr>
+                            <td>5-on-5 Live</td>
+                            <td>Game flow integration</td>
+                            <td>"Break or bust—transition mindset"</td>
+                            <td>Situational variations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="advanced" class="content-section" data-section="advanced">
+                <div class="section-header">
+                    <span class="section-icon">🚀</span>
+                    <h2 class="section-title">Advanced Concepts & Analytics</h2>
+                </div>
+
+                <h3 class="subsection-title">Modern Analytics Integration</h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">T-Freq%</span>
+                        <div class="stat-label">Transition Frequency<br>Percentage of possessions</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">T-PPP</span>
+                        <div class="stat-label">Transition Points<br>Per Possession</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">FB%</span>
+                        <div class="stat-label">Fast Break<br>Success Percentage</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">ROB</span>
+                        <div class="stat-label">Rhythm, Open, Balanced<br>Shot Selection Standard</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Elite Timing Techniques</h3>
+                <div class="highlight-box">
+                    <strong>"Symmetrical Timing":</strong> Professional programs emphasize movements happening simultaneously rather than sequentially to maintain advantages. The "land like quarterback" concept teaches rebounders to face opposite baskets immediately.
+                </div>
+
+                <h4 class="subsection-subtitle">Advanced Timing Methods</h4>
+                <ul>
+                    <li><strong>Metronome Drills:</strong> Practice to specific beats/rhythms</li>
+                    <li><strong>Countdown Scenarios:</strong> 8-second and 5-second transition clocks</li>
+                    <li><strong>Situation Training:</strong> End-of-quarter and end-game timing</li>
+                    <li><strong>Flow Recognition:</strong> Seamless transition to half-court when needed</li>
+                </ul>
+
+                <h3 class="subsection-title">Position-Less Basketball Evolution</h3>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h5>5-Out Principles</h5>
+                        <p>All players behind 3-point lines creating maximum floor spacing</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>3DS Players</h5>
+                        <p>3-point shooting, Defense, and Slashing capabilities regardless of size</p>
+                    </div>
+                    <div class="principle-card">
+                        <h5>Seamless Flow</h5>
+                        <p>Transition-to-half-court maintaining spacing principles throughout</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Professional Technology Integration</h3>
+                <div class="alert-box alert-success">
+                    <h4>Analytics Platforms</h4>
+                    <ul>
+                        <li><strong>Synergy Sports Technology:</strong> Automated video edits with real-time statistical analysis</li>
+                        <li><strong>NBA CourtOptix:</strong> Advanced player tracking and positioning data</li>
+                        <li><strong>Second Spectrum:</strong> 25 fps optical tracking with 3D spatial data</li>
+                        <li><strong>FastModel Sports:</strong> Play diagramming and video integration</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="evaluation" class="content-section" data-section="evaluation">
+                <div class="section-header">
+                    <span class="section-icon">📈</span>
+                    <h2 class="section-title">Assessment & Continuous Improvement</h2>
+                </div>
+
+                <h3 class="subsection-title">Key Performance Indicators (KPIs)</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Target Range</th>
+                            <th>Measurement Method</th>
+                            <th>Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Transition Points Per Game</td>
+                            <td>18-25 points</td>
+                            <td>Game charting</td>
+                            <td>Every game</td>
+                        </tr>
+                        <tr>
+                            <td>Transition Efficiency (PPP)</td>
+                            <td>1.15-1.25</td>
+                            <td>Points/Possessions</td>
+                            <td>Weekly analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Fast Break Percentage</td>
+                            <td>15-25% of offense</td>
+                            <td>Possession tracking</td>
+                            <td>Game by game</td>
+                        </tr>
+                        <tr>
+                            <td>Layup % in Transition</td>
+                            <td>40-50% of attempts</td>
+                            <td>Shot chart analysis</td>
+                            <td>Weekly</td>
+                        </tr>
+                        <tr>
+                            <td>Time to Cross Half-Court</td>
+                            <td>4 seconds or less</td>
+                            <td>Video analysis</td>
+                            <td>Practice/games</td>
+                        </tr>
+                        <tr>
+                            <td>Advantage Conversion Rate</td>
+                            <td>70%+ (2v1, 3v2)</td>
+                            <td>Situation tracking</td>
+                            <td>Practice drills</td>
+                        </tr>
+                        <tr>
+                            <td>Turnover Rate</td>
+                            <td>Less than 15%</td>
+                            <td>TO/Transition attempts</td>
+                            <td>Every game</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="subsection-title">Film Room Analysis Points</h3>
+                <div class="phases-grid">
+                    <div class="phase-card">
+                        <h4 class="phase-title">Initiation Phase</h4>
+                        <ul>
+                            <li>Outlet pass speed and accuracy</li>
+                            <li>First step quickness off rebounds</li>
+                            <li>Recognition of transition opportunities</li>
+                            <li>Communication and organization</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Advancement Phase</h4>
+                        <ul>
+                            <li>Lane filling and spacing maintenance</li>
+                            <li>Ball advancement speed and control</li>
+                            <li>Decision-making at key points</li>
+                            <li>Defensive recognition and reads</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Finishing Phase</h4>
+                        <ul>
+                            <li>Shot selection and quality</li>
+                            <li>Advantage exploitation efficiency</li>
+                            <li>Secondary break execution</li>
+                            <li>Transition to half-court flow</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Individual Player Assessment</h3>
+                <div class="drill-card">
+                    <h5>Monthly Player Evaluation Framework</h5>
+                    <p><strong>Ball-Handling in Transition:</strong> Pace pushing while maintaining control</p>
+                    <p><strong>Court Vision:</strong> Numerical advantage and spacing recognition</p>
+                    <p><strong>Finishing Ability:</strong> Conversion rates in various scenarios</p>
+                    <p><strong>Communication:</strong> Leadership in organizing fast breaks</p>
+                    <p><strong>Decision-Making:</strong> Push vs. slow recognition accuracy</p>
+                </div>
+
+                <h3 class="subsection-title">Season-Long Development Tracking</h3>
+                <div class="highlight-box">
+                    <strong>Progressive Metrics:</strong> Track monthly improvements in transition efficiency, reduced turnover rates showing decision-making growth, and increased transition attempts measuring comfort with pace. Individual player heat maps show court positioning and movement patterns.
+                </div>
+            </section>
+
+            <section id="troubleshooting" class="content-section" data-section="troubleshooting">
+                <div class="section-header">
+                    <span class="section-icon">🔧</span>
+                    <h2 class="section-title">Troubleshooting & Solutions</h2>
+                </div>
+
+                <h3 class="subsection-title">Common Issues & Systematic Solutions</h3>
+
+                <div class="alert-box alert-danger">
+                    <h4>Issue: Poor Spacing - Players Bunching Together</h4>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Push-Pull Drills: Ball drives push players away, pulls them to space</li>
+                        <li>12-15 foot rule: Maintain consistent perimeter spacing</li>
+                        <li>Fill open spots: Constant movement maintaining court balance</li>
+                        <li>Use cones in practice to mark proper spacing</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box alert-danger">
+                    <h4>Issue: Poor Decision-Making & Shot Selection</h4>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Shot Quality Scale: Rim shots immediately, open 3s when available, everything else continue movement</li>
+                        <li>ROB Standards: Only Rhythm, Open, Balanced shots accepted</li>
+                        <li>Teach "be quick but don't hurry" mentality</li>
+                        <li>Flow to secondary when primary breaks aren't available</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box alert-danger">
+                    <h4>Issue: Delayed Outlets & Poor Timing</h4>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Assign specific rebounder → outlet receiver relationships</li>
+                        <li>Use coach whistles and freeze commands to correct positioning</li>
+                        <li>Practice outlet passing under defensive pressure</li>
+                        <li>Implement "3-second rule" for outlet pass timing</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box alert-success">
+                    <h4>Solution: Integration into Half-Court Offense</h4>
+                    <p><strong>Best Practices:</strong></p>
+                    <ul>
+                        <li>Define clear trigger points (3 seconds without advantage)</li>
+                        <li>Practice secondary break to half-court flow</li>
+                        <li>Use early offense concepts when transition stops</li>
+                        <li>Maintain spacing principles throughout possession</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">Level-Specific Adaptations</h3>
+
+                <h4 class="subsection-subtitle">Youth Basketball (Ages 7-14)</h4>
+                <div class="alert-box alert-warning">
+                    <h4>Simplified Approach</h4>
+                    <ul>
+                        <li><strong>Principles over rules:</strong> "Get ball to middle" and "fill open lanes"</li>
+                        <li><strong>3-lane focus:</strong> Emphasize ball movement over rigid positioning</li>
+                        <li><strong>Decision development:</strong> Push vs. slow recognition</li>
+                        <li><strong>Fun integration:</strong> Games and competitions within drills</li>
+                        <li><strong>Spacing education:</strong> 12-15 foot concepts with constant reinforcement</li>
+                    </ul>
+                </div>
+
+                <h4 class="subsection-subtitle">High School (Ages 14-18)</h4>
+                <div class="alert-box alert-warning">
+                    <h4>Enhanced Complexity</h4>
+                    <ul>
+                        <li><strong>Structured systems:</strong> Numbered breaks and specific roles</li>
+                        <li><strong>Defensive recognition:</strong> Recovery reading and pace adjustment</li>
+                        <li><strong>Secondary integration:</strong> Seamless flow from primary to half-court</li>
+                        <li><strong>Conditioning component:</strong> Use transition as fitness tool</li>
+                        <li><strong>3-point emphasis:</strong> Modern game corner shooting development</li>
+                    </ul>
+                </div>
+
+                <h4 class="subsection-subtitle">College/Advanced Levels</h4>
+                <div class="alert-box alert-warning">
+                    <h4>Analytical Sophistication</h4>
+                    <ul>
+                        <li><strong>Metrics-driven:</strong> Transition PPP and efficiency tracking</li>
+                        <li><strong>Opponent-specific:</strong> Detailed scouting report adjustments</li>
+                        <li><strong>Multiple systems:</strong> Various concepts based on situations</li>
+                        <li><strong>Analytics integration:</strong> Real-time data and video analysis</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">Critical Coaching Mistakes to Avoid</h3>
+
+                <div class="alert-box alert-danger">
+                    <h4>Common Coaching Errors</h4>
+                    <ul>
+                        <li><strong>Fear of "wasted possessions":</strong> Research proves worst transition > best half-court</li>
+                        <li><strong>Over-controlling games:</strong> Excessive play-calling reduces natural opportunities</li>
+                        <li><strong>Poor fundamental teaching:</strong> Assuming players know basics like outlet positioning</li>
+                        <li><strong>Inadequate decision training:</strong> Not preparing players for pressure situations</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">Implementation Action Plan</h3>
+
+                <div class="highlight-box">
+                    <strong>Your Championship Roadmap:</strong> Success requires progressive development, systematic evaluation, and consistent adjustment. The question isn't whether to emphasize transition offense—it's how to maximize effectiveness within your team's capabilities.
+                </div>
+
+                <div class="phases-grid">
+                    <div class="phase-card">
+                        <h4 class="phase-title">Week 1: Assessment</h4>
+                        <ul>
+                            <li>Assess current transition efficiency</li>
+                            <li>Establish baseline metrics</li>
+                            <li>Identify 2-3 key improvement areas</li>
+                            <li>Video analysis of current system</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Week 2: Foundation</h4>
+                        <ul>
+                            <li>Implement 5v0 spacing drills</li>
+                            <li>Teach basic outlet concepts</li>
+                            <li>Establish coaching cues</li>
+                            <li>Begin daily transition time</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4 class="phase-title">Week 3-4: Integration</h4>
+                        <ul>
+                            <li>Add defensive pressure gradually</li>
+                            <li>Implement advantage drills</li>
+                            <li>Practice secondary break options</li>
+                            <li>Monitor progress and adjust</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Daily Practice Integration</h3>
+                <div class="alert-box alert-success">
+                    <h4>Championship Practice Structure</h4>
+                    <ul>
+                        <li><strong>12-15 minutes dedicated transition time</strong> at practice start</li>
+                        <li><strong>3-4 different drills daily</strong> to prevent staleness</li>
+                        <li><strong>Progressive difficulty</strong> throughout the week</li>
+                        <li><strong>Film review integration</strong> showing success and areas for improvement</li>
+                        <li><strong>Metrics tracking</strong> for individual and team development</li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <h3>🏀 Championship Success Awaits</h3>
+                <p>Implement these proven methodologies systematically, measure progress consistently, and watch your team transform into a transition offense powerhouse. The difference between good and great teams often lies in their ability to score in transition—make it your competitive advantage.</p>
+            </footer>
+        </div>
+
+        <button class="scroll-to-top" id="scroll-to-top" title="Back to top" aria-label="Scroll to top">↑</button>
+    </div>
+
+    <script>
+        class BasketballCoachingNavigation {
+            constructor() {
+                this.navbar = document.getElementById('main-nav');
+                this.sections = document.querySelectorAll('.content-section[data-section]');
+                this.navLinks = document.querySelectorAll('.nav-link[data-nav-link]');
+                this.scrollToTopBtn = document.getElementById('scroll-to-top');
+                this.currentSection = null;
+                this.lastScrollTop = 0;
+                this.isScrolling = false;
+                
+                this.init();
+            }
+            
+            init() {
+                this.initIntersectionObserver();
+                this.initSmoothScrolling();
+                this.initScrollToTop();
+                this.initNavbarScrollEffects();
+                this.initKeyboardNavigation();
+                this.initTouchEnhancements();
+            }
+            
+            initIntersectionObserver() {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -80% 0px', // Section is active when 20% visible from top
+                    threshold: [0, 0.25, 0.5, 0.75, 1.0]
+                };
+                
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                            this.updateActiveNavigation(entry.target.dataset.section);
+                        }
+                    });
+                }, observerOptions);
+                
+                this.sections.forEach(section => this.observer.observe(section));
+            }
+            
+            updateActiveNavigation(sectionId) {
+                if (this.currentSection === sectionId) return;
+                
+                // Remove active state from all nav links
+                this.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    link.setAttribute('aria-current', 'false');
+                });
+                
+                // Add active state to current section link
+                const activeLink = document.querySelector(`[data-nav-link="${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    activeLink.setAttribute('aria-current', 'page');
+                }
+                
+                this.currentSection = sectionId;
+                
+                // Update URL without triggering scroll
+                if (history.replaceState) {
+                    history.replaceState(null, null, `#${sectionId}`);
+                }
+            }
+            
+            initSmoothScrolling() {
+                // Enhanced smooth scroll for all anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', this.handleSmoothScroll.bind(this));
+                });
+            }
+            
+            handleSmoothScroll(e) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 100; // Account for sticky navbar
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset;
+                    
+                    this.isScrolling = true;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Reset scrolling flag after animation
+                    setTimeout(() => {
+                        this.isScrolling = false;
+                    }, 1000);
+                }
+            }
+            
+            initScrollToTop() {
+                // Show/hide scroll to top button based on scroll position
+                window.addEventListener('scroll', this.throttle(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (scrollTop > 500) {
+                        this.scrollToTopBtn.classList.add('visible');
+                    } else {
+                        this.scrollToTopBtn.classList.remove('visible');
+                    }
+                }, 100));
+                
+                // Scroll to top functionality
+                this.scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            initNavbarScrollEffects() {
+                let ticking = false;
+                
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            this.updateNavbarOnScroll();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+            }
+            
+            updateNavbarOnScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Add scrolled class for visual effects
+                if (scrollTop > 50) {
+                    this.navbar.classList.add('scrolled');
+                } else {
+                    this.navbar.classList.remove('scrolled');
+                }
+                
+                this.lastScrollTop = scrollTop;
+            }
+            
+            initKeyboardNavigation() {
+                // Enhanced keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    // Navigate sections with arrow keys when nav is focused
+                    if (document.activeElement.closest('.navigation')) {
+                        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            this.navigateToNextSection();
+                        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            this.navigateToPreviousSection();
+                        }
+                    }
+                    
+                    // Quick navigation with number keys
+                    if (e.ctrlKey || e.metaKey) {
+                        const sectionKeys = {
+                            '1': 'fundamentals',
+                            '2': 'execution',
+                            '3': 'teaching',
+                            '4': 'drills',
+                            '5': 'advanced',
+                            '6': 'evaluation',
+                            '7': 'troubleshooting'
+                        };
+                        
+                        if (sectionKeys[e.key]) {
+                            e.preventDefault();
+                            const targetElement = document.getElementById(sectionKeys[e.key]);
+                            if (targetElement) {
+                                this.scrollToElement(targetElement);
+                            }
+                        }
+                    }
+                });
+            }
+            
+            navigateToNextSection() {
+                const currentIndex = Array.from(this.navLinks).findIndex(link => 
+                    link.dataset.navLink === this.currentSection
+                );
+                const nextIndex = (currentIndex + 1) % this.navLinks.length;
+                const nextLink = this.navLinks[nextIndex];
+                
+                if (nextLink) {
+                    const targetId = nextLink.dataset.navLink;
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        this.scrollToElement(targetElement);
+                    }
+                }
+            }
+            
+            navigateToPreviousSection() {
+                const currentIndex = Array.from(this.navLinks).findIndex(link => 
+                    link.dataset.navLink === this.currentSection
+                );
+                const prevIndex = currentIndex <= 0 ? this.navLinks.length - 1 : currentIndex - 1;
+                const prevLink = this.navLinks[prevIndex];
+                
+                if (prevLink) {
+                    const targetId = prevLink.dataset.navLink;
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        this.scrollToElement(targetElement);
+                    }
+                }
+            }
+            
+            scrollToElement(element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+            
+            initTouchEnhancements() {
+                // Add touch-friendly enhancements for mobile
+                if ('ontouchstart' in window) {
+                    // Add touch feedback to interactive elements
+                    const interactiveElements = document.querySelectorAll('.nav-link, .drill-card, .stat-card, .phase-card');
+                    
+                    interactiveElements.forEach(element => {
+                        element.addEventListener('touchstart', function() {
+                            this.style.transform = 'scale(0.98)';
+                        }, { passive: true });
+                        
+                        element.addEventListener('touchend', function() {
+                            setTimeout(() => {
+                                this.style.transform = '';
+                            }, 100);
+                        }, { passive: true });
+                    });
+                }
+            }
+            
+            // Utility function for throttling scroll events
+            throttle(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        }
+        
+        // Enhanced Card Interactions
+        class CardInteractions {
+            constructor() {
+                this.initStatCards();
+                this.initDrillCards();
+                this.initPhaseCards();
+            }
+            
+            initStatCards() {
+                const statCards = document.querySelectorAll('.stat-card');
+                
+                statCards.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-8px) scale(1.02)';
+                        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    });
+                });
+            }
+            
+            initDrillCards() {
+                const drillCards = document.querySelectorAll('.drill-card');
+                
+                drillCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        // Toggle expanded state
+                        this.classList.toggle('expanded');
+                        
+                        // Add visual feedback
+                        if (this.classList.contains('expanded')) {
+                            this.style.backgroundColor = '#e6ffe6';
+                            this.style.borderLeftColor = '#27ae60';
+                            this.style.borderLeftWidth = '6px';
+                        } else {
+                            this.style.backgroundColor = '';
+                            this.style.borderLeftColor = '';
+                            this.style.borderLeftWidth = '';
+                        }
+                    });
+                    
+                    // Add keyboard support
+                    card.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.click();
+                        }
+                    });
+                    
+                    // Make cards focusable
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-label', 'Click to highlight this drill');
+                });
+            }
+            
+            initPhaseCards() {
+                const phaseCards = document.querySelectorAll('.phase-card');
+                
+                phaseCards.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-4px)';
+                        this.style.boxShadow = '0 12px 20px rgba(0, 0, 0, 0.15)';
+                        this.style.transition = 'all 0.3s ease';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '';
+                    });
+                });
+            }
+        }
+        
+
+        
+        // Performance monitoring
+        class PerformanceMonitor {
+            constructor() {
+                this.initLazyLoading();
+                this.monitorScrollPerformance();
+            }
+            
+            initLazyLoading() {
+                // Lazy load non-critical animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.stat-card, .drill-card, .phase-card').forEach(card => {
+                    observer.observe(card);
+                });
+            }
+            
+            monitorScrollPerformance() {
+                let isScrolling = false;
+                
+                window.addEventListener('scroll', () => {
+                    if (!isScrolling) {
+                        window.requestAnimationFrame(() => {
+                            // Optimize scroll performance
+                            isScrolling = false;
+                        });
+                        isScrolling = true;
+                    }
+                }, { passive: true });
+            }
+        }
+        
+        // Error handling and fallbacks
+        class ErrorHandler {
+            constructor() {
+                this.setupFallbacks();
+            }
+            
+            setupFallbacks() {
+                // Fallback for browsers without Intersection Observer
+                if (!('IntersectionObserver' in window)) {
+                    this.setupScrollBasedNavigation();
+                }
+                
+                // Fallback for reduced motion
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    this.disableAnimations();
+                }
+            }
+            
+            setupScrollBasedNavigation() {
+                console.log('Using scroll-based navigation fallback');
+                // Implement basic scroll-based navigation highlighting
+                window.addEventListener('scroll', this.throttle(() => {
+                    const sections = document.querySelectorAll('.content-section[data-section]');
+                    const scrollPos = window.pageYOffset + 150;
+                    
+                    sections.forEach(section => {
+                        if (section.offsetTop <= scrollPos && 
+                            section.offsetTop + section.offsetHeight > scrollPos) {
+                            const sectionId = section.dataset.section;
+                            this.updateActiveNavigation(sectionId);
+                        }
+                    });
+                }, 100));
+            }
+            
+            updateActiveNavigation(sectionId) {
+                const navLinks = document.querySelectorAll('.nav-link[data-nav-link]');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.navLink === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            disableAnimations() {
+                document.documentElement.style.setProperty('--transition-fast', '0s');
+                document.documentElement.style.setProperty('--transition-base', '0s');
+                document.documentElement.style.setProperty('--transition-slow', '0s');
+            }
+            
+            throttle(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        }
+        
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Initialize core functionality
+                new BasketballCoachingNavigation();
+                new CardInteractions();
+                new PerformanceMonitor();
+                new ErrorHandler();
+                
+                // Add loading complete class for any CSS animations
+                document.body.classList.add('loaded');
+                
+                console.log('Basketball Coaching Guide initialized successfully');
+            } catch (error) {
+                console.error('Error initializing Basketball Coaching Guide:', error);
+                // Ensure basic functionality still works
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+        });
+        
+        // Handle visibility change for performance
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Pause any animations or heavy operations
+            } else {
+                // Resume operations
+            }
+        });
+    </script>
+</body>
+</html>

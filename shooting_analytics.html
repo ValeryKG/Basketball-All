@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏀 Professional Basketball Shooting Analytics System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 107, 53, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 107, 53, 0.5);
+        }
+
+        .stat-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .efficiency-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .efficiency-table th {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .efficiency-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .efficiency-table tr:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .elite-zone {
+            background: rgba(76, 175, 80, 0.2);
+            border-left: 4px solid #4caf50;
+        }
+
+        .good-zone {
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
+        }
+
+        .poor-zone {
+            background: rgba(244, 67, 54, 0.2);
+            border-left: 4px solid #f44336;
+        }
+
+        .metric-highlight {
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        .zone-efficiency {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .court-zones {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .zone-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .zone-cell {
+            padding: 15px 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .zone-cell:hover {
+            transform: scale(1.05);
+        }
+
+        .zone-excellent {
+            background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+            color: white;
+        }
+
+        .zone-good {
+            background: linear-gradient(135deg, #ffc107 0%, #ffeb3b 100%);
+            color: #333;
+        }
+
+        .zone-average {
+            background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
+            color: white;
+        }
+
+        .zone-poor {
+            background: linear-gradient(135deg, #f44336 0%, #e57373 100%);
+            color: white;
+        }
+
+        .defender-analysis {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .insight-box h5 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .shot-quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .quality-metric {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .quality-metric:hover {
+            border-color: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        .quality-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff6b35;
+            margin: 10px 0;
+        }
+
+        .advanced-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .practice-recommendations {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(129, 199, 132, 0.1) 100%);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .drill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .drill-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drill-list li:before {
+            content: "🎯";
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .zone-efficiency {
+                grid-template-columns: 1fr;
+            }
+            
+            .efficiency-table {
+                font-size: 0.8rem;
+            }
+            
+            .efficiency-table th,
+            .efficiency-table td {
+                padding: 8px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏀 Professional Basketball Shooting Analytics System</h1>
+            <p>Elite-Level Shooting Performance Analysis & Practice Development Tool</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-button active" data-tab="zones">Shot Zone Efficiency</button>
+            <button class="tab-button" data-tab="defender">Defender Analysis</button>
+            <button class="tab-button" data-tab="shot-types">Shot Types & Context</button>
+            <button class="tab-button" data-tab="systems">Offensive Systems</button>
+            <button class="tab-button" data-tab="advanced">Advanced Metrics</button>
+            <button class="tab-button" data-tab="practice">Practice Development</button>
+        </div>
+
+        <!-- Shot Zone Efficiency Tab -->
+        <div id="zones" class="tab-content active">
+            <div class="section-header">
+                <h3>📊 NBA Shot Zone Efficiency Analysis</h3>
+                <p>Professional basketball shooting performance by court location</p>
+            </div>
+
+            <div class="zone-efficiency">
+                <div class="court-zones">
+                    <h4>🏀 Court Zone Heat Map</h4>
+                    <div class="zone-grid">
+                        <div class="zone-cell zone-poor" data-zone="corner3">Corner 3s<br><small>37.8% FG</small></div>
+                        <div class="zone-cell zone-average" data-zone="wing3">Wing 3s<br><small>35.2% FG</small></div>
+                        <div class="zone-cell zone-poor" data-zone="top3">Top 3s<br><small>34.1% FG</small></div>
+                        
+                        <div class="zone-cell zone-average" data-zone="wing2">Wing 2s<br><small>44.2% FG</small></div>
+                        <div class="zone-cell zone-good" data-zone="elbow">Elbow<br><small>50.2% FG</small></div>
+                        <div class="zone-cell zone-average" data-zone="wing2r">Wing 2s<br><small>44.2% FG</small></div>
+                        
+                        <div class="zone-cell zone-good" data-zone="paint">High Paint<br><small>49.8% FG</small></div>
+                        <div class="zone-cell zone-excellent" data-zone="restricted">Restricted<br><small>61.8% FG</small></div>
+                        <div class="zone-cell zone-excellent" data-zone="lowpaint">Low Paint<br><small>64.3% FG</small></div>
+                    </div>
+                </div>
+
+                <div class="defender-analysis">
+                    <h4>🛡️ Defender Distance Impact</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Defender Distance</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="poor-zone">
+                                <td><strong>Very Tight (0-2ft)</strong></td>
+                                <td>39.4%</td>
+                                <td>0.89</td>
+                                <td>23%</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Tight (2-4ft)</strong></td>
+                                <td>42.8%</td>
+                                <td>0.96</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Open (4-6ft)</strong></td>
+                                <td>47.1%</td>
+                                <td>1.06</td>
+                                <td>28%</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Wide Open (6ft+)</strong></td>
+                                <td>51.3%</td>
+                                <td>1.15</td>
+                                <td>14%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card elite-zone">
+                    <h4>🎯 Most Efficient Zones</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Zone</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>Ast%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Low Paint</strong></td>
+                                <td class="metric-highlight">64.3%</td>
+                                <td class="metric-highlight">121.3</td>
+                                <td>61%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Restricted Area</strong></td>
+                                <td class="metric-highlight">61.8%</td>
+                                <td class="metric-highlight">120.7</td>
+                                <td>65%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Corner 3s</strong></td>
+                                <td class="metric-highlight">37.8%</td>
+                                <td class="metric-highlight">113.4</td>
+                                <td>88%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card poor-zone">
+                    <h4>⚠️ Least Efficient Zones</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Zone</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Long 2s (16-24ft)</strong></td>
+                                <td class="metric-highlight">39.1%</td>
+                                <td class="metric-highlight">78.2</td>
+                                <td>18%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Above Break 3s</strong></td>
+                                <td class="metric-highlight">34.1%</td>
+                                <td class="metric-highlight">102.3</td>
+                                <td>31%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mid-Range Wings</strong></td>
+                                <td class="metric-highlight">41.7%</td>
+                                <td class="metric-highlight">83.4</td>
+                                <td>15%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h5>🧠 Key Zone Insights</h5>
+                <p><strong>Elite teams prioritize shots in the restricted area and corner 3s</strong> - these zones provide 15-20% higher efficiency than league average. Mid-range shots (16-24ft) should be minimized except for elite shooters in specific game situations.</p>
+                <p><strong>Paint touches create high-value possessions</strong> - even when shots aren't attempted in the paint, drives collapse defenses and create open perimeter opportunities with assist rates above 75%.</p>
+            </div>
+        </div>
+
+        <!-- Defender Analysis Tab -->
+        <div id="defender" class="tab-content">
+            <div class="section-header">
+                <h3>🛡️ Defender Proximity & Contest Analysis</h3>
+                <p>How defensive pressure impacts shooting performance</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>📏 Distance Impact on Shooting</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Contest Level</th>
+                                <th>Distance</th>
+                                <th>3PT%</th>
+                                <th>2PT%</th>
+                                <th>FT Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="poor-zone">
+                                <td><strong>Very Tight</strong></td>
+                                <td>0-2 feet</td>
+                                <td>28.4%</td>
+                                <td>44.1%</td>
+                                <td>0.28</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Tight</strong></td>
+                                <td>2-4 feet</td>
+                                <td>32.7%</td>
+                                <td>47.3%</td>
+                                <td>0.21</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Open</strong></td>
+                                <td>4-6 feet</td>
+                                <td>36.8%</td>
+                                <td>51.2%</td>
+                                <td>0.15</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Wide Open</strong></td>
+                                <td>6+ feet</td>
+                                <td>41.6%</td>
+                                <td>55.9%</td>
+                                <td>0.09</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>⚡ Defender Type Analysis</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Defender Type</th>
+                                <th>FG% Impact</th>
+                                <th>PPP</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Primary Defender</strong></td>
+                                <td>-8.3%</td>
+                                <td>0.94</td>
+                                <td>Direct matchup</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Help Defender</strong></td>
+                                <td>-12.7%</td>
+                                <td>0.87</td>
+                                <td>Late rotation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Switch</strong></td>
+                                <td>-4.1%</td>
+                                <td>1.02</td>
+                                <td>Mismatch potential</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Size Mismatch</strong></td>
+                                <td>+6.2%</td>
+                                <td>1.18</td>
+                                <td>Speed advantage</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="shot-quality-grid">
+                <div class="quality-metric elite-zone">
+                    <h5>🎯 Catch & Shoot</h5>
+                    <div class="quality-value">42.5%</div>
+                    <p>Peak efficiency with defender 4+ feet away</p>
+                    <div class="metric-value">1.20 PPP</div>
+                </div>
+
+                <div class="quality-metric good-zone">
+                    <h5>🏃‍♂️ Off-Dribble</h5>
+                    <div class="quality-value">38.9%</div>
+                    <p>Effectiveness drops significantly under pressure</p>
+                    <div class="metric-value">0.97 PPP</div>
+                </div>
+
+                <div class="quality-metric average">
+                    <h5>↩️ Step-Back</h5>
+                    <div class="quality-value">35.1%</div>
+                    <p>Creates space but reduces accuracy</p>
+                    <div class="metric-value">1.05 PPP</div>
+                </div>
+
+                <div class="quality-metric poor-zone">
+                    <h5>🔄 Fadeaway</h5>
+                    <div class="quality-value">31.8%</div>
+                    <p>Difficult shot, reserved for elite players</p>
+                    <div class="metric-value">0.89 PPP</div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h5>🧠 Defender Analysis Insights</h5>
+                <p><strong>Every foot of defender distance matters</strong> - FG% increases by approximately 3-4% per foot of space. Wide open shots (6+ feet) are 13% more accurate than very tight contests.</p>
+                <p><strong>Help defenders are more disruptive than primary defenders</strong> - Late rotations cause 12.7% FG% drops vs 8.3% for primary defenders, suggesting off-ball movement and quick decisions are crucial.</p>
+                <p><strong>Catch-and-shoot opportunities provide maximum efficiency</strong> - These shots are 4-6% more accurate than off-dribble attempts at all defender distances.</p>
+            </div>
+        </div>
+
+        <!-- Shot Types & Context Tab -->
+        <div id="shot-types" class="tab-content">
+            <div class="section-header">
+                <h3>🎯 Shot Type Classifications & Context Analysis</h3>
+                <p>Performance breakdown by shot creation method and game situation</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>⚡ Shot Creation Method</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Shot Type</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>Usage%</th>
+                                <th>Assist%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Catch & Shoot</strong></td>
+                                <td>42.5%</td>
+                                <td class="metric-highlight">1.20</td>
+                                <td>31%</td>
+                                <td>89%</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>First Touch</strong></td>
+                                <td>45.7%</td>
+                                <td class="metric-highlight">1.15</td>
+                                <td>18%</td>
+                                <td>72%</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Pull-up Jumper</strong></td>
+                                <td>38.9%</td>
+                                <td>0.97</td>
+                                <td>24%</td>
+                                <td>23%</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Step-back</strong></td>
+                                <td>35.1%</td>
+                                <td>1.05</td>
+                                <td>12%</td>
+                                <td>15%</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Fadeaway</strong></td>
+                                <td>31.8%</td>
+                                <td>0.89</td>
+                                <td>8%</td>
+                                <td>8%</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Turnaround</strong></td>
+                                <td>29.4%</td>
+                                <td>0.82</td>
+                                <td>7%</td>
+                                <td>12%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>⏱️ Shot Clock Context</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Shot Clock</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>3P%</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Early (22-24s)</strong></td>
+                                <td>48.3%</td>
+                                <td class="metric-highlight">1.18</td>
+                                <td>38.7%</td>
+                                <td>15%</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Normal (15-21s)</strong></td>
+                                <td>46.1%</td>
+                                <td class="metric-highlight">1.12</td>
+                                <td>36.4%</td>
+                                <td>45%</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Mid (8-14s)</strong></td>
+                                <td>43.7%</td>
+                                <td>1.05</td>
+                                <td>34.8%</td>
+                                <td>28%</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Late (4-7s)</strong></td>
+                                <td>39.2%</td>
+                                <td>0.94</td>
+                                <td>31.5%</td>
+                                <td>9%</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Very Late (0-3s)</strong></td>
+                                <td>35.1%</td>
+                                <td>0.87</td>
+                                <td>28.9%</td>
+                                <td>3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>📤 Pass Type Leading to Shot</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Pass Type</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>3P%</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Drive & Kick</strong></td>
+                                <td>44.7%</td>
+                                <td class="metric-highlight">1.25</td>
+                                <td>39.2%</td>
+                                <td>28%</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Skip Pass</strong></td>
+                                <td>43.8%</td>
+                                <td class="metric-highlight">1.22</td>
+                                <td>38.5%</td>
+                                <td>12%</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Screen Assist</strong></td>
+                                <td>42.1%</td>
+                                <td>1.14</td>
+                                <td>36.7%</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Swing Pass</strong></td>
+                                <td>41.3%</td>
+                                <td>1.11</td>
+                                <td>35.9%</td>
+                                <td>18%</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Post Entry</strong></td>
+                                <td>47.8%</td>
+                                <td>1.08</td>
+                                <td>N/A</td>
+                                <td>7%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>🎮 Game Situation Impact</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Score Differential</th>
+                                <th>FG%</th>
+                                <th>PPP</th>
+                                <th>Shot Selection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>+10 or more</strong></td>
+                                <td>47.8%</td>
+                                <td class="metric-highlight">1.15</td>
+                                <td>Conservative</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>+5 to +9</strong></td>
+                                <td>45.2%</td>
+                                <td>1.09</td>
+                                <td>Balanced</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>-5 to +5</strong></td>
+                                <td>44.1%</td>
+                                <td>1.06</td>
+                                <td>Standard</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>-6 to -10</strong></td>
+                                <td>42.3%</td>
+                                <td>1.01</td>
+                                <td>Aggressive</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>-10 or more</strong></td>
+                                <td>39.7%</td>
+                                <td>0.94</td>
+                                <td>Desperate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h5>🧠 Shot Type & Context Insights</h5>
+                <p><strong>Catch-and-shoot remains king</strong> - 89% assist rate with 1.20 PPP makes this the most efficient shot type. Teams should design plays to create these opportunities.</p>
+                <p><strong>Early offense provides significant advantages</strong> - Shots in the first 8 seconds of possession are 13% more efficient than late shot clock attempts.</p>
+                <p><strong>Drive-and-kick creates premium shots</strong> - Paint penetration collapses defenses, leading to 39.2% three-point shooting on kick-out passes.</p>
+            </div>
+        </div>
+
+        <!-- Offensive Systems Tab -->
+        <div id="systems" class="tab-content">
+            <div class="section-header">
+                <h3>⚙️ Offensive System Shooting Performance</h3>
+                <p>How different offensive schemes impact shooting efficiency</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>🏃‍♂️ Up-Tempo Systems</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>System</th>
+                                <th>Pace</th>
+                                <th>PPP</th>
+                                <th>eFG%</th>
+                                <th>Best Zones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Transition</strong></td>
+                                <td>Very High</td>
+                                <td class="metric-highlight">1.15</td>
+                                <td>55.0%</td>
+                                <td>Paint, Fast Break 3s</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Spread P&R</strong></td>
+                                <td>High</td>
+                                <td class="metric-highlight">1.14</td>
+                                <td>54.0%</td>
+                                <td>Paint, Corner 3s</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Small Ball</strong></td>
+                                <td>High</td>
+                                <td>1.13</td>
+                                <td>54.0%</td>
+                                <td>Perimeter, Drives</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Pace & Space</strong></td>
+                                <td>High</td>
+                                <td>1.12</td>
+                                <td>54.5%</td>
+                                <td>Corner 3s, Paint</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>🎯 Half-Court Systems</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>System</th>
+                                <th>Pace</th>
+                                <th>PPP</th>
+                                <th>TOV Rate</th>
+                                <th>Shot Quality</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="good-zone">
+                                <td><strong>Dribble Drive</strong></td>
+                                <td>High</td>
+                                <td>1.10</td>
+                                <td>13.0%</td>
+                                <td>Paint focused</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Zoom Action</strong></td>
+                                <td>Medium</td>
+                                <td>1.09</td>
+                                <td>12.0%</td>
+                                <td>3P & Paint rolls</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Motion Strong</strong></td>
+                                <td>Medium</td>
+                                <td>1.07</td>
+                                <td>11.5%</td>
+                                <td>Balanced attack</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Post-Up</strong></td>
+                                <td>Low</td>
+                                <td>1.04</td>
+                                <td>15.2%</td>
+                                <td>Paint heavy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>📊 System Shot Distribution</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>System Type</th>
+                                <th>Paint%</th>
+                                <th>3P%</th>
+                                <th>Mid%</th>
+                                <th>Efficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Analytics-Based</strong></td>
+                                <td>34%</td>
+                                <td>45%</td>
+                                <td class="metric-highlight">21%</td>
+                                <td>Elite</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Modern Spread</strong></td>
+                                <td>31%</td>
+                                <td>42%</td>
+                                <td>27%</td>
+                                <td>Good</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Traditional</strong></td>
+                                <td>28%</td>
+                                <td>35%</td>
+                                <td>37%</td>
+                                <td>Average</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Isolation Heavy</strong></td>
+                                <td>25%</td>
+                                <td>38%</td>
+                                <td>37%</td>
+                                <td>Below Average</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h5>🧠 System Design Insights</h5>
+                <p><strong>Analytics-based systems maximize efficiency</strong> - Limiting mid-range shots to 21% while emphasizing paint (34%) and three-point (45%) attempts produces elite offensive ratings.</p>
+                <p><strong>Transition basketball provides the highest PPP</strong> - Fast break opportunities yield 1.15 PPP, making early offense a priority for all systems.</p>
+                <p><strong>Spread pick-and-roll dominates modern basketball</strong> - Creates both paint touches and three-point opportunities with minimal turnovers.</p>
+            </div>
+        </div>
+
+        <!-- Advanced Metrics Tab -->
+        <div id="advanced" class="tab-content">
+            <div class="section-header">
+                <h3>📈 Advanced Shooting Analytics</h3>
+                <p>Professional-grade metrics used by NBA teams</p>
+            </div>
+
+            <div class="advanced-metrics">
+                <div class="metric-card elite-zone">
+                    <div class="metric-value">1.08</div>
+                    <div class="metric-label">Expected FG% Model (xFG%)</div>
+                    <small>Based on shot location, defender distance, and game context</small>
+                </div>
+
+                <div class="metric-card good-zone">
+                    <div class="metric-value">+3.7%</div>
+                    <div class="metric-label">Shot Quality vs League Avg</div>
+                    <small>Quantified Shot Quality (qSQ) rating</small>
+                </div>
+
+                <div class="metric-card average">
+                    <div class="metric-value">0.94</div>
+                    <div class="metric-label">Quantified Shooter Impact</div>
+                    <small>Individual shooting ability vs expected</small>
+                </div>
+
+                <div class="metric-card elite-zone">
+                    <div class="metric-value">54.2%</div>
+                    <div class="metric-label">Effective FG% (eFG%)</div>
+                    <small>Adjusts for three-point value</small>
+                </div>
+
+                <div class="metric-card good-zone">
+                    <div class="metric-value">58.7%</div>
+                    <div class="metric-label">True Shooting % (TS%)</div>
+                    <small>Includes free throws and technical efficiency</small>
+                </div>
+
+                <div class="metric-card average">
+                    <div class="metric-value">1.12</div>
+                    <div class="metric-label">Points Per Shot (PPS)</div>
+                    <small>Raw efficiency measurement</small>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>🎯 Shot Quality Breakdown</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Quality Tier</th>
+                                <th>xFG%</th>
+                                <th>Actual FG%</th>
+                                <th>Frequency</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Excellent</strong></td>
+                                <td>55%+</td>
+                                <td>57.3%</td>
+                                <td>22%</td>
+                                <td class="metric-highlight">Target</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Good</strong></td>
+                                <td>45-54%</td>
+                                <td>47.8%</td>
+                                <td>31%</td>
+                                <td>Acceptable</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Average</strong></td>
+                                <td>35-44%</td>
+                                <td>38.2%</td>
+                                <td>28%</td>
+                                <td>Neutral</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Poor</strong></td>
+                                <td>25-34%</td>
+                                <td>29.1%</td>
+                                <td>15%</td>
+                                <td class="metric-highlight">Avoid</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Very Poor</strong></td>
+                                <td><25%</td>
+                                <td>21.4%</td>
+                                <td>4%</td>
+                                <td class="metric-highlight">Eliminate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>📊 Performance vs Expected</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Shot Category</th>
+                                <th>Expected</th>
+                                <th>Actual</th>
+                                <th>Differential</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Catch & Shoot 3s</strong></td>
+                                <td>36.8%</td>
+                                <td>39.2%</td>
+                                <td class="metric-highlight">+2.4%</td>
+                                <td>A</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Paint Shots</strong></td>
+                                <td>58.1%</td>
+                                <td>59.7%</td>
+                                <td>+1.6%</td>
+                                <td>B+</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Mid-Range</strong></td>
+                                <td>41.2%</td>
+                                <td>40.8%</td>
+                                <td>-0.4%</td>
+                                <td>C+</td>
+                            </tr>
+                            <tr class="poor-zone">
+                                <td><strong>Off-Dribble 3s</strong></td>
+                                <td>33.4%</td>
+                                <td>31.1%</td>
+                                <td class="metric-highlight">-2.3%</td>
+                                <td>D</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>🏆 Elite Benchmark Comparison</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>League Avg</th>
+                                <th>Top 25%</th>
+                                <th>Elite 10%</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>eFG%</strong></td>
+                                <td>53.1%</td>
+                                <td>55.8%</td>
+                                <td class="metric-highlight">58.2%</td>
+                                <td>Top 10%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3P% (Open)</strong></td>
+                                <td>36.7%</td>
+                                <td>39.4%</td>
+                                <td class="metric-highlight">42.1%</td>
+                                <td>Top 10%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paint FG%</strong></td>
+                                <td>58.3%</td>
+                                <td>61.2%</td>
+                                <td class="metric-highlight">64.8%</td>
+                                <td>Top 10%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shot Quality</strong></td>
+                                <td>1.06</td>
+                                <td>1.12</td>
+                                <td class="metric-highlight">1.18</td>
+                                <td>Top 10%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h5>🧠 Advanced Analytics Insights</h5>
+                <p><strong>Expected field goal models reveal shot selection quality</strong> - Teams shooting 3%+ above expected FG% typically rank in playoff contention.</p>
+                <p><strong>Elite teams maximize excellent quality shots</strong> - Top organizations generate 22%+ of shots in the "excellent" category (55%+ xFG%).</p>
+                <p><strong>Consistent outperformance indicates sustainable success</strong> - Teams exceeding expected metrics by 2%+ across categories show championship-level efficiency.</p>
+            </div>
+        </div>
+
+        <!-- Practice Development Tab -->
+        <div id="practice" class="tab-content">
+            <div class="section-header">
+                <h3>🏋️‍♂️ Practice Development & Implementation</h3>
+                <p>Data-driven practice planning for optimal shooting development</p>
+            </div>
+
+            <div class="practice-recommendations">
+                <h4>🎯 Priority Shooting Skills Development</h4>
+                <ul class="drill-list">
+                    <li><strong>At-Rim Finishing (1.25+ PPP)</strong> - Standard layups, hook shots, contact finishing, baseline drives</li>
+                    <li><strong>Catch-and-Shoot Mechanics (1.20 PPP)</strong> - Corner 3s, quick release, movement shooting, footwork</li>
+                    <li><strong>Paint Touch Creation</strong> - Drive-and-kick situations, post touches, offensive rebounding position</li>
+                    <li><strong>Shot Selection Decision Making</strong> - xFG% recognition, defender distance awareness, shot clock management</li>
+                    <li><strong>Triple Threat Development</strong> - Jab step drives (45.7% success), pump fake variations, quick first step</li>
+                </ul>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>⏱️ Practice Time Allocation</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Skill Category</th>
+                                <th>Time %</th>
+                                <th>Justification</th>
+                                <th>Expected PPP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>Paint Finishing</strong></td>
+                                <td class="metric-highlight">30%</td>
+                                <td>Highest efficiency zone</td>
+                                <td>1.21</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Catch & Shoot</strong></td>
+                                <td class="metric-highlight">25%</td>
+                                <td>Most frequent efficient shot</td>
+                                <td>1.20</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Movement Shooting</strong></td>
+                                <td>20%</td>
+                                <td>Game-like conditions</td>
+                                <td>1.15</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Shot Creation</strong></td>
+                                <td>15%</td>
+                                <td>Self-creation ability</td>
+                                <td>0.97</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Contested Shots</strong></td>
+                                <td>10%</td>
+                                <td>Pressure situations</td>
+                                <td>0.89</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>🔥 High-Impact Drill Categories</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Drill Type</th>
+                                <th>Game Translation</th>
+                                <th>Frequency</th>
+                                <th>Intensity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="elite-zone">
+                                <td><strong>3-Man Weave to Finish</strong></td>
+                                <td>Drive & kick creation</td>
+                                <td>Daily</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="elite-zone">
+                                <td><strong>Corner 3 Specialist</strong></td>
+                                <td>Highest % 3-point shots</td>
+                                <td>Daily</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Mikan Drill Variations</strong></td>
+                                <td>Paint finishing technique</td>
+                                <td>Daily</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="good-zone">
+                                <td><strong>Closeout Response</strong></td>
+                                <td>Defender distance awareness</td>
+                                <td>3x/week</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="average">
+                                <td><strong>Shot Clock Pressure</strong></td>
+                                <td>Late clock situations</td>
+                                <td>2x/week</td>
+                                <td>Very High</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="stat-card">
+                    <h4>📋 Weekly Practice Structure</h4>
+                    <table class="efficiency-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Primary Focus</th>
+                                <th>Secondary Focus</th>
+                                <th>Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Monday</strong></td>
+                                <td>Paint finishing mechanics</td>
+                                <td>Free throw routine</td>
+                                <td>300 shots</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tuesday</strong></td>
+                                <td>Catch & shoot + movement</td>
+                                <td>Corner 3 specialization</td>
+                                <td>250 shots</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Wednesday</strong></td>
+                                <td>Game-speed scenarios</td>
+                                <td>Contested shot practice</td>
+                                <td>200 shots</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Thursday</strong></td>
+                                <td>Shot creation off dribble</td>
+                                <td>Step-back technique</td>
+                                <td>225 shots</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Friday</strong></td>
+                                <td>Situation shooting</td>
+                                <td>Shot clock pressure</td>
+                                <td>275 shots</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="practice-recommendations">
+                <h4>📊 Performance Tracking Metrics</h4>
+                <ul class="drill-list">
+                    <li><strong>Daily Shot Chart Logging</strong> - Track location, make/miss, defender distance, shot type</li>
+                    <li><strong>Weekly Efficiency Calculations</strong> - PPP by zone, catch vs create percentages, contested shot %</li>
+                    <li><strong>Monthly Progression Analysis</strong> - xFG% improvement, shot selection optimization, consistency metrics</li>
+                    <li><strong>Game Translation Assessment</strong> - Practice shooting % vs game performance correlation</li>
+                    <li><strong>Situational Performance</strong> - Late clock %, pressure situations, clutch shooting development</li>
+                </ul>
+            </div>
+
+            <div class="insight-box">
+                <h5>🧠 Practice Development Insights</h5>
+                <p><strong>Focus 55% of shooting practice on paint finishing and catch-and-shoot</strong> - These represent the highest efficiency opportunities in games.</p>
+                <p><strong>Simulate game-speed and defender pressure in all drills</strong> - Practice shooting under realistic conditions to improve transfer to competition.</p>
+                <p><strong>Track both makes and shot quality metrics</strong> - A missed excellent quality shot is better than a made poor quality shot for long-term development.</p>
+                <p><strong>Emphasize decision-making over pure repetition</strong> - Teach when to shoot, when to pass, and how to recognize optimal shooting opportunities.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listeners to tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    showTab(targetTab, this);
+                });
+            });
+
+            // Add click event listeners to zone cells
+            const zoneCells = document.querySelectorAll('.zone-cell');
+            zoneCells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    const zone = this.getAttribute('data-zone');
+                    showZoneDetail(zone);
+                });
+            });
+
+            // Initialize first tab
+            const firstButton = document.querySelector('.tab-button[data-tab="zones"]');
+            showTab('zones', firstButton);
+        });
+
+        function showTab(tabName, buttonElement) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const targetTab = document.getElementById(tabName);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            // Add active class to clicked button
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+        }
+
+        function showZoneDetail(zone) {
+            const zoneDetails = {
+                'corner3': 'Corner 3-pointers: 37.8% FG, 113.4 PPP - Most efficient 3-point shot',
+                'wing3': 'Wing 3-pointers: 35.2% FG, 105.6 PPP - Above break, moderate efficiency',
+                'top3': 'Top of arc 3s: 34.1% FG, 102.3 PPP - Lowest efficiency 3-point zone',
+                'wing2': 'Wing 2-pointers: 44.2% FG, 86.3 PPP - Avoid except for elite mid-range shooters',
+                'wing2r': 'Wing 2-pointers: 44.2% FG, 86.3 PPP - Avoid except for elite mid-range shooters',
+                'elbow': 'Elbow shots: 50.2% FG, 98.0 PPP - Good percentage but only 2 points',
+                'paint': 'High paint: 49.8% FG, 97.7 PPP - Good efficiency with 77% assist rate',
+                'restricted': 'Restricted area: 61.8% FG, 120.7 PPP - Elite efficiency zone',
+                'lowpaint': 'Low paint: 64.3% FG, 121.3 PPP - Highest efficiency zone in basketball'
+            };
+
+            const detail = zoneDetails[zone] || 'Zone analysis not available';
+            
+            // Create a more elegant notification instead of alert
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+                z-index: 1000;
+                max-width: 400px;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = detail;
+            
+            // Add animation keyframes
+            if (!document.querySelector('#zoneNotificationStyle')) {
+                const style = document.createElement('style');
+                style.id = 'zoneNotificationStyle';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 4 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

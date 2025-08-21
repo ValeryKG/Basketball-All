@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Basketball Defense System: Research & Implementation</title>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.content-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            
+            // Remove active class from all tabs
+            var tabs = document.querySelectorAll('.nav-tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-tab:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: #444;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            padding: 15px 0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        h4 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        h5 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .practice-game {
+            background: #f8f9ff;
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .practice-game h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .quick-ref {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .quick-ref h4 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .quick-ref strong {
+            color: #fff !important;
+            font-weight: 700;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .card {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .progress-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .progress-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .progress-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .progress-table tr:hover {
+            background: #f8f9ff;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .toc {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .toc a:hover {
+            color: #764ba2;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏀 Complete Basketball Defense System</h1>
+            <p>From Evidence-Based Research to Court Implementation</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('research')">📚 Research Foundation</button>
+            <button class="nav-tab" onclick="showSection('implementation')">⚡ Practical Implementation</button>
+        </div>
+        
+        <!-- RESEARCH SECTION -->
+        <div id="research" class="content-section active">
+            <h2>Research Foundation: The Science Behind Effective Defense</h2>
+            
+            <div class="toc">
+                <h4>Table of Contents - Research</h4>
+                <a href="#hybrid-systems">1. Hybrid Defensive Systems</a>
+                <a href="#evidence-coaching">2. Evidence-Based Coaching Methods</a>
+                <a href="#professional-adaptations">3. Professional Concept Adaptations</a>
+                <a href="#special-situations">4. Special Situation Integration</a>
+                <a href="#player-development">5. Progressive Player Development</a>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Key Research Finding:</strong> Modern basketball defense succeeds through adaptable hybrid systems that combine multiple defensive concepts rather than rigid single approaches. Research across professional, college, and youth basketball demonstrates that the most effective defensive systems integrate pack line principles with switching concepts, zone elements, and situational adaptations, creating frameworks that work with different personnel while maintaining core consistency.</p>
+            </div>
+
+            <h3 id="hybrid-systems">Hybrid Defensive Systems Dominate Through Strategic Adaptability</h3>
+            
+            <p>The most successful basketball programs across all levels employ <strong>hybrid defensive systems</strong> that combine multiple concepts rather than relying on single approaches. Virginia's Tony Bennett exemplifies this philosophy through his pack line system that integrates denial, switching, and pressure elements while maintaining core help-side positioning principles. This hybrid approach contributed to <strong>consistently ranking among the nation's top-6 defenses in adjusted efficiency</strong> during their championship era, culminating in the 2019 NCAA title.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Pack Line Foundation</h4>
+                    <p>The core concept positions one defender pressuring the ball handler outside the 16-foot pack line while four defenders maintain gap positions inside, but successful implementations add switching elements for screen coverage, denial concepts for specific players, and pressure variations for different game situations.</p>
+                </div>
+                <div class="card">
+                    <h4>Match-Up Zone Defense</h4>
+                    <p>Players maintain zone coverage areas while dynamically matching up with entering offensive players, creating confusion for opposing offenses that struggle to identify whether they're facing zone or man-to-man principles.</p>
+                </div>
+            </div>
+
+            <p><strong>Match-up zone defense represents another highly effective hybrid approach,</strong> pioneered by Temple's John Chaney, combining zone positioning principles with man-to-man pressure concepts. Modern implementations include the Detroit Pistons' 2004 championship defense, which allowed only <strong>84.3 points per game while forcing 17.4 turnovers</strong> through systematic hybrid principles.</p>
+
+            <div class="highlight-box">
+                <p><strong>Performance Data:</strong> Teams employing hybrid concepts show <strong>12-15% improvement in help defense ratings</strong> compared to single-system approaches, while generating significantly more turnovers through unpredictability and multiple defensive looks within the same possession.</p>
+            </div>
+
+            <h3 id="evidence-coaching">Evidence-Based Coaching Transforms Defensive Skill Development</h3>
+
+            <p><strong>Constraints-Led Approach (CLA) and Tactical Game Approach (TGA) represent the most effective evidence-based methodologies for teaching team defense,</strong> significantly outperforming traditional drill-based instruction across all age groups. Research demonstrates that CLA-based training, which uses environmental constraints and game-like situations to guide learning, produces better transfer from practice to games while developing more adaptive defensive responses and improved decision-making capabilities.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h4>Research Evidence</h4>
+                    <p>A peer-reviewed study comparing Direct Instruction versus Tactical Game Approach found <strong>TGA students improved in 13 performance variables compared to only 3 for traditional instruction methods.</strong></p>
+                </div>
+                <div class="card">
+                    <h4>Small-Sided Games</h4>
+                    <p>Research indicates that 3v3 and 4v4 games with specific defensive constraints produce higher physical demands, better skill transfer, enhanced decision-making, and improved motivation compared to repetitive drill formats.</p>
+                </div>
+                <div class="card">
+                    <h4>Motor Learning Principles</h4>
+                    <p>Studies show that "random practice" involving mixed defensive scenarios produces superior retention and transfer compared to repetitive drilling of single concepts.</p>
+                </div>
+            </div>
+
+            <p><strong>Gender-specific considerations reveal important coaching adaptations</strong> without requiring different content emphasis. Research analyzing 1,976 training tasks showed historical tendencies toward more offensive-focused training for female teams, but evidence indicates no performance differences based on coach gender when comprehensive defensive training is provided.</p>
+
+            <h3 id="professional-adaptations">Professional Concepts Require Systematic Modifications for Youth Development</h3>
+
+            <p><strong>Modern NBA and college defensive principles can be effectively adapted for high school and youth levels through systematic modifications</strong> that respect physical and cognitive developmental limitations while maintaining core concepts. The Oklahoma City Thunder's 2024-25 league-best defensive rating of 107.5 demonstrates professional "positionless defense" and sophisticated help-side coordination, but these concepts require substantial modification for younger players.</p>
+
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>Age Group</th>
+                        <th>Defensive Focus</th>
+                        <th>Key Modifications</th>
+                        <th>Complexity Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ages 7-8</td>
+                        <td>Basic movement & spatial awareness</td>
+                        <td>No systems, just fundamentals</td>
+                        <td>Minimal</td>
+                    </tr>
+                    <tr>
+                        <td>Ages 9-11</td>
+                        <td>Man-to-man principles only</td>
+                        <td>No zone defense permitted</td>
+                        <td>Basic</td>
+                    </tr>
+                    <tr>
+                        <td>Ages 12-14</td>
+                        <td>Complex rotations & team concepts</td>
+                        <td>Simplified terminology, reduced complexity</td>
+                        <td>Intermediate</td>
+                    </tr>
+                    <tr>
+                        <td>Ages 15+</td>
+                        <td>Full system implementation</td>
+                        <td>Multiple defensive looks allowed</td>
+                        <td>Advanced</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>NBA/USA Basketball Guidelines:</strong> Research explicitly recommends man-to-man defense only before age 12, with no zone defenses permitted to ensure development of individual defensive skills transferable to all systems.</p>
+            </div>
+
+            <h3 id="special-situations">Special Situation Defenses Integrate Through Consistent System Principles</h3>
+
+            <p><strong>Effective special situation defenses succeed through systematic integration rather than isolated technique development,</strong> with the most successful programs maintaining consistent defensive principles across all scenarios while developing specific adaptations for unique situations.</p>
+
+            <h4>Pick-and-Roll Defense Strategies</h4>
+            <div class="grid-2">
+                <div class="card">
+                    <h5>Primary Coverage Options</h5>
+                    <ol>
+                        <li><strong>Low drop</strong> - Screen defender drops deep</li>
+                        <li><strong>High drop</strong> - Screen defender shows briefly</li>
+                        <li><strong>Ice/blue defense</strong> - Force baseline direction</li>
+                        <li><strong>Weak defense</strong> - Force weak hand</li>
+                        <li><strong>Hedge defense</strong> - Hard show and recover</li>
+                        <li><strong>Blitz defense</strong> - Double team ball handler</li>
+                        <li><strong>Switch defense</strong> - Exchange assignments</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h5>Integration Principles</h5>
+                    <p>Each strategy maintains core help positioning principles while adapting to specific offensive threats and personnel matchups. Successful teams develop multiple coverage options within their base system rather than relying on single approaches.</p>
+                </div>
+            </div>
+
+            <h4>Transition Defense Framework</h4>
+            <p><strong>Transition defense principles center on "building a wall and protecting the paint" philosophy,</strong> connecting directly to half-court defensive systems through shared communication protocols and help concepts. The core principle of sprinting back to paint first, establishing "no layups" rules, forcing multiple passes, and stopping the ball creates seamless integration with base defensive positioning.</p>
+
+            <h3 id="player-development">Player Development Succeeds Through Progressive, Principle-Based Systems</h3>
+
+            <p><strong>Developmental progression strategies must align with cognitive and physical developmental stages</strong> while building toward comprehensive defensive understanding that transfers across age groups and personnel changes.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h4>Cognitive Load Management</h4>
+                    <p>Working memory limitations significantly impact learning effectiveness. Practical applications include chunking complex rotations into smaller components, progressive complexity introduction, and redundancy elimination.</p>
+                </div>
+                <div class="card">
+                    <h4>System Consistency</h4>
+                    <p>Successful long-term programs teach adaptable defensive principles—help and recover concepts, closeout angles, positioning principles—rather than rigid position-specific rules.</p>
+                </div>
+                <div class="card">
+                    <h4>Building Blocks Approach</h4>
+                    <p>Foundation layers (individual defensive stance, footwork), connection layers (partner help positioning, communication), and system layers (team rotations, multiple looks).</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Critical Periods Research:</strong> Ages 6-12 show high motor skill plasticity, adolescence requires adapted training during growth spurts, and post-peak height velocity represents optimal time for complex tactical learning.</p>
+            </div>
+        </div>
+
+        <!-- IMPLEMENTATION SECTION -->
+        <div id="implementation" class="content-section">
+            <h2>Practical Implementation Guide</h2>
+            
+            <div class="toc">
+                <h4>Table of Contents - Implementation</h4>
+                <a href="#system-setup">1. System Setup</a>
+                <a href="#teaching-games">2. Teaching Through Games</a>
+                <a href="#age-progressions">3. Age-Specific Progressions</a>
+                <a href="#special-situations-impl">4. Special Situations Integration</a>
+                <a href="#daily-structure">5. Daily Structure & Troubleshooting</a>
+            </div>
+
+            <div class="quick-ref">
+                <h4>🎯 Your Defensive System Blueprint</h4>
+                <div class="grid-3">
+                    <div>
+                        <strong>Base System:</strong> Pack Line + Switching (adaptable to any personnel)
+                    </div>
+                    <div>
+                        <strong>Teaching Method:</strong> Constraint-Based Learning (games, not drills)
+                    </div>
+                    <div>
+                        <strong>Development Path:</strong> Progressive complexity by age/skill level
+                    </div>
+                </div>
+            </div>
+
+            <h3 id="system-setup">Phase 1: System Setup (Week 1-2)</h3>
+
+            <h4>Choose Your Base Identity</h4>
+            <div class="practice-game">
+                <h4>Pack Line Foundation (Recommended for All Levels)</h4>
+                <p><strong>Simple Rule:</strong> "Guard the ball OR be in help position"</p>
+                <ul>
+                    <li><strong>Pack Line:</strong> Imaginary 16-foot arc around basket</li>
+                    <li><strong>5 Positions:</strong> 1 pressures ball, 4 inside the line helping</li>
+                    <li><strong>Basic Switching Rules:</strong>
+                        <ul>
+                            <li>Switch all screens if defenders are similar size</li>
+                            <li>Call "Switch!" loud and early</li>
+                            <li>Take the closest offensive player after switch</li>
+                            <li>If size mismatch: "Go over/under" instead</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h4>Communication System</h4>
+            <div class="grid-2">
+                <div class="card">
+                    <h5>Color + Number = Defense Type</h5>
+                    <ul>
+                        <li><strong>Blue 1:</strong> Pack line man-to-man</li>
+                        <li><strong>Blue 2:</strong> Pack line with switching</li>
+                        <li><strong>Red 1:</strong> Full court pressure</li>
+                        <li><strong>Green:</strong> Zone (if age appropriate)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h5>Why This Works</h5>
+                    <p>Simple, consistent terminology that players remember under pressure. Color indicates intensity level, number indicates variation within that level.</p>
+                </div>
+            </div>
+
+            <h3 id="teaching-games">Phase 2: Teaching Through Games (Ongoing)</h3>
+
+            <h4>Replace Drills with Constraint Games</h4>
+
+            <div class="practice-game">
+                <h4>Game 1: "Help or Pressure" (3v3)</h4>
+                <p><strong>Setup:</strong> Half court, 3 offensive vs 3 defensive players</p>
+                <p><strong>Constraint:</strong> Defense scores 1 point for each help position, 2 points for steal</p>
+                <p><strong>Rule:</strong> Either guard the ball or be in perfect help position</p>
+                <p><strong>Time:</strong> 2 minutes, switch sides</p>
+                <p><strong>Why it works:</strong> Forces players to make the fundamental defensive decision constantly</p>
+            </div>
+
+            <div class="practice-game">
+                <h4>Game 2: "Switch Challenge" (4v4)</h4>
+                <p><strong>Setup:</strong> All screens must be switched</p>
+                <p><strong>Constraint:</strong> Offense gets 2 points for scoring off missed switch</p>
+                <p><strong>Rule:</strong> Defense must call "Switch!" before contact</p>
+                <p><strong>Progression:</strong> Add second screen, then stagger screens</p>
+                <p><strong>Why it works:</strong> Communication becomes essential for success</p>
+            </div>
+
+            <div class="practice-game">
+                <h4>Game 3: "Paint Protection" (5v5)</h4>
+                <p><strong>Setup:</strong> Full court</p>
+                <p><strong>Constraint:</strong> Defense gets 3 points for forcing outside shot, 1 point for rebound</p>
+                <p><strong>Rule:</strong> No layups allowed - help must arrive</p>
+                <p><strong>Focus:</strong> Building the "wall" in transition</p>
+                <p><strong>Why it works:</strong> Creates help habits that transfer to games</p>
+            </div>
+
+            <h4>Daily Practice Structure (20-30 minutes defense)</h4>
+            <div class="grid-3">
+                <div class="card">
+                    <h5>Warm-up Game (5 min)</h5>
+                    <p>Simple 3v3 constraint game to activate defensive thinking</p>
+                </div>
+                <div class="card">
+                    <h5>System Game (15 min)</h5>
+                    <p>Main teaching focus - the constraint game that addresses your biggest need</p>
+                </div>
+                <div class="card">
+                    <h5>Special Situation (5-10 min)</h5>
+                    <p>Pick & roll, transition, or specific game situation</p>
+                </div>
+            </div>
+
+            <h3 id="age-progressions">Phase 3: Age-Specific Progressions</h3>
+
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>Age Group</th>
+                        <th>Focus</th>
+                        <th>Main Games</th>
+                        <th>Key Concepts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>U12 (Youth)</strong></td>
+                        <td>Keep It Simple</td>
+                        <td>
+                            • 3v3 help positioning<br>
+                            • 1v1 with help coming<br>
+                            • 4v4 with simple rotations
+                        </td>
+                        <td>
+                            • Only man-to-man defense<br>
+                            • "Ball-You-Basket" triangle positioning<br>
+                            • One help rule: "Stop the drive"<br>
+                            • Communication: Just "Help!" and "Ball!"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>U16 (High School)</strong></td>
+                        <td>Add Complexity</td>
+                        <td>
+                            • 4v4 with switching rules<br>
+                            • 5v5 with rotation requirements<br>
+                            • Special situation games
+                        </td>
+                        <td>
+                            • Multiple defensive looks<br>
+                            • Basic rotations (help and recover)<br>
+                            • Screen navigation options<br>
+                            • Full communication system
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Advanced (College/Pro)</strong></td>
+                        <td>Full System</td>
+                        <td>
+                            • Complex constraint games<br>
+                            • Multiple coverage options<br>
+                            • Situational adaptations
+                        </td>
+                        <td>
+                            • Multiple coverage options<br>
+                            • Advanced rotations<br>
+                            • Hybrid zones<br>
+                            • Situational defenses
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="special-situations-impl">Phase 4: Special Situations Integration</h3>
+
+            <h4>Pick & Roll Coverage Menu</h4>
+            <div class="practice-game">
+                <h4>Choose 2-3 options max, practice in games:</h4>
+                <div class="grid-2">
+                    <div>
+                        <ol>
+                            <li><strong>Switch</strong> (easiest): Both defenders switch assignments</li>
+                            <li><strong>Go Over:</strong> On-ball defender fights over screen</li>
+                            <li><strong>Drop:</strong> Screen defender drops back, contains drive</li>
+                            <li><strong>Hedge:</strong> Screen defender steps up, then recovers</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p><strong>Practice Game:</strong> 2v2 continuous pick & roll, defense chooses coverage</p>
+                        <p><strong>Constraint:</strong> Offense scores 2 points for easy basket, defense scores 1 point for stop</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Transition Defense Rules</h4>
+            <div class="practice-game">
+                <h4>The 3 Steps:</h4>
+                <ol>
+                    <li><strong>Sprint back</strong> - first man protects paint</li>
+                    <li><strong>Find a man</strong> - match up with closest threat</li>
+                    <li><strong>Build the wall</strong> - help positioning around paint</li>
+                </ol>
+                <p><strong>Practice Game:</strong> 3v2, 4v3 continuous - defense scores for stopping fast break</p>
+                <p><strong>Why it works:</strong> Numbers disadvantage forces proper priorities</p>
+            </div>
+
+            <h3 id="daily-structure">Phase 5: Daily Structure & Troubleshooting</h3>
+
+            <h4>Individual Skill Checkpoints</h4>
+            <div class="grid-2">
+                <div class="card">
+                    <h5>Every player must demonstrate:</h5>
+                    <ul>
+                        <li>Proper defensive stance (6-inch steps)</li>
+                        <li>Closeout technique (sprint-chop-control)</li>
+                        <li>Help positioning (see ball and man)</li>
+                        <li>Basic communication calls</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h5>Progressive Complexity:</h5>
+                    <ul>
+                        <li><strong>Month 1:</strong> Individual techniques in 1v1, 2v2 games</li>
+                        <li><strong>Month 2:</strong> Help concepts in 3v3, 4v4 games</li>
+                        <li><strong>Month 3:</strong> Team rotations in 5v5 games</li>
+                        <li><strong>Month 4+:</strong> Multiple looks and special situations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Daily Quick Checks</h4>
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>When</th>
+                        <th>Questions to Ask</th>
+                        <th>Action Items</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Before Practice (30 seconds)</strong></td>
+                        <td>
+                            • Which constraint game focuses on today's weakness?<br>
+                            • What's the one teaching point for today?<br>
+                            • Are we building on yesterday or introducing new?
+                        </td>
+                        <td>Choose the right game for today's need</td>
+                    </tr>
+                    <tr>
+                        <td><strong>During Practice</strong></td>
+                        <td>
+                            • Are players problem-solving or just following commands?<br>
+                            • Is the game creating the behavior I want?<br>
+                            • Are they having fun while learning?
+                        </td>
+                        <td>Adjust constraints if needed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>After Practice (1 minute)</strong></td>
+                        <td>
+                            • Did they get better at the main concept?<br>
+                            • What constraint game do we need tomorrow?<br>
+                            • Which player needs individual attention?
+                        </td>
