@@ -3,54 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Valery Lavrov">
     <meta name="copyright" content="Copyright 2025 Valery Lavrov. All Rights Reserved.">
-<meta name="robots" content="noarchive"> 
-<!-- Prevents cached copies -->
-<meta property="article:author" content="Valery Lavrov">
-<meta property="article:published_time" content="2025-01-[2025-08-20]">
-
-
-<!-- ADD THIS JSON-LD SCRIPT HERE -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "name": "The Championship Coaching Blueprint",
-      "author": {
-        "@type": "Person",
-        "name": "Valery Lavrov"
-      },
-      "datePublished": "2025-08-20",
-      "copyrightYear": "2025",
-      "copyrightHolder": {
-        "@type": "Person",
-        "name": "Valery Lavrov"
-      },
-      "license": "All Rights Reserved"
-    }
-    </script>
-    <title>Complete Basketball Defense System: Research & Implementation</title>
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            var sections = document.querySelectorAll('.content-section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove('active');
-            }
-            
-            // Remove active class from all tabs
-            var tabs = document.querySelectorAll('.nav-tab');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active');
-            }
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-        }
-    </script>
+    <meta name="robots" content="noarchive"> 
+    <meta property="article:author" content="Valery Lavrov">
+    <meta property="article:published_time" content="2025-01-20">
+    <title>Complete Basketball Defense System | Championship Coaching Blueprint</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -60,81 +19,111 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
         .header {
             text-align: center;
-            color: white;
-            padding: 40px 0;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
         
         .header p {
-            font-size: 1.2rem;
+            color: #666;
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .banner-stat {
+            text-align: center;
+        }
+        
+        .banner-stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .banner-stat-label {
+            font-size: 1rem;
             opacity: 0.9;
         }
         
-        .nav-tabs {
+        .tabs {
             display: flex;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            background: #f8f9fa;
+            border-radius: 25px;
+            padding: 8px;
         }
         
-        .nav-tab {
-            flex: 1;
-            text-align: center;
-            padding: 15px 20px;
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
             background: transparent;
             border: none;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-tab.active {
-            background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
         
-        .nav-tab:hover {
-            background: rgba(255,255,255,0.15);
+        .tab:hover:not(.active) {
+            background: rgba(255,255,255,0.8);
+            transform: translateY(-1px);
         }
         
         .content-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
             display: none;
         }
         
         .content-section.active {
             display: block;
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.5s ease;
         }
         
         @keyframes fadeIn {
@@ -142,194 +131,384 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        h2 {
-            color: #667eea;
-            font-size: 2.5rem;
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
             margin-bottom: 30px;
-            text-align: center;
-            position: relative;
         }
         
-        h2::after {
+        .defense-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .defense-card::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 4px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            border-radius: 2px;
+            background: var(--card-color, #667eea);
         }
         
-        h3 {
-            color: #444;
-            font-size: 1.8rem;
-            margin: 30px 0 15px 0;
-            padding: 15px 0;
-            border-bottom: 2px solid #f0f0f0;
+        .defense-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
         
-        h4 {
-            color: #667eea;
-            font-size: 1.4rem;
-            margin: 25px 0 15px 0;
-            font-weight: 600;
-        }
-        
-        h5 {
-            color: #764ba2;
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-            font-weight: 600;
-        }
-        
-        p {
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
             margin-bottom: 15px;
-            text-align: justify;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        strong {
-            color: #667eea;
-            font-weight: 600;
+        .card-emoji {
+            font-size: 1.8rem;
         }
         
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea20, #764ba220);
-            border-left: 5px solid #667eea;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 10px 10px 0;
+        .effectiveness-meter {
+            width: 100%;
+            height: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
         }
         
-        .practice-game {
-            background: #f8f9ff;
-            border: 2px solid #667eea;
-            border-radius: 15px;
-            padding: 20px;
+        .effectiveness-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
             margin: 20px 0;
         }
         
-        .practice-game h4 {
-            color: #667eea;
-            margin-top: 0;
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
         }
         
-        .quick-ref {
-            background: linear-gradient(135deg, #764ba2, #667eea);
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        .collapsible {
+            background-color: #f1f2f6;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .collapsible:hover {
+            background-color: #e8eaf6;
+        }
+        
+        .collapsible.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+        }
+        
+        .collapsible:after {
+            content: '\002B';
+            color: #2c3e50;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        .collapsible.active:after {
+            content: "\2212";
+            color: white;
+        }
+        
+        .collapsible-content {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .collapsible-content.active {
+            max-height: 2000px;
+            padding: 20px 18px;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+        }
+        
+        .section-content {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f1f2f6, #ddd6fe);
+            border-radius: 10px;
+            border-left: 4px solid var(--card-color, #667eea);
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .info-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #34495e;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .info-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: var(--card-color, #667eea);
+        }
+        
+        .chart-container {
+            margin: 30px 0;
+            background: white;
             padding: 25px;
             border-radius: 15px;
-            margin: 25px 0;
-        }
-        
-        .quick-ref h4 {
-            color: white;
-            margin-top: 0;
-        }
-        
-        .quick-ref strong {
-            color: #fff !important;
-            font-weight: 700;
-        }
-        
-        ul, ol {
-            margin: 15px 0 15px 30px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 25px 0;
-        }
-        
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 25px 0;
-        }
-        
-        .card {
-            background: #f8f9ff;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .progress-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .progress-table th {
+        .chart-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin: 20px 0;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .press-variations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .press-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .press-card.diamond { border-left-color: #e74c3c; }
+        .press-card.zone { border-left-color: #3498db; }
+        .press-card.hybrid { border-left-color: #27ae60; }
+        
+        .age-progression {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .age-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .age-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--age-color, #667eea);
+        }
+        
+        .age-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .age-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .drill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .drill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--drill-color, #667eea);
+        }
+        
+        .drill-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .drill-description {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .drill-focus {
+            background: #f8f9fa;
             padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        .progress-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .progress-table tr:hover {
-            background: #f8f9ff;
+            border-radius: 8px;
+            border-left: 3px solid var(--drill-color, #667eea);
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .content-section {
                 padding: 20px;
             }
             
-            .nav-tabs {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .defense-grid, .age-progression, .drill-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
                 flex-direction: column;
             }
             
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
+            .tab {
+                margin-bottom: 5px;
             }
-        }
-        
-        .toc {
-            background: #f8f9ff;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-        
-        .toc a {
-            color: #667eea;
-            text-decoration: none;
-            display: block;
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
-        }
-        
-        .toc a:hover {
-            color: #764ba2;
-            padding-left: 10px;
         }
     </style>
 </head>
@@ -337,430 +516,1327 @@
     <div class="container">
         <div class="header">
             <h1>🏀 Complete Basketball Defense System</h1>
-            <p>From Evidence-Based Research to Court Implementation</p>
+            <p>Comprehensive Master Guide: From Foundation Principles to Championship Culture - Statistical Analysis, Implementation Strategies, Age-Specific Development, and Evidence-Based Coaching Methods</p>
         </div>
         
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('research')">📚 Research Foundation</button>
-            <button class="nav-tab" onclick="showSection('implementation')">⚡ Practical Implementation</button>
+        <div class="stats-banner">
+            <div class="banner-stat">
+                <div class="banner-stat-value">82%</div>
+                <div class="banner-stat-label">Win Rate with Elite Defense</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">25%</div>
+                <div class="banner-stat-label">Turnover Increase</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">5-7%</div>
+                <div class="banner-stat-label">FG% Reduction</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">12.4%</div>
+                <div class="banner-stat-label">Efficiency Improvement</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">15</div>
+                <div class="banner-stat-label">Core Principles</div>
+            </div>
         </div>
         
-        <!-- RESEARCH SECTION -->
-        <div id="research" class="content-section active">
-            <h2>Research Foundation: The Science Behind Effective Defense</h2>
-            
-            <div class="toc">
-                <h4>Table of Contents - Research</h4>
-                <a href="#hybrid-systems">1. Hybrid Defensive Systems</a>
-                <a href="#evidence-coaching">2. Evidence-Based Coaching Methods</a>
-                <a href="#professional-adaptations">3. Professional Concept Adaptations</a>
-                <a href="#special-situations">4. Special Situation Integration</a>
-                <a href="#player-development">5. Progressive Player Development</a>
-            </div>
-
-            <div class="highlight-box">
-                <p><strong>Key Research Finding:</strong> Modern basketball defense succeeds through adaptable hybrid systems that combine multiple defensive concepts rather than rigid single approaches. Research across professional, college, and youth basketball demonstrates that the most effective defensive systems integrate pack line principles with switching concepts, zone elements, and situational adaptations, creating frameworks that work with different personnel while maintaining core consistency.</p>
-            </div>
-
-            <h3 id="hybrid-systems">Hybrid Defensive Systems Dominate Through Strategic Adaptability</h3>
-            
-            <p>The most successful basketball programs across all levels employ <strong>hybrid defensive systems</strong> that combine multiple concepts rather than relying on single approaches. Virginia's Tony Bennett exemplifies this philosophy through his pack line system that integrates denial, switching, and pressure elements while maintaining core help-side positioning principles. This hybrid approach contributed to <strong>consistently ranking among the nation's top-6 defenses in adjusted efficiency</strong> during their championship era, culminating in the 2019 NCAA title.</p>
-
-            <div class="grid-2">
-                <div class="card">
-                    <h4>Pack Line Foundation</h4>
-                    <p>The core concept positions one defender pressuring the ball handler outside the 16-foot pack line while four defenders maintain gap positions inside, but successful implementations add switching elements for screen coverage, denial concepts for specific players, and pressure variations for different game situations.</p>
-                </div>
-                <div class="card">
-                    <h4>Match-Up Zone Defense</h4>
-                    <p>Players maintain zone coverage areas while dynamically matching up with entering offensive players, creating confusion for opposing offenses that struggle to identify whether they're facing zone or man-to-man principles.</p>
-                </div>
-            </div>
-
-            <p><strong>Match-up zone defense represents another highly effective hybrid approach,</strong> pioneered by Temple's John Chaney, combining zone positioning principles with man-to-man pressure concepts. Modern implementations include the Detroit Pistons' 2004 championship defense, which allowed only <strong>84.3 points per game while forcing 17.4 turnovers</strong> through systematic hybrid principles.</p>
-
-            <div class="highlight-box">
-                <p><strong>Performance Data:</strong> Teams employing hybrid concepts show <strong>12-15% improvement in help defense ratings</strong> compared to single-system approaches, while generating significantly more turnovers through unpredictability and multiple defensive looks within the same possession.</p>
-            </div>
-
-            <h3 id="evidence-coaching">Evidence-Based Coaching Transforms Defensive Skill Development</h3>
-
-            <p><strong>Constraints-Led Approach (CLA) and Tactical Game Approach (TGA) represent the most effective evidence-based methodologies for teaching team defense,</strong> significantly outperforming traditional drill-based instruction across all age groups. Research demonstrates that CLA-based training, which uses environmental constraints and game-like situations to guide learning, produces better transfer from practice to games while developing more adaptive defensive responses and improved decision-making capabilities.</p>
-
-            <div class="grid-3">
-                <div class="card">
-                    <h4>Research Evidence</h4>
-                    <p>A peer-reviewed study comparing Direct Instruction versus Tactical Game Approach found <strong>TGA students improved in 13 performance variables compared to only 3 for traditional instruction methods.</strong></p>
-                </div>
-                <div class="card">
-                    <h4>Small-Sided Games</h4>
-                    <p>Research indicates that 3v3 and 4v4 games with specific defensive constraints produce higher physical demands, better skill transfer, enhanced decision-making, and improved motivation compared to repetitive drill formats.</p>
-                </div>
-                <div class="card">
-                    <h4>Motor Learning Principles</h4>
-                    <p>Studies show that "random practice" involving mixed defensive scenarios produces superior retention and transfer compared to repetitive drilling of single concepts.</p>
-                </div>
-            </div>
-
-            <p><strong>Gender-specific considerations reveal important coaching adaptations</strong> without requiring different content emphasis. Research analyzing 1,976 training tasks showed historical tendencies toward more offensive-focused training for female teams, but evidence indicates no performance differences based on coach gender when comprehensive defensive training is provided.</p>
-
-            <h3 id="professional-adaptations">Professional Concepts Require Systematic Modifications for Youth Development</h3>
-
-            <p><strong>Modern NBA and college defensive principles can be effectively adapted for high school and youth levels through systematic modifications</strong> that respect physical and cognitive developmental limitations while maintaining core concepts. The Oklahoma City Thunder's 2024-25 league-best defensive rating of 107.5 demonstrates professional "positionless defense" and sophisticated help-side coordination, but these concepts require substantial modification for younger players.</p>
-
-            <table class="progress-table">
-                <thead>
-                    <tr>
-                        <th>Age Group</th>
-                        <th>Defensive Focus</th>
-                        <th>Key Modifications</th>
-                        <th>Complexity Level</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ages 7-8</td>
-                        <td>Basic movement & spatial awareness</td>
-                        <td>No systems, just fundamentals</td>
-                        <td>Minimal</td>
-                    </tr>
-                    <tr>
-                        <td>Ages 9-11</td>
-                        <td>Man-to-man principles only</td>
-                        <td>No zone defense permitted</td>
-                        <td>Basic</td>
-                    </tr>
-                    <tr>
-                        <td>Ages 12-14</td>
-                        <td>Complex rotations & team concepts</td>
-                        <td>Simplified terminology, reduced complexity</td>
-                        <td>Intermediate</td>
-                    </tr>
-                    <tr>
-                        <td>Ages 15+</td>
-                        <td>Full system implementation</td>
-                        <td>Multiple defensive looks allowed</td>
-                        <td>Advanced</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="highlight-box">
-                <p><strong>NBA/USA Basketball Guidelines:</strong> Research explicitly recommends man-to-man defense only before age 12, with no zone defenses permitted to ensure development of individual defensive skills transferable to all systems.</p>
-            </div>
-
-            <h3 id="special-situations">Special Situation Defenses Integrate Through Consistent System Principles</h3>
-
-            <p><strong>Effective special situation defenses succeed through systematic integration rather than isolated technique development,</strong> with the most successful programs maintaining consistent defensive principles across all scenarios while developing specific adaptations for unique situations.</p>
-
-            <h4>Pick-and-Roll Defense Strategies</h4>
-            <div class="grid-2">
-                <div class="card">
-                    <h5>Primary Coverage Options</h5>
-                    <ol>
-                        <li><strong>Low drop</strong> - Screen defender drops deep</li>
-                        <li><strong>High drop</strong> - Screen defender shows briefly</li>
-                        <li><strong>Ice/blue defense</strong> - Force baseline direction</li>
-                        <li><strong>Weak defense</strong> - Force weak hand</li>
-                        <li><strong>Hedge defense</strong> - Hard show and recover</li>
-                        <li><strong>Blitz defense</strong> - Double team ball handler</li>
-                        <li><strong>Switch defense</strong> - Exchange assignments</li>
-                    </ol>
-                </div>
-                <div class="card">
-                    <h5>Integration Principles</h5>
-                    <p>Each strategy maintains core help positioning principles while adapting to specific offensive threats and personnel matchups. Successful teams develop multiple coverage options within their base system rather than relying on single approaches.</p>
-                </div>
-            </div>
-
-            <h4>Transition Defense Framework</h4>
-            <p><strong>Transition defense principles center on "building a wall and protecting the paint" philosophy,</strong> connecting directly to half-court defensive systems through shared communication protocols and help concepts. The core principle of sprinting back to paint first, establishing "no layups" rules, forcing multiple passes, and stopping the ball creates seamless integration with base defensive positioning.</p>
-
-            <h3 id="player-development">Player Development Succeeds Through Progressive, Principle-Based Systems</h3>
-
-            <p><strong>Developmental progression strategies must align with cognitive and physical developmental stages</strong> while building toward comprehensive defensive understanding that transfers across age groups and personnel changes.</p>
-
-            <div class="grid-3">
-                <div class="card">
-                    <h4>Cognitive Load Management</h4>
-                    <p>Working memory limitations significantly impact learning effectiveness. Practical applications include chunking complex rotations into smaller components, progressive complexity introduction, and redundancy elimination.</p>
-                </div>
-                <div class="card">
-                    <h4>System Consistency</h4>
-                    <p>Successful long-term programs teach adaptable defensive principles—help and recover concepts, closeout angles, positioning principles—rather than rigid position-specific rules.</p>
-                </div>
-                <div class="card">
-                    <h4>Building Blocks Approach</h4>
-                    <p>Foundation layers (individual defensive stance, footwork), connection layers (partner help positioning, communication), and system layers (team rotations, multiple looks).</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <p><strong>Critical Periods Research:</strong> Ages 6-12 show high motor skill plasticity, adolescence requires adapted training during growth spurts, and post-peak height velocity represents optimal time for complex tactical learning.</p>
-            </div>
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">📊 Overview</button>
+            <button class="tab" onclick="showTab('principles')">🎯 Core Principles</button>
+            <button class="tab" onclick="showTab('press')">⚡ Press Defense</button>
+            <button class="tab" onclick="showTab('halfcourt')">🛡️ Half-Court</button>
+            <button class="tab" onclick="showTab('transition')">🏃 Transition</button>
+            <button class="tab" onclick="showTab('development')">📚 Development</button>
+            <button class="tab" onclick="showTab('implementation')">⚙️ Implementation</button>
+            <button class="tab" onclick="showTab('culture')">🏆 Culture</button>
         </div>
-
-        <!-- IMPLEMENTATION SECTION -->
-        <div id="implementation" class="content-section">
-            <h2>Practical Implementation Guide</h2>
-            
-            <div class="toc">
-                <h4>Table of Contents - Implementation</h4>
-                <a href="#system-setup">1. System Setup</a>
-                <a href="#teaching-games">2. Teaching Through Games</a>
-                <a href="#age-progressions">3. Age-Specific Progressions</a>
-                <a href="#special-situations-impl">4. Special Situations Integration</a>
-                <a href="#daily-structure">5. Daily Structure & Troubleshooting</a>
-            </div>
-
-            <div class="quick-ref">
-                <h4>🎯 Your Defensive System Blueprint</h4>
-                <div class="grid-3">
-                    <div>
-                        <strong>Base System:</strong> Pack Line + Switching (adaptable to any personnel)
-                    </div>
-                    <div>
-                        <strong>Teaching Method:</strong> Constraint-Based Learning (games, not drills)
-                    </div>
-                    <div>
-                        <strong>Development Path:</strong> Progressive complexity by age/skill level
-                    </div>
+        
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="content-section active">
+            <div class="metric-cards">
+                <div class="metric-card" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    <div class="metric-value">Under 108</div>
+                    <div class="metric-label">Defensive Rating for Championships</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #27ae60, #229954);">
+                    <div class="metric-value">Top-10</div>
+                    <div class="metric-label">NBA Champions Defensive Ranking</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <div class="metric-value">4-6</div>
+                    <div class="metric-label">Additional Wins (HS Teams)</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                    <div class="metric-value">40 Min</div>
+                    <div class="metric-label">Hell Defense Philosophy</div>
                 </div>
             </div>
-
-            <h3 id="system-setup">Phase 1: System Setup (Week 1-2)</h3>
-
-            <h4>Choose Your Base Identity</h4>
-            <div class="practice-game">
-                <h4>Pack Line Foundation (Recommended for All Levels)</h4>
-                <p><strong>Simple Rule:</strong> "Guard the ball OR be in help position"</p>
-                <ul>
-                    <li><strong>Pack Line:</strong> Imaginary 16-foot arc around basket</li>
-                    <li><strong>5 Positions:</strong> 1 pressures ball, 4 inside the line helping</li>
-                    <li><strong>Basic Switching Rules:</strong>
-                        <ul>
-                            <li>Switch all screens if defenders are similar size</li>
-                            <li>Call "Switch!" loud and early</li>
-                            <li>Take the closest offensive player after switch</li>
-                            <li>If size mismatch: "Go over/under" instead</li>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏆</span>
+                        Championship Benchmarks
+                    </div>
+                    <div class="effectiveness-meter">
+                        <div class="effectiveness-fill" style="width: 82%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Statistical Foundation:</div>
+                        <ul class="info-list">
+                            <li>82% win correlation with elite defense (under 108 rating)</li>
+                            <li>NBA Champions consistently rank top-10 defensively</li>
+                            <li>College Final Four teams average under 90 adjusted efficiency</li>
+                            <li>High school teams see 4-6 additional wins improving to 87 rating</li>
                         </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <h4>Communication System</h4>
-            <div class="grid-2">
-                <div class="card">
-                    <h5>Color + Number = Defense Type</h5>
-                    <ul>
-                        <li><strong>Blue 1:</strong> Pack line man-to-man</li>
-                        <li><strong>Blue 2:</strong> Pack line with switching</li>
-                        <li><strong>Red 1:</strong> Full court pressure</li>
-                        <li><strong>Green:</strong> Zone (if age appropriate)</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h5>Why This Works</h5>
-                    <p>Simple, consistent terminology that players remember under pressure. Color indicates intensity level, number indicates variation within that level.</p>
-                </div>
-            </div>
-
-            <h3 id="teaching-games">Phase 2: Teaching Through Games (Ongoing)</h3>
-
-            <h4>Replace Drills with Constraint Games</h4>
-
-            <div class="practice-game">
-                <h4>Game 1: "Help or Pressure" (3v3)</h4>
-                <p><strong>Setup:</strong> Half court, 3 offensive vs 3 defensive players</p>
-                <p><strong>Constraint:</strong> Defense scores 1 point for each help position, 2 points for steal</p>
-                <p><strong>Rule:</strong> Either guard the ball or be in perfect help position</p>
-                <p><strong>Time:</strong> 2 minutes, switch sides</p>
-                <p><strong>Why it works:</strong> Forces players to make the fundamental defensive decision constantly</p>
-            </div>
-
-            <div class="practice-game">
-                <h4>Game 2: "Switch Challenge" (4v4)</h4>
-                <p><strong>Setup:</strong> All screens must be switched</p>
-                <p><strong>Constraint:</strong> Offense gets 2 points for scoring off missed switch</p>
-                <p><strong>Rule:</strong> Defense must call "Switch!" before contact</p>
-                <p><strong>Progression:</strong> Add second screen, then stagger screens</p>
-                <p><strong>Why it works:</strong> Communication becomes essential for success</p>
-            </div>
-
-            <div class="practice-game">
-                <h4>Game 3: "Paint Protection" (5v5)</h4>
-                <p><strong>Setup:</strong> Full court</p>
-                <p><strong>Constraint:</strong> Defense gets 3 points for forcing outside shot, 1 point for rebound</p>
-                <p><strong>Rule:</strong> No layups allowed - help must arrive</p>
-                <p><strong>Focus:</strong> Building the "wall" in transition</p>
-                <p><strong>Why it works:</strong> Creates help habits that transfer to games</p>
-            </div>
-
-            <h4>Daily Practice Structure (20-30 minutes defense)</h4>
-            <div class="grid-3">
-                <div class="card">
-                    <h5>Warm-up Game (5 min)</h5>
-                    <p>Simple 3v3 constraint game to activate defensive thinking</p>
-                </div>
-                <div class="card">
-                    <h5>System Game (15 min)</h5>
-                    <p>Main teaching focus - the constraint game that addresses your biggest need</p>
-                </div>
-                <div class="card">
-                    <h5>Special Situation (5-10 min)</h5>
-                    <p>Pick & roll, transition, or specific game situation</p>
-                </div>
-            </div>
-
-            <h3 id="age-progressions">Phase 3: Age-Specific Progressions</h3>
-
-            <table class="progress-table">
-                <thead>
-                    <tr>
-                        <th>Age Group</th>
-                        <th>Focus</th>
-                        <th>Main Games</th>
-                        <th>Key Concepts</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>U12 (Youth)</strong></td>
-                        <td>Keep It Simple</td>
-                        <td>
-                            • 3v3 help positioning<br>
-                            • 1v1 with help coming<br>
-                            • 4v4 with simple rotations
-                        </td>
-                        <td>
-                            • Only man-to-man defense<br>
-                            • "Ball-You-Basket" triangle positioning<br>
-                            • One help rule: "Stop the drive"<br>
-                            • Communication: Just "Help!" and "Ball!"
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>U16 (High School)</strong></td>
-                        <td>Add Complexity</td>
-                        <td>
-                            • 4v4 with switching rules<br>
-                            • 5v5 with rotation requirements<br>
-                            • Special situation games
-                        </td>
-                        <td>
-                            • Multiple defensive looks<br>
-                            • Basic rotations (help and recover)<br>
-                            • Screen navigation options<br>
-                            • Full communication system
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Advanced (College/Pro)</strong></td>
-                        <td>Full System</td>
-                        <td>
-                            • Complex constraint games<br>
-                            • Multiple coverage options<br>
-                            • Situational adaptations
-                        </td>
-                        <td>
-                            • Multiple coverage options<br>
-                            • Advanced rotations<br>
-                            • Hybrid zones<br>
-                            • Situational defenses
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 id="special-situations-impl">Phase 4: Special Situations Integration</h3>
-
-            <h4>Pick & Roll Coverage Menu</h4>
-            <div class="practice-game">
-                <h4>Choose 2-3 options max, practice in games:</h4>
-                <div class="grid-2">
-                    <div>
-                        <ol>
-                            <li><strong>Switch</strong> (easiest): Both defenders switch assignments</li>
-                            <li><strong>Go Over:</strong> On-ball defender fights over screen</li>
-                            <li><strong>Drop:</strong> Screen defender drops back, contains drive</li>
-                            <li><strong>Hedge:</strong> Screen defender steps up, then recovers</li>
-                        </ol>
                     </div>
-                    <div>
-                        <p><strong>Practice Game:</strong> 2v2 continuous pick & roll, defense chooses coverage</p>
-                        <p><strong>Constraint:</strong> Offense scores 2 points for easy basket, defense scores 1 point for stop</p>
+                    
+                    <button class="collapsible">Historical Success Examples</button>
+                    <div class="collapsible-content">
+                        <p><strong>Virginia 2019 Championship:</strong> 47.1% restricted area defense (5th nationally), 33.3% from three (64th nationally)</p>
+                        <p><strong>2020 Lakers Championship:</strong> Versatile defensive packages with man-to-man base, zone situations, press moments</p>
+                        <p><strong>Detroit Pistons 2004:</strong> 84.3 PPG allowed, 17.4 turnovers forced through hybrid defense</p>
+                        <p><strong>Minnesota Timberwolves 2023-24:</strong> Lowest defensive rating (109.0)</p>
+                        <p><strong>Oklahoma City Thunder 2024-25:</strong> League-best 107.5 defensive rating demonstrating "positionless defense"</p>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">📈</span>
+                        Key Performance Metrics
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">25%</div>
+                            <div class="stat-label">Backcourt TO Increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5-7%</div>
+                            <div class="stat-label">FG% Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12.4%</div>
+                            <div class="stat-label">Efficiency Gain</div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Impact Areas:</div>
+                        <ul class="info-list">
+                            <li>25% increase in backcourt turnovers with press defense</li>
+                            <li>5-7% field goal percentage reduction with pack-line</li>
+                            <li>12.4% efficiency improvement with data-driven decisions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🎯</span>
+                        System Philosophy
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Core Philosophy:</div>
+                        <ul class="info-list">
+                            <li>Defense wins championships - statistical reality</li>
+                            <li>Hybrid approaches outperform single systems</li>
+                            <li>Strong foundational principles (rim protection)</li>
+                            <li>Progressive skill development approach</li>
+                            <li>Evidence-based coaching methods</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Championship Formula</button>
+                    <div class="collapsible-content">
+                        <p><strong>1. Strong foundational principles</strong> - Rim protection and help defense</p>
+                        <p><strong>2. Adaptable hybrid systems</strong> - Multiple defensive looks</p>
+                        <p><strong>3. Progressive skill development</strong> - Age-appropriate teaching</p>
+                        <p><strong>4. Evidence-based methods</strong> - Constraint learning, games approach</p>
+                        <p><strong>5. Comprehensive evaluation</strong> - Data-driven adjustments</p>
+                        <p><strong>6. Championship culture</strong> - Defensive pride and identity</p>
                     </div>
                 </div>
             </div>
-
-            <h4>Transition Defense Rules</h4>
-            <div class="practice-game">
-                <h4>The 3 Steps:</h4>
-                <ol>
-                    <li><strong>Sprint back</strong> - first man protects paint</li>
-                    <li><strong>Find a man</strong> - match up with closest threat</li>
-                    <li><strong>Build the wall</strong> - help positioning around paint</li>
-                </ol>
-                <p><strong>Practice Game:</strong> 3v2, 4v3 continuous - defense scores for stopping fast break</p>
-                <p><strong>Why it works:</strong> Numbers disadvantage forces proper priorities</p>
+            
+            <div class="chart-container">
+                <div class="chart-title">Defensive Rating Impact on Win Percentage</div>
+                <canvas id="winPercentageChart" width="400" height="200"></canvas>
             </div>
-
-            <h3 id="daily-structure">Phase 5: Daily Structure & Troubleshooting</h3>
-
-            <h4>Individual Skill Checkpoints</h4>
-            <div class="grid-2">
-                <div class="card">
-                    <h5>Every player must demonstrate:</h5>
-                    <ul>
-                        <li>Proper defensive stance (6-inch steps)</li>
-                        <li>Closeout technique (sprint-chop-control)</li>
-                        <li>Help positioning (see ball and man)</li>
-                        <li>Basic communication calls</li>
-                    </ul>
+        </div>
+        
+        <!-- CORE PRINCIPLES TAB -->
+        <div id="principles" class="content-section">
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏰</span>
+                        Rim Protection Foundation
+                    </div>
+                    <div class="effectiveness-meter">
+                        <div class="effectiveness-fill" style="width: 90%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Foundation Principle:</div>
+                        <ul class="info-list">
+                            <li>Interior defense creates foundation for all defensive success</li>
+                            <li>6 of top-10 teams rank top-8 in restricted area defense</li>
+                            <li>Only 1 of top-10 defenses ranks top-8 in three-point prevention</li>
+                            <li>Allows aggressive closeouts because help is always available</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card">
-                    <h5>Progressive Complexity:</h5>
-                    <ul>
-                        <li><strong>Month 1:</strong> Individual techniques in 1v1, 2v2 games</li>
-                        <li><strong>Month 2:</strong> Help concepts in 3v3, 4v4 games</li>
-                        <li><strong>Month 3:</strong> Team rotations in 5v5 games</li>
-                        <li><strong>Month 4+:</strong> Multiple looks and special situations</li>
-                    </ul>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🔄</span>
+                        Hybrid Defensive Approaches
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">15%</div>
+                            <div class="stat-label">Lower Adaptation</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12-15%</div>
+                            <div class="stat-label">Help Defense Improve</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Multiple</div>
+                            <div class="stat-label">Concepts</div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Hybrid Advantages:</div>
+                        <ul class="info-list">
+                            <li>Teams using rigid single systems show 15% lower adaptation rates</li>
+                            <li>12-15% improvement in help defense ratings with hybrid concepts</li>
+                            <li>Creates unpredictability leading to more turnovers</li>
+                            <li>Multiple defensive concepts outperform single-system implementations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">🎯</span>
+                        Defensive Efficiency Targets
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Concrete Benchmarks:</div>
+                        <ul class="info-list">
+                            <li><strong>NBA:</strong> Top-10 defensive rating correlation with championships</li>
+                            <li><strong>College:</strong> Under 90 adjusted defensive efficiency for Final Four teams</li>
+                            <li><strong>High School:</strong> 87 defensive rating as target benchmark</li>
+                            <li>Concrete benchmarks drive development and success</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Level-Specific Targets</button>
+                    <div class="collapsible-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">NBA</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Professional Level</div>
+                                    <p>Top-10 defensive rating (typically under 108) shows strong correlation with championship success</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">NCAA</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">College Level</div>
+                                    <p>Under 90 adjusted defensive efficiency - Final Four teams consistently achieve this benchmark</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">HS</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">High School Level</div>
+                                    <p>87 defensive rating target - teams improving from 95 to 87 see 4-6 additional wins per season</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <h4>Daily Quick Checks</h4>
-            <table class="progress-table">
-                <thead>
-                    <tr>
-                        <th>When</th>
-                        <th>Questions to Ask</th>
-                        <th>Action Items</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Before Practice (30 seconds)</strong></td>
-                        <td>
-                            • Which constraint game focuses on today's weakness?<br>
-                            • What's the one teaching point for today?<br>
-                            • Are we building on yesterday or introducing new?
-                        </td>
-                        <td>Choose the right game for today's need</td>
-                    </tr>
-                    <tr>
-                        <td><strong>During Practice</strong></td>
-                        <td>
-                            • Are players problem-solving or just following commands?<br>
-                            • Is the game creating the behavior I want?<br>
-                            • Are they having fun while learning?
-                        </td>
-                        <td>Adjust constraints if needed</td>
-                    </tr>
-                    <tr>
-                        <td><strong>After Practice (1 minute)</strong></td>
-                        <td>
-                            • Did they get better at the main concept?<br>
-                            • What constraint game do we need tomorrow?<br>
-                            • Which player needs individual attention?
-                        </td>
+        </div>
+        
+        <!-- PRESS DEFENSE TAB -->
+        <div id="press" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">28%</div>
+                    <div class="metric-label">Diamond Press Turnover Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">35-40%</div>
+                    <div class="metric-label">Late-Game Effectiveness Increase</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Week Development Timeline</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1950s</div>
+                    <div class="metric-label">Press Defense Invented</div>
+                </div>
+            </div>
+            
+            <div class="press-variations">
+                <div class="press-card diamond">
+                    <h3>🔶 1-2-1-1 Diamond Press</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">28%</div>
+                            <div class="stat-label">Turnover Rate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Highest</div>
+                            <div class="stat-label">Effectiveness</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Basic</div>
+                            <div class="stat-label">Athletic Req</div>
+                        </div>
+                    </div>
+                    <p><strong>Best for:</strong> Teams with limited athleticism but good positioning discipline</p>
+                </div>
+                
+                <div class="press-card zone">
+                    <h3>⚡ 2-2-1 Press</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">22%</div>
+                            <div class="stat-label">Turnover Rate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Better</div>
+                            <div class="stat-label">Court Balance</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Safe</div>
+                            <div class="stat-label">Back Coverage</div>
+                        </div>
+                    </div>
+                    <p><strong>Best for:</strong> Balanced approach with good court coverage and moderate risk</p>
+                </div>
+                
+                <div class="press-card hybrid">
+                    <h3>🔄 Match-up Press</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">Hybrid</div>
+                            <div class="stat-label">Zone + Man</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Pitino</div>
+                            <div class="stat-label">Pioneer</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">Confusing</div>
+                            <div class="stat-label">For Offense</div>
+                        </div>
+                    </div>
+                    <p><strong>Best for:</strong> Advanced teams that can execute complex principles and create confusion</p>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">📚</span>
+                        Press Defense History
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Evolution Timeline:</div>
+                        <ul class="info-list">
+                            <li><strong>1950s:</strong> Invented by John McLendon (first African American coach at predominantly white university)</li>
+                            <li><strong>1960s:</strong> Gene Johnson (Wichita University) credited with developing full-court press</li>
+                            <li><strong>1964:</strong> UCLA's Jerry Norman convinced John Wooden to utilize press (won first national title)</li>
+                            <li><strong>1960s-70s:</strong> Ralph Tasker (Hobbs High School) - baseline to baseline pressure</li>
+                            <li><strong>1990s:</strong> Nolan Richardson's "40 Minutes of Hell" at Arkansas</li>
+                            <li><strong>Modern Era:</strong> Shaka Smart's "Havoc Ball" at VCU</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">⏱️</span>
+                        Installation Timeline
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Week 1: Formation & Positioning</div>
+                                <p>Shadow work without offense, learn basic positioning, understand trap angles</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Week 2: Basic Rotations</div>
+                                <p>Controlled offensive movement, practice trap timing, develop rotation patterns</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Week 3: Live Implementation</div>
+                                <p>Graduated complexity scrimmages, situational applications, communication emphasis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">🚨</span>
+                        Common Mistakes & Solutions
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Frequent Issues:</div>
+                        <ul class="info-list">
+                            <li><strong>Standing too tall →</strong> Maintain low defensive stance</li>
+                            <li><strong>Overaggressive trapping →</strong> Trap with body position, hands high for deflections</li>
+                            <li><strong>Improper trap spacing →</strong> Maintain 3-4 feet between trappers</li>
+                            <li><strong>Late rotations →</strong> Anticipate passes, move on flight of ball</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Press Breaking Principles</button>
+                    <div class="collapsible-content">
+                        <p><strong>Quick, short passes</strong> more effective than dribbling</p>
+                        <p><strong>Pass to center</strong> often breaks press (exploits "last man back")</p>
+                        <p><strong>Breaking press creates</strong> fast-break opportunities</p>
+                        <p><strong>Late-Game Effectiveness:</strong> 35-40% increase in effectiveness in final 5 minutes</p>
+                        <p><strong>Optimal Situations:</strong> Teams trailing by 8-15 points show significantly higher turnover rates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- HALF-COURT DEFENSE TAB -->
+        <div id="halfcourt" class="content-section">
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">📦</span>
+                        Pack-Line Defense
+                    </div>
+                    <div class="effectiveness-meter">
+                        <div class="effectiveness-fill" style="width: 85%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">5-7%</div>
+                            <div class="stat-label">FG% Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">60%</div>
+                            <div class="stat-label">Paint Touch Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">180</div>
+                            <div class="stat-label">Fewer Made FGs/Season</div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Setup & Positioning:</div>
+                        <ul class="info-list">
+                            <li>Four defenders within 16-17 feet of basket</li>
+                            <li>One defender applying ball pressure</li>
+                            <li>Automatic help on dribble penetration</li>
+                            <li>Contest all three-point attempts</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Key Pack-Line Principles</button>
+                    <div class="collapsible-content">
+                        <p><strong>"Guard the ball OR be in help position"</strong> - Fundamental rule</p>
+                        <p><strong>No middle penetration</strong> - Force contested outside shots</p>
+                        <p><strong>Help and recover mentality</strong> - Constant support system</p>
+                        <p><strong>Statistical Impact:</strong> Teams hold opponents to 42-45% overall, 28-32% from three</p>
+                        <p><strong>Season Impact:</strong> Example - 180 fewer made field goals over 30-game season</p>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🔄</span>
+                        Switching Defense
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">0.85-0.90</div>
+                            <div class="stat-label">PPP Allowed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">60-70%</div>
+                            <div class="stat-label">Modern Usage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">2-4</div>
+                            <div class="stat-label">Fewer Baskets/Game</div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Requirements:</div>
+                        <ul class="info-list">
+                            <li>Players 6'6"-6'8" with lateral mobility</li>
+                            <li>Centers capable of perimeter defense</li>
+                            <li>Communication on every screen</li>
+                            <li>Post-switch positioning discipline</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Switching Statistics</button>
+                    <div class="collapsible-content">
+                        <p><strong>Performance:</strong> 0.85-0.90 points per possession allowed vs 0.95-1.05 PPP for traditional coverage</p>
+                        <p><strong>Modern Usage:</strong> Modern NBA teams switch 60-70% of pick-and-rolls (vs 20% in 2010)</p>
+                        <p><strong>Impact:</strong> Prevents 2-4 additional baskets per game when executed properly</p>
+                        <p><strong>Key Success Factors:</strong> Size versatility, communication, post-switch positioning</p>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #f39c12;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏠</span>
+                        Zone Defense Concepts
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Impact Metrics:</div>
+                        <ul class="info-list">
+                            <li>Reduces restricted area shots from 26% to 16%</li>
+                            <li>Increases opponent three-point attempts to 53% (vs 38% man-to-man)</li>
+                            <li>Requires opponents shoot below 35% from three for advantage</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Zone Variations</button>
+                    <div class="collapsible-content">
+                        <div class="press-variations">
+                            <div class="press-card zone">
+                                <h4>2-3 Zone</h4>
+                                <p>Best for paint protection and rebounding</p>
+                            </div>
+                            <div class="press-card diamond">
+                                <h4>3-2 Zone</h4>
+                                <p>Better perimeter coverage against shooting teams</p>
+                            </div>
+                            <div class="press-card hybrid">
+                                <h4>1-3-1 Zone</h4>
+                                <p>Creates trapping opportunities and disrupts rhythm</p>
+                            </div>
+                            <div class="press-card zone">
+                                <h4>Box-and-1</h4>
+                                <p>Neutralize star player with dedicated defender</p>
+                            </div>
+                            <div class="press-card diamond">
+                                <h4>Triangle-and-2</h4>
+                                <p>Limit two best scorers on opponent team</p>
+                            </div>
+                            <div class="press-card hybrid">
+                                <h4>Match-Up Zone</h4>
+                                <p>Combines zone positioning with man principles (John Chaney)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TRANSITION DEFENSE TAB -->
+        <div id="transition" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">85-90%</div>
+                    <div class="metric-label">Match-up Transition Success</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3-5</div>
+                    <div class="metric-label">Points Reduced Per Game</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">20-25%</div>
+                    <div class="metric-label">Communication Improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">ELC</div>
+                    <div class="metric-label">Early, Loud, Continuous</div>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏃</span>
+                        Core Transition Principles
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">"Build a Wall and Protect the Paint":</div>
+                        <ul class="info-list">
+                            <li>Match-up transition forces half-court offense 85-90% of time</li>
+                            <li>Simple "get back" defense only 60-65% effective</li>
+                            <li>Reduces opponent transition scoring by 3-5 points per game</li>
+                            <li>Focus on paint protection as primary goal</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">📋</span>
+                        Five Essential Responsibilities
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Get to Ball</div>
+                                <p>Challenge by half-court - pressure the ball handler</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Protect Basket</div>
+                                <p>First back sprints to rim - paint protection priority</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Fill the Slant</div>
+                                <p>Help position - support and rotation ready</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Deny Ballside Wing</div>
+                                <p>Prevent hit-ahead passes - eliminate easy outlets</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">5</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Cover Weakside</div>
+                                <p>Designated protection - complete court coverage</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">📢</span>
+                        Communication System
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">"Early, Loud, Continuous" (ELC) - 20-25% Improvement:</div>
+                        <ul class="info-list">
+                            <li><strong>"Ball! Ball! Ball!"</strong> - pursuing ball handler</li>
+                            <li><strong>"Basket!"</strong> - protecting rim</li>
+                            <li><strong>"Help!"</strong> - providing support</li>
+                            <li><strong>"Match!"</strong> - finding assignments</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">The Three Steps (Simplified)</button>
+                    <div class="collapsible-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">1</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Sprint Back</div>
+                                    <p>First man protects paint - rim protection priority</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">2</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Find a Man</div>
+                                    <p>Match up with closest threat - assignments clear</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">3</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Build the Wall</div>
+                                    <p>Help positioning around paint - team concept</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DEVELOPMENT TAB -->
+        <div id="development" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    <div class="metric-value">13 vs 3</div>
+                    <div class="metric-label">CLA vs Traditional Variables</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <div class="metric-value">3v3 & 4v4</div>
+                    <div class="metric-label">Optimal Learning Games</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #27ae60, #229954);">
+                    <div class="metric-value">Ages 6-12</div>
+                    <div class="metric-label">High Motor Skill Plasticity</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">Progressive Skill Levels</div>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🧠</span>
+                        Evidence-Based Coaching
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Constraints-Led Approach (CLA):</div>
+                        <ul class="info-list">
+                            <li>Uses environmental constraints to guide learning</li>
+                            <li>Better transfer from practice to games</li>
+                            <li>Develops adaptive responses</li>
+                            <li><strong>Research:</strong> 13 performance variables improved (vs 3 for traditional)</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Additional Teaching Methods</button>
+                    <div class="collapsible-content">
+                        <p><strong>Tactical Game Approach (TGA):</strong> Game-like scenarios for learning, superior to drill-based instruction</p>
+                        <p><strong>Basketball Decision Training:</strong> Random, game-like scenarios with hand/body signals for reactions</p>
+                        <p><strong>Small-Sided Games Benefits:</strong> Higher physical demands, better skill transfer, enhanced decision-making</p>
+                        <p><strong>Optimal Games:</strong> 3v3 and 4v4 optimal for learning and development</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="age-progression">
+                <div class="age-card" style="--age-color: #e74c3c;">
+                    <div class="age-title">Ages 6-8</div>
+                    <div class="age-subtitle">Introduction Phase</div>
+                    <div class="section-content">
+                        <div class="section-title">Focus Areas:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Basic movement & spatial awareness</li>
+                            <li><strong>Concepts:</strong> Stance, "ball-you-basket" triangle</li>
+                            <li><strong>Drills:</strong> Mirror movements, follow the leader</li>
+                            <li><strong>Time:</strong> 5-10 minutes defense per practice</li>
+                            <li><strong>Key:</strong> Fun, no complex systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #f39c12;">
+                    <div class="age-title">Ages 9-11</div>
+                    <div class="age-subtitle">Foundation Phase</div>
+                    <div class="section-content">
+                        <div class="section-title">Development Focus:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Man-to-man principles only (no zone)</li>
+                            <li><strong>Concepts:</strong> On-ball pressure, help positioning</li>
+                            <li><strong>Communication:</strong> "Help!" and "Ball!"</li>
+                            <li><strong>Drills:</strong> 1v1, 2v2 controlled situations</li>
+                            <li><strong>Time:</strong> 10-15 minutes defense</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #3498db;">
+                    <div class="age-title">Ages 12-14</div>
+                    <div class="age-subtitle">Development Phase</div>
+                    <div class="section-content">
+                        <div class="section-title">Team Concepts:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Team concepts introduction</li>
+                            <li><strong>Concepts:</strong> Help and recover, basic rotations</li>
+                            <li><strong>Communication:</strong> Expanded vocabulary</li>
+                            <li><strong>Drills:</strong> 3v3, 4v4 shell work</li>
+                            <li><strong>Time:</strong> 15-20 minutes defense</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #27ae60;">
+                    <div class="age-title">Ages 15-18</div>
+                    <div class="age-subtitle">Advanced Phase</div>
+                    <div class="section-content">
+                        <div class="section-title">Full Implementation:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Full system implementation</li>
+                            <li><strong>Concepts:</strong> Multiple defensive looks, switching</li>
+                            <li><strong>Communication:</strong> Complete terminology ("Ice," "Blitz," "Switch")</li>
+                            <li><strong>Drills:</strong> 5v5 situational work</li>
+                            <li><strong>Time:</strong> 25-30 minutes defense</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #9b59b6;">
+                    <div class="age-title">College/Pro</div>
+                    <div class="age-subtitle">Elite Phase</div>
+                    <div class="section-content">
+                        <div class="section-title">Comprehensive Systems:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Comprehensive systems</li>
+                            <li><strong>Concepts:</strong> Situation-specific applications</li>
+                            <li><strong>Communication:</strong> Advanced reads and calls</li>
+                            <li><strong>Time:</strong> 30-40 minutes defense</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">📈</span>
+                        Progressive Skill Development
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Level 1: Fundamentals</div>
+                                <p>Stance and movement, mirror drills, 6-inch defensive slides, balance and positioning</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Level 2: Individual Skills</div>
+                                <p>1v1 containment, closeout technique, on-ball pressure, live competitive situations</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Level 3: Team Concepts</div>
+                                <p>3v3 help rotations, shell progressions, communication development, help and recover</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Level 4: Advanced Systems</div>
+                                <p>5v5 implementation, multiple defensive looks, situational applications, game planning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IMPLEMENTATION TAB -->
+        <div id="implementation" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">20-30</div>
+                    <div class="metric-label">Minutes Defense/Practice</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Daily Practice Components</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">Weekly</div>
+                    <div class="metric-label">Data Tracking</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">Season Phases</div>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">⏱️</span>
+                        Daily Practice Structure
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">5</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Warm-up Game</div>
+                                <p>Simple 3v3 constraint game, activate defensive thinking, review previous concepts</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">15</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">System Game</div>
+                                <p>Main teaching focus, constraint game for biggest weakness, progressive complexity</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">10</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Special Situation</div>
+                                <p>Pick-and-roll coverage, transition defense, press break defense, game-specific scenarios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🎮</span>
+                        Constraint-Based Games
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">"Help or Pressure" (3v3):</div>
+                        <ul class="info-list">
+                            <li><strong>Setup:</strong> Half court 3v3</li>
+                            <li><strong>Scoring:</strong> Defense gets 1 point for help position, 2 for steal</li>
+                            <li><strong>Rule:</strong> Either guard ball or be in perfect help</li>
+                            <li><strong>Purpose:</strong> Fundamental defensive decisions</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">More Constraint Games</button>
+                    <div class="collapsible-content">
+                        <div class="press-variations">
+                            <div class="press-card zone">
+                                <h4>"Switch Challenge" (4v4)</h4>
+                                <p><strong>Setup:</strong> All screens must be switched</p>
+                                <p><strong>Scoring:</strong> Offense gets 2 points for scoring off missed switch</p>
+                                <p><strong>Purpose:</strong> Communication and switching execution</p>
+                            </div>
+                            <div class="press-card diamond">
+                                <h4>"Paint Protection" (5v5)</h4>
+                                <p><strong>Setup:</strong> Full court</p>
+                                <p><strong>Scoring:</strong> Defense gets 3 points for forcing outside shot</p>
+                                <p><strong>Purpose:</strong> Help defense habits</p>
+                            </div>
+                            <div class="press-card hybrid">
+                                <h4>"Diamond Press Game"</h4>
+                                <p><strong>Setup:</strong> Full court after made baskets</p>
+                                <p><strong>Scoring:</strong> Defense gets points for turnovers</p>
+                                <p><strong>Purpose:</strong> Press execution and rotations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">📅</span>
+                        Season Timeline
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Pre</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Preseason (Weeks 1-4)</div>
+                                <p><strong>Week 1:</strong> Individual fundamentals (40% individual, 60% team)<br>
+                                <strong>Week 2:</strong> Basic team concepts<br>
+                                <strong>Week 3:</strong> System installation<br>
+                                <strong>Week 4:</strong> Special situations introduction</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Early</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Early Season (Months 1-2)</div>
+                                <p>Progressive complexity addition, multiple defensive looks, situational refinement, 70% team focus</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Mid</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Mid-Season (Months 3-4)</div>
+                                <p>System mastery emphasis, game plan specific work, 90% team focus, advanced adjustments</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Late</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Late Season/Playoffs</div>
+                                <p>Situation-specific preparation, opponent scouting integration, 95% team systems, mental preparation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="drill-grid">
+                <div class="drill-card" style="--drill-color: #e74c3c;">
+                    <div class="drill-title">Beginner Drills (Ages 6-11)</div>
+                    <div class="drill-description">
+                        Foundation building with fun, engaging activities that develop basic defensive concepts
+                    </div>
+                    <div class="drill-focus">
+                        <strong>Key Drills:</strong><br>
+                        • Sharks and Minnows: Dribble protection and defensive pressure<br>
+                        • Mirror Defense: Following offensive movements<br>
+                        • Pac Man: Learning court lines while defending<br>
+                        • Defensive Slides Race: Proper footwork competition
+                    </div>
+                </div>
+                
+                <div class="drill-card" style="--drill-color: #f39c12;">
+                    <div class="drill-title">Intermediate Drills (Ages 12-14)</div>
+                    <div class="drill-description">
+                        Team concept introduction with structured defensive movements and positioning
+                    </div>
+                    <div class="drill-focus">
+                        <strong>Key Drills:</strong><br>
+                        • Zig-Zag Defensive Slide: Lateral movement and angles<br>
+                        • Deny and Recover: Off-ball defense<br>
+                        • Box Out Circle: Rebounding positioning<br>
+                        • Shell Drill: Basic team rotations
+                    </div>
+                </div>
+                
+                <div class="drill-card" style="--drill-color: #27ae60;">
+                    <div class="drill-title">Advanced Drills (Ages 15+)</div>
+                    <div class="drill-description">
+                        Complex team systems with full situational applications and game-like scenarios
+                    </div>
+                    <div class="drill-focus">
+                        <strong>Key Drills:</strong><br>
+                        • 4v3 Continuous: Communication and rotations<br>
+                        • Deny Flash Drill: Paint protection<br>
+                        • Shell Backscreens: Screen navigation<br>
+                        • 5v5 Situational: Game scenarios
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CULTURE TAB -->
+        <div id="culture" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    <div class="metric-value">2.3x</div>
+                    <div class="metric-label">Culture Impact on Win Rate</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <div class="metric-value">67%</div>
+                    <div class="metric-label">More Wins (3+ Coverages)</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #27ae60, #229954);">
+                    <div class="metric-value">5</div>
+                    <div class="metric-label">Mental Aspects</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                    <div class="metric-value">Excellence</div>
+                    <div class="metric-label">Never An Accident</div>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏆</span>
+                        Defensive Identity Development
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Building Championship Culture:</div>
+                        <ul class="info-list">
+                            <li><strong>Establish non-negotiables:</strong> Effort, communication, help</li>
+                            <li><strong>Create defensive goals:</strong> Measurable team targets</li>
+                            <li><strong>Celebrate defensive plays:</strong> Equal emphasis with offense</li>
+                            <li><strong>Track and display stats:</strong> Visual reinforcement</li>
+                            <li><strong>Develop pride:</strong> "Defense wins championships" mentality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🧠</span>
+                        Mental Aspects of Defense
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Five Key Mental Components:</div>
+                        <ul class="info-list">
+                            <li><strong>Toughness:</strong> Physical and mental resilience</li>
+                            <li><strong>Discipline:</strong> Maintaining system integrity</li>
+                            <li><strong>Trust:</strong> Believing in help defense</li>
+                            <li><strong>Communication:</strong> Constant verbal connection</li>
+                            <li><strong>Competitiveness:</strong> Taking challenges personally</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">🔧</span>
+                        Keys to Sustained Success
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Long-term Excellence Framework:</div>
+                        <ul class="info-list">
+                            <li><strong>Consistency:</strong> Same principles across all levels</li>
+                            <li><strong>Progression:</strong> Age-appropriate development</li>
+                            <li><strong>Adaptability:</strong> Multiple system flexibility</li>
+                            <li><strong>Evaluation:</strong> Data-driven improvements</li>
+                            <li><strong>Culture:</strong> Defensive pride tradition</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #f39c12;">
+                    <div class="card-title">
+                        <span class="card-emoji">🚀</span>
+                        Quick Implementation Guide
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Today</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Start Today</div>
+                                <p>Focus on rim protection first, implement ELC communication, begin tracking defensive efficiency, start 5-minute daily transition work</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Week</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Build This Week</div>
+                                <p>Install basic pack-line positioning, practice transition assignments, develop communication calls, establish defensive standards</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Month</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Master This Month</div>
+                                <p>Complete press system installation, implement multiple concepts, establish evaluation methods, build championship culture</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">Season</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Long-Term Excellence</div>
+                                <p>Refine personnel adjustments, master situational applications, build defensive versatility, develop next-level defenders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="defense-grid">
+                <div class="defense-card" style="--card-color: #9b59b6;">
+                    <div class="card-title">
+                        <span class="card-emoji">📊</span>
+                        Evaluation & Analytics
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Team Defense Metrics:</div>
+                        <ul class="info-list">
+                            <li>Defensive efficiency rating (points per 100 possessions)</li>
+                            <li>Opponent field goal percentage (overall, by zone)</li>
+                            <li>Turnovers forced per game</li>
+                            <li>Points allowed in paint</li>
+                            <li>Transition points allowed</li>
+                            <li>Defensive rebounding percentage</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Individual & Qualitative Metrics</button>
+                    <div class="collapsible-content">
+                        <p><strong>Individual Defense Metrics:</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>Defensive rating</li>
+                            <li>Steals and blocks per game</li>
+                            <li>Deflections per game</li>
+                            <li>Charges taken</li>
+                            <li>Closeout effectiveness</li>
+                        </ul>
+                        <p><strong>Qualitative Assessment:</strong></p>
+                        <ul>
+                            <li>Communication quality and frequency</li>
+                            <li>Effort indicators (sprint back %, closeout intensity)</li>
+                            <li>Technical execution (stance, footwork, positioning)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #e67e22;">
+                    <div class="card-title">
+                        <span class="card-emoji">🔬</span>
+                        Modern Adaptations
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Current Trends:</div>
+                        <ul class="info-list">
+                            <li><strong>NBA Influence:</strong> Increased switching at all levels</li>
+                            <li><strong>Space-oriented defense:</strong> "Positionless" defensive concepts</li>
+                            <li><strong>Analytics-driven decisions:</strong> Data-based adjustments</li>
+                            <li><strong>Technology integration:</strong> Video analysis, stats apps</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Personnel Considerations</button>
+                    <div class="collapsible-content">
+                        <div class="press-variations">
+                            <div class="press-card zone">
+                                <h4>Small, Quick Teams</h4>
+                                <p><strong>Primary:</strong> Pressure defense and switching</p>
+                                <p><strong>Avoid:</strong> Drop coverage, traditional post defense</p>
+                            </div>
+                            <div class="press-card diamond">
+                                <h4>Size Without Mobility</h4>
+                                <p><strong>Primary:</strong> Pack-line concepts, zone defense</p>
+                                <p><strong>Avoid:</strong> Switching, high pressure</p>
+                            </div>
+                            <div class="press-card hybrid">
+                                <h4>Balanced Personnel</h4>
+                                <p><strong>Primary:</strong> Hybrid system implementation</p>
+                                <p><strong>Strength:</strong> Can adjust to any opponent</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-card" style="--card-color: #34495e;">
+                    <div class="card-title">
+                        <span class="card-emoji">💭</span>
+                        Championship Philosophy
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">The Championship Defense Formula:</div>
+                        <ul class="info-list">
+                            <li><strong>Strong foundational principles</strong> (rim protection, help defense)</li>
+                            <li><strong>Adaptable hybrid systems</strong> (multiple defensive looks)</li>
+                            <li><strong>Progressive skill development</strong> (age-appropriate teaching)</li>
+                            <li><strong>Evidence-based methods</strong> (constraint learning, games approach)</li>
+                            <li><strong>Comprehensive evaluation</strong> (data-driven adjustments)</li>
+                            <li><strong>Championship culture</strong> (defensive pride and identity)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); border-radius: 10px; color: white;">
+                        <p style="font-style: italic; font-size: 1.1rem; text-align: center; line-height: 1.6;">
+                            <strong>"The best teams make defense look easy because they make the hard work look routine. Excellence in defense is never an accident - it's the result of high intention, sincere effort, intelligent direction, and skillful execution."</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching function
+        function showTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Initialize charts for specific sections
+            if (tabName === 'overview') {
+                setTimeout(initOverviewCharts, 100);
+            }
+        }
+        
+        // Collapsible functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapsibles = document.querySelectorAll('.collapsible');
+            
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+                });
+            });
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.defense-card, .age-card, .drill-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+        
+        // Initialize overview charts
+        function initOverviewCharts() {
+            const ctx = document.getElementById('winPercentageChart');
+            if (ctx && !ctx.chartInitialized) {
+                ctx.chartInitialized = true;
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['105+', '104-105', '103-104', '102-103', '101-102', '100-101', '<100'],
+                        datasets: [{
+                            label: 'Win Percentage',
+                            data: [35, 42, 48, 55, 63, 72, 82],
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Elite Defense Correlation with Championships'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Defensive Rating Range'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Win Percentage (%)'
+                                },
+                                min: 0,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Initialize charts on load
+        window.addEventListener('load', function() {
+            setTimeout(initOverviewCharts, 500);
+        });
+    </script>
+    
+    <footer style="margin-top: 50px; padding: 30px; border-top: 2px solid #ccc; text-align: center; font-size: 0.9em; color: #666; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 15px;">
+        <p><strong>© 2025 Valery Lavrov. All Rights Reserved.</strong></p>
+        <p>The Championship Coaching Blueprint™ - Proprietary coaching methodology and systems.</p>
+        <p>Unauthorized reproduction or distribution is strictly prohibited.</p>
+        <div style="margin-top: 15px; font-style: italic; color: #7f8c8d;">
+            <p>"Implementation quality trumps system selection. A well-executed basic defense beats a poorly executed complex system every time."</p>
+        </div>
+    </footer>
+</body>
+</html>
