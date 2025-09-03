@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Valery Lavrov">
-<meta name="copyright" content="Copyright 2025 Valery Lavrov. All Rights Reserved.">
-<meta name="robots" content="noarchive"> 
-<!-- Prevents cached copies -->
-<meta property="article:author" content="Valery Lavrov">
-<meta property="article:published_time" content="2025-01-[2025-08-20]">
-
-
-<!-- ADD THIS JSON-LD SCRIPT HERE -->
+    <meta name="copyright" content="Copyright 2025 Valery Lavrov. All Rights Reserved.">
+    <meta name="robots" content="noarchive">
+    <meta property="article:author" content="Valery Lavrov">
+    <meta property="article:published_time" content="2025-09-03">
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "CreativeWork",
-      "name": "The Championship Coaching Blueprint",
+      "name": "Basketball Passing: The Complete Unified Research Guide",
       "author": {
         "@type": "Person",
         "name": "Valery Lavrov"
       },
-      "datePublished": "2025-08-20",
+      "datePublished": "2025-09-03",
       "copyrightYear": "2025",
       "copyrightHolder": {
         "@type": "Person",
@@ -30,7 +27,9 @@
       "license": "All Rights Reserved"
     }
     </script>
-    <title>Basketball Pass Analysis: The Data-Driven Revolution in Post-Pass Movement</title>
+    
+    <title>Basketball Passing: The Complete Unified Research Guide | Championship Coaching Blueprint</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -40,1299 +39,2021 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.98);
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        header {
-            background: linear-gradient(45deg, #1a1a2e, #16213e);
-            color: white;
-            padding: 3rem;
+        .header {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 40px;
         }
         
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.1;
+        .header h1 {
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
         
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        header p {
+        .header p {
+            color: #666;
             font-size: 1.3rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         
-        .key-stat {
-            background: rgba(255,255,255,0.15);
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            position: relative;
-            z-index: 1;
-        }
-        
-        nav {
-            background: #2c3e50;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            min-height: 60px;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 0.8rem;
-            margin: 0;
-            padding: 0;
-            line-height: 1.2;
-        }
-        
-        nav li {
-            margin-bottom: 0.5rem;
-        }
-        
-        nav li a {
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.2rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            font-weight: 500;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            display: inline-block;
-        }
-        
-        nav li a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        main {
-            padding: 2rem;
-        }
-        
-        section {
-            margin-bottom: 4rem;
-            padding: 2.5rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-            border-radius: 0 20px 20px 0;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid #3498db;
-            position: relative;
-        }
-        
-        h3 {
-            color: #34495e;
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem 0;
-            position: relative;
-        }
-        
-        h4 {
-            color: #2c3e50;
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 20px rgba(116, 185, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .highlight-box::before {
-            content: '💡';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            opacity: 0.7;
-        }
-        
-        .warning-box {
-            background: linear-gradient(135deg, #fd79a8, #e84393);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 20px rgba(253, 121, 168, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .warning-box::before {
-            content: '⚠️';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            opacity: 0.7;
-        }
-        
-        .success-box {
-            background: linear-gradient(135deg, #00b894, #00a085);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 20px rgba(0, 184, 148, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .success-box::before {
-            content: '🎯';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            opacity: 0.7;
-        }
-        
-        .stats-grid {
+        .stats-banner {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            color: white;
         }
         
-        .stat-card {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            padding: 2rem;
-            border-radius: 15px;
+        .banner-stat {
             text-align: center;
-            border: 2px solid #e2e8f0;
+        }
+        
+        .banner-stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .banner-stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 25px;
+            padding: 8px;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .tab:hover:not(.active) {
+            background: rgba(255,255,255,0.8);
+            transform: translateY(-1px);
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .passing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .passing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .stat-card::before {
+        .passing-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: var(--card-color, #667eea);
         }
         
-        .stat-card:hover {
-            transform: translateY(-8px);
+        .passing-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border-color: #667eea;
         }
         
-        .stat-number {
-            font-size: 3rem;
+        .card-title {
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #667eea;
-            margin-bottom: 0.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-emoji {
+            font-size: 1.8rem;
+        }
+        
+        .effectiveness-meter {
+            width: 100%;
+            height: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .effectiveness-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 5px;
         }
         
         .stat-label {
-            font-size: 1rem;
-            color: #4a5568;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
         }
         
-        .stat-description {
-            font-size: 0.9rem;
-            color: #718096;
-            margin-top: 0.5rem;
+        .collapsible {
+            background-color: #f1f2f6;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .collapsible:hover {
+            background-color: #e8eaf6;
+        }
+        
+        .collapsible.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .collapsible:after {
+            content: '\002B';
+            color: #2c3e50;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        .collapsible.active:after {
+            content: "\2212";
+            color: white;
+        }
+        
+        .collapsible-content {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .collapsible-content.active {
+            max-height: 2000px;
+            padding: 20px 18px;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+        }
+        
+        .section-content {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f1f2f6, #ddd6fe);
+            border-radius: 10px;
+            border-left: 4px solid var(--card-color, #667eea);
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .info-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #34495e;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .info-list li::before {
+            content: '🏀';
+            position: absolute;
+            left: 0;
+            color: var(--card-color, #667eea);
+        }
+        
+        .chart-container {
+            margin: 30px 0;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .chart-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin: 20px 0;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .press-variations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .press-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .pass-location { border-left-color: #e74c3c; }
+        .post-action { border-left-color: #3498db; }
+        .team-chemistry { border-left-color: #27ae60; }
+        .zone-adaptation { border-left-color: #f39c12; }
+        
+        .age-progression {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .age-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .age-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--age-color, #667eea);
+        }
+        
+        .age-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .age-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .drill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .drill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--drill-color, #667eea);
+        }
+        
+        .drill-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .drill-description {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .drill-focus {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--drill-color, #667eea);
         }
         
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
+            margin: 20px 0;
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
         }
         
         .data-table th {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 1.5rem;
-            text-align: left;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         
-        .data-table td {
-            padding: 1.2rem 1.5rem;
-            border-bottom: 1px solid #f1f3f4;
-            transition: background-color 0.2s ease;
-        }
-        
-        .data-table tbody tr:hover {
+        .data-table tr:hover {
             background: #f8f9fa;
-            transform: scale(1.01);
-        }
-        
-        .data-table tbody tr:nth-child(even) {
-            background: #fafbfc;
         }
         
         .highlight {
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 2px 6px;
+            border-radius: 4px;
             font-weight: bold;
-            font-size: 0.9rem;
         }
-        
-        .warning {
-            background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+
+        .zone-modification-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .zone-modification-table th,
+        .zone-modification-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .zone-modification-table th {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
             color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-weight: 600;
         }
-        
-        .drill-card {
-            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
-            border: 2px solid #38b2ac;
+
+        .footer {
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .implementation-takeaways {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
             border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(56, 178, 172, 0.2);
+            margin-bottom: 30px;
         }
-        
-        .drill-card::before {
-            content: '🏀';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            opacity: 0.7;
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
-        
-        .drill-title {
-            font-weight: bold;
-            color: #2c7a7b;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+
+        .takeaway-item {
+            text-align: center;
+            padding: 15px;
         }
-        
-        .implementation-list {
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .action-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .action-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .action-card ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
-        
-        .implementation-list li {
-            background: #f7fafc;
-            margin: 1rem 0;
-            padding: 1.5rem;
-            border-left: 5px solid #667eea;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+
+        .action-card li {
+            padding: 5px 0;
+            color: #34495e;
         }
-        
-        .implementation-list li:hover {
-            background: #edf2f7;
-            transform: translateX(5px);
-        }
-        
-        .implementation-list li:before {
-            content: "✓";
-            color: #48bb78;
-            font-weight: bold;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .research-citation {
-            background: #f8f9fa;
-            border-left: 4px solid #6c757d;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-style: italic;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .progress-indicator {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #ecf0f1;
-            padding: 1.5rem;
+
+        .championship-formula {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px;
             border-radius: 15px;
-            margin: 2rem 0;
+            margin-bottom: 30px;
         }
-        
-        .progress-step {
-            flex: 1;
-            text-align: center;
-            padding: 1rem;
-            margin: 0 0.5rem;
-            background: white;
-            border-radius: 10px;
-            border: 2px solid #bdc3c7;
-            transition: all 0.3s ease;
-        }
-        
-        .progress-step.active {
-            border-color: #3498db;
-            background: #e3f2fd;
-            transform: scale(1.05);
-        }
-        
-        .age-grid {
+
+        .formula-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
-        
-        .age-card {
-            background: linear-gradient(135deg, #fff, #f8f9fa);
-            border: 2px solid #dee2e6;
-            border-radius: 15px;
-            padding: 2rem;
+
+        .formula-item {
             text-align: center;
-            transition: all 0.3s ease;
         }
-        
-        .age-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-color: #667eea;
+
+        .formula-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
-        
-        .age-card h4 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+
+        .quote-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
         }
-        
-        .citation {
-            font-size: 0.85rem;
-            color: #6c757d;
-            font-style: italic;
-            margin-top: 0.5rem;
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            nav {
-                padding: 0.5rem;
+            .container {
+                padding: 20px;
             }
             
-            nav ul {
-                flex-direction: column;
-                gap: 0.3rem;
+            .header h1 {
+                font-size: 2.5rem;
             }
             
-            nav li a {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.85rem;
-                text-align: center;
-                display: block;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            main {
-                padding: 1rem;
-            }
-            
-            section {
-                padding: 1.5rem;
-            }
-            
-            .stats-grid {
+            .passing-grid, .age-progression, .drill-grid, .takeaway-grid, .action-cards, .formula-grid {
                 grid-template-columns: 1fr;
             }
             
-            .data-table {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                margin-bottom: 5px;
+            }
+            
+            .data-table, .zone-modification-table {
                 font-size: 0.9rem;
             }
             
             .data-table th,
-            .data-table td {
-                padding: 0.8rem;
+            .data-table td,
+            .zone-modification-table th,
+            .zone-modification-table td {
+                padding: 8px;
             }
-        }
-        
-        @media (max-width: 1024px) {
-            nav ul {
-                gap: 0.3rem;
-            }
-            
-            nav li a {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.85rem;
-            }
-        }
-        
-        .floating-nav {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-        }
-        
-        .floating-nav button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .floating-nav button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
     </style>
 </head>
 <body>
-      <!-- Navigation Component  -->
-<div class="nav-component" style="
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 50px;
-    padding: 8px 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
-">
-    <a href="index.html" style="
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        color: #2c3e50;
-        font-weight: 600;
-        font-size: 0.9rem;
+    <!-- Navigation Component -->
+    <div class="nav-component" style="
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
         transition: all 0.3s ease;
     ">
-        <span style="
-            font-size: 1.2rem;
-            transform: rotate(180deg);
-            transition: transform 0.3s ease;
-        ">➤</span>
-        Back to Resources
-    </a>
-</div>
+        <a href="index.html" style="
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        ">
+            <span style="
+                font-size: 1.2rem;
+                transform: rotate(180deg);
+                transition: transform 0.3s ease;
+            ">➤</span>
+            Back to Resources
+        </a>
+    </div>
+
     <div class="container">
-        <header>
-            <h1>🏀 Basketball Pass Analysis</h1>
-            <p>Cutting after passing generates 1.58 PPP - the highest-value action in basketball</p>
-        </header>
+        <div class="header">
+            <h1>🏀 Basketball Passing: Complete Research Guide</h1>
+            <p>Integrating Technical Skill, Team Chemistry, Analytics, and Psychology for Maximum Team Success</p>
+        </div>
         
-        <nav>
-            <ul>
-                <li><a href="#executive-summary">Executive Summary</a></li>
-                <li><a href="#pass-locations">Pass Locations</a></li>
-                <li><a href="#post-pass-actions">Post-Pass Actions</a></li>
-                <li><a href="#implementation">Implementation</a></li>
-                <li><a href="#coaching-strategies">Coaching Strategies</a></li>
-                <li><a href="#development">Development</a></li>
-                <li><a href="#research">Research</a></li>
-            </ul>
-        </nav>
+        <div class="stats-banner">
+            <div class="banner-stat">
+                <div class="banner-stat-value">1.58</div>
+                <div class="banner-stat-label">PPP Cutting After Pass</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">99%</div>
+                <div class="banner-stat-label">More Effective Than Screens</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">20.8%</div>
+                <div class="banner-stat-label">Elite Program Usage</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">8.9%</div>
+                <div class="banner-stat-label">Average Team Usage</div>
+            </div>
+            <div class="banner-stat">
+                <div class="banner-stat-value">0-2s</div>
+                <div class="banner-stat-label">Optimal Timing Window</div>
+            </div>
+        </div>
         
-        <main>
-            <section id="executive-summary">
-                <h2>📋 Executive Summary</h2>
-                
-                <div class="highlight-box">
-                    <h3>Revolutionary Finding: Cutting Dominates All Offensive Actions</h3>
-                    <p><strong>NBA player tracking reveals cutting after passing produces 1.58 points per possession—99% more effective than typical ball screen actions (0.79 PPP).</strong> Yet most teams utilize cuts on only 8-9% of possessions, representing basketball's greatest untapped opportunity.</p>
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">📊 Revolutionary Discovery</button>
+            <button class="tab" onclick="showTab('locations')">🎯 Pass Locations</button>
+            <button class="tab" onclick="showTab('chemistry')">🤝 Team Chemistry</button>
+            <button class="tab" onclick="showTab('timing')">⏱️ Timing & Dynamics</button>
+            <button class="tab" onclick="showTab('quality')">✅ Pass Quality</button>
+            <button class="tab" onclick="showTab('systems')">⚙️ Advanced Systems</button>
+            <button class="tab" onclick="showTab('development')">📚 Development</button>
+            <button class="tab" onclick="showTab('implementation')">🚀 Implementation</button>
+        </div>
+        
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="content-section active">
+            <div class="metric-cards">
+                <div class="metric-card" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    <div class="metric-value">1.58 PPP</div>
+                    <div class="metric-label">Cutting After Passing</div>
                 </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">1.58</div>
-                        <div class="stat-label">PPP from Cutting</div>
-                        <div class="stat-description">Highest-value offensive action</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">99%</div>
-                        <div class="stat-label">Efficiency Advantage</div>
-                        <div class="stat-description">Over ball screen actions</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">20.8%</div>
-                        <div class="stat-label">Elite Usage Rate</div>
-                        <div class="stat-description">Championship programs</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">115+</div>
-                        <div class="stat-label">Offensive Rating</div>
-                        <div class="stat-description">Motion offense teams</div>
-                    </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #27ae60, #229954);">
+                    <div class="metric-value">0.79 PPP</div>
+                    <div class="metric-label">Ball Screen Actions</div>
                 </div>
-                
-                <h3>Key Research Findings</h3>
-                <ul class="implementation-list">
-                    <li><strong>Pass Location Impact:</strong> Corner three-point zones generate 95% assisted field goals, with paint passes increasing PPP by 51%</li>
-                    <li><strong>Timing Windows:</strong> Post-pass actions most effective within 0-2 seconds, with efficiency declining after 4 seconds</li>
-                    <li><strong>Motion Offense Superiority:</strong> Teams implementing motion principles consistently achieve top-10 efficiency rankings</li>
-                    <li><strong>Development Correlation:</strong> Higher assist rates show statistical significance with winning percentages across all levels</li>
-                </ul>
-                
-                <div class="warning-box">
-                    <h4>⚡ Critical Insight for Coaches</h4>
-                    <p>Standing still after passing reduces team scoring efficiency by 15-20%. The data overwhelmingly supports constant movement as basketball's fundamental principle, yet this remains the most underutilized strategy in the sport.</p>
+                <div class="metric-card" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <div class="metric-value">99% More</div>
+                    <div class="metric-label">Effective Than Screens</div>
                 </div>
-            </section>
+                <div class="metric-card" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                    <div class="metric-value">Greatest</div>
+                    <div class="metric-label">Untapped Opportunity</div>
+                </div>
+            </div>
             
-            <section id="pass-locations">
-                <h2>🎯 Pass Location Effectiveness Analysis</h2>
-                
-                <h3>Statistical Breakdown by Court Zone</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Pass Location</th>
-                            <th>Success Rate</th>
-                            <th>Points/Attempt</th>
-                            <th>Primary Outcomes</th>
-                            <th>Elite Usage</th>
-                            <th>Difficulty</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Corner 3-Point</strong></td>
-                            <td><span class="highlight">95%</span> assisted</td>
-                            <td>1.25</td>
-                            <td>3PT Shot (78%), Drive (22%)</td>
-                            <td>Warriors: 28%</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Paint Entry</strong></td>
-                            <td>68%</td>
-                            <td><span class="highlight">1.189</span></td>
-                            <td>Close shot (65%), Assist (35%)</td>
-                            <td>Spurs: 32%</td>
-                            <td>High</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Wing Pass</strong></td>
-                            <td>64%</td>
-                            <td>1.12</td>
-                            <td>3PT (45%), Drive (35%), Pass (20%)</td>
-                            <td>Villanova: 24%</td>
-                            <td>Low</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Top of Key</strong></td>
-                            <td>61%</td>
-                            <td>1.08</td>
-                            <td>3PT (40%), Drive (40%), Pass (20%)</td>
-                            <td>Duke: 22%</td>
-                            <td>Low</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Skip Pass</strong></td>
-                            <td>47%</td>
-                            <td><span class="highlight">1.34</span></td>
-                            <td>3PT (85%), Reset (15%)</td>
-                            <td>Elite: 8%</td>
-                            <td>Very High</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Post Entry</strong></td>
-                            <td>52%</td>
-                            <td>1.057</td>
-                            <td>Post shot (60%), Kick-out (40%)</td>
-                            <td>Traditional: 18%</td>
-                            <td>High</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="research-citation">
-                    <strong>Research Note:</strong> Data compiled from NBA Second Spectrum tracking, Synergy Sports analytics, and championship program analysis (2019-2024 seasons).
-                </div>
-                
-                <h3>Advanced Passing Analytics</h3>
-                <div class="success-box">
-                    <h4>Elite Player Advantages</h4>
-                    <p><strong>Professional tracking reveals dramatic skill gaps:</strong> Elite players demonstrate 88.3% higher accuracy on bounce passes and 109.2% superior performance on behind-the-back passes compared to inexperienced players. Paul Pierce's teammates historically shot higher percentages after his passes than any other NBA player's assists.</p>
-                </div>
-                
-                <h4>Ball Movement Speed Correlation</h4>
-                <p>Teams with faster ball movement consistently generate higher percentage shots:</p>
-                <ul class="implementation-list">
-                    <li><strong>Optimal Timing:</strong> Teams maintaining >0.25 touches per second show higher offensive ratings</li>
-                    <li><strong>Decision Windows:</strong> Maximum efficiency occurs within 0-2 seconds after pass reception</li>
-                    <li><strong>Threshold Effect:</strong> Ball movement beyond 4 seconds shows significant efficiency decline</li>
-                    <li><strong>Championship Correlation:</strong> Title teams average 2.3 more passes per possession than league average</li>
-                </ul>
-            </section>
-            
-            <section id="post-pass-actions">
-                <h2>⚡ Post-Pass Action Effectiveness</h2>
-                
-                <h3>Comprehensive Action Analysis</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Action Type</th>
-                            <th>Success Rate</th>
-                            <th>PPP</th>
-                            <th>Top Variants</th>
-                            <th>Best After</th>
-                            <th>Youth Rating</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cutting</strong></td>
-                            <td><span class="highlight">67%</span></td>
-                            <td><span class="highlight">1.58</span></td>
-                            <td>Backdoor (45%), Baseline (30%), Diagonal (25%)</td>
-                            <td>Wing passes, Top key</td>
-                            <td>🌟 Excellent</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Screen-the-Screener</strong></td>
-                            <td>58%</td>
-                            <td>1.56</td>
-                            <td>High-cross (60%), Back-screen (40%)</td>
-                            <td>Early possession (0-16s)</td>
-                            <td>⭐ Advanced</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ball Screen</strong></td>
-                            <td>44%</td>
-                            <td>1.2</td>
-                            <td>Pick-and-roll (55%), Slip (45%)</td>
-                            <td>High post passes</td>
-                            <td>✅ Good</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Give & Go</strong></td>
-                            <td>61%</td>
-                            <td>1.18</td>
-                            <td>Quick cut (65%), Delayed (35%)</td>
-                            <td>Perimeter passes</td>
-                            <td>🌟 Excellent</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Relocating</strong></td>
-                            <td>43%</td>
-                            <td>1.14</td>
-                            <td>Corner move (50%), Wing shift (35%)</td>
-                            <td>Paint kicks, Corner passes</td>
-                            <td>✅ Good</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pin-Down Screen</strong></td>
-                            <td>41%</td>
-                            <td>1.09</td>
-                            <td>Shooter curl (60%), Fade (40%)</td>
-                            <td>Wing passes, Top key</td>
-                            <td>⭐ Intermediate</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Standing Still</strong></td>
-                            <td><span class="warning">28%</span></td>
-                            <td><span class="warning">0.87</span></td>
-                            <td>Spot-up (75%), Watch (25%)</td>
-                            <td>Emergency only</td>
-                            <td>❌ Avoid</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="highlight-box">
-                    <h4>🎯 Cutting: Basketball's Ultimate Weapon</h4>
-                    <p><strong>Revolutionary Discovery:</strong> Cutting generates nearly double the points per possession of standing still (1.58 vs 0.87 PPP). Back-door cuts show 45% of all successful cutting actions, with baseline cuts ranking second at 30%. Elite programs use cutting on 20.8% of possessions vs 8.9% league average.</p>
-                </div>
-                
-                <h3>Screen-the-Screener Excellence</h3>
-                <div class="success-box">
-                    <h4>Advanced Action Breakdown</h4>
-                    <p><strong>High-cross screens combined with 3-point attempts demonstrate maximum effectiveness during the first 8 seconds of possessions.</strong> Back screens resulting in layup attempts show the highest success probability, while flare screens creating 2-point opportunities rank second in effectiveness ratings.</p>
-                </div>
-                
-                <h4>Timing Window Analysis</h4>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Time Window</th>
-                            <th>Action Effectiveness</th>
-                            <th>Best Actions</th>
-                            <th>Success Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0-2 seconds</td>
-                            <td><span class="highlight">Maximum</span></td>
-                            <td>Cutting, Give & Go</td>
-                            <td>65-67%</td>
-                        </tr>
-                        <tr>
-                            <td>2-4 seconds</td>
-                            <td>High</td>
-                            <td>Screens, Relocating</td>
-                            <td>58-61%</td>
-                        </tr>
-                        <tr>
-                            <td>4-8 seconds</td>
-                            <td>Moderate</td>
-                            <td>Screen-the-screener</td>
-                            <td>45-50%</td>
-                        </tr>
-                        <tr>
-                            <td>8+ seconds</td>
-                            <td><span class="warning">Declining</span></td>
-                            <td>Reset offense</td>
-                            <td>35-40%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <section id="implementation">
-                <h2>🚀 Implementation in Practice</h2>
-                
-                <h3>Evidence-Based Practice Structure</h3>
-                
-                <div class="drill-card">
-                    <div class="drill-title">Drill 1: Pass & Cut Hierarchy Training</div>
-                    <p><strong>Setup:</strong> 4 players, full court, emphasis on immediate post-pass movement</p>
-                    <p><strong>Action:</strong> Player 1 passes, immediately executes primary cut (backdoor/baseline). If not open within 2 seconds, transitions to secondary action (screen away).</p>
-                    <p><strong>Focus:</strong> Decision-making speed, reading defensive reactions, maintaining 1.58 PPP effectiveness</p>
-                    <p><strong>Progression:</strong> Add live defense, multiple passing options, transition to 5v5 scrimmage with cutting requirements</p>
-                    <p><strong>Data Target:</strong> Track cutting frequency (aim for 20%+ of possessions) and PPP improvement</p>
-                </div>
-
-                <div class="drill-card">
-                    <div class="drill-title">Drill 2: Motion Offense Decision Training</div>
-                    <p><strong>Setup:</strong> 5v5 half court with specific constraints</p>
-                    <p><strong>Constraints:</strong> "No shot until ball touches paint" or "Must have 2 cuts before shooting"</p>
-                    <p><strong>Focus:</strong> Forces post-pass movement, develops reading skills, creates automatic habits</p>
-                    <p><strong>Progression:</strong> Reduce constraints gradually, add time pressure, implement in game situations</p>
-                    <p><strong>Analytics:</strong> Track secondary assists, cutting attempts, and team offensive rating improvement</p>
-                </div>
-
-                <div class="drill-card">
-                    <div class="drill-title">Drill 3: Screen-the-Screener Series</div>
-                    <p><strong>Setup:</strong> 3 players, focus on advanced action chains</p>
-                    <p><strong>Action:</strong> Initial screen leads to second screen away from ball, creating multiple scoring options</p>
-                    <p><strong>Focus:</strong> Timing (0-16 second effectiveness window), spatial awareness, defensive manipulation</p>
-                    <p><strong>Progression:</strong> Add defensive rotations, vary screen types, integrate with cutting actions</p>
-                    <p><strong>Measurement:</strong> Success rate in first 8 seconds vs later possession (target 58%+ early)</p>
-                </div>
-
-                <h3>Practice Implementation Framework</h3>
-                <div class="progress-indicator">
-                    <div class="progress-step active">
-                        <strong>Foundation</strong><br>
-                        Basic Pass & Cut
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">⚡</span>
+                        Revolutionary Discovery
                     </div>
-                    <div class="progress-step">
-                        <strong>Development</strong><br>
-                        Multiple Actions
+                    <div class="effectiveness-meter">
+                        <div class="effectiveness-fill" style="width: 99%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
                     </div>
-                    <div class="progress-step">
-                        <strong>Integration</strong><br>
-                        Live Situations
-                    </div>
-                    <div class="progress-step">
-                        <strong>Mastery</strong><br>
-                        Game Application
-                    </div>
-                </div>
-
-                <h3>Statistical Tracking for Improvement</h3>
-                <ul class="implementation-list">
-                    <li><strong>Primary Metrics:</strong> Cutting frequency per possession, secondary assist rate, points per possession by action type</li>
-                    <li><strong>Advanced Analytics:</strong> Pass-to-shot time tracking, post-pass movement distance, defensive impact measurements</li>
-                    <li><strong>Benchmarking:</strong> Compare team stats to elite programs (Golden State 28% corner usage, San Antonio 32% paint touches)</li>
-                    <li><strong>Individual Development:</strong> Player-specific cutting success rates, decision-making speed improvements</li>
-                </ul>
-
-                <div class="warning-box">
-                    <h4>⚠️ Implementation Challenges</h4>
-                    <p><strong>Common Resistance:</strong> Players initially resist constant movement due to fatigue. Solution: Gradually increase intensity while demonstrating statistical advantages. Show players their individual PPP improvements when following post-pass action hierarchy.</p>
-                </div>
-            </section>
-
-            <section id="coaching-strategies">
-                <h2>🏆 Professional Coaching Strategies</h2>
-
-                <h3>Steve Kerr's Golden State System</h3>
-                <div class="success-box">
-                    <h4>Structured Freedom Philosophy</h4>
-                    <p><strong>"Pace and Space" through Motion Principles:</strong> The Warriors use specific series like "Weak" (wing entry with shallow cut, cross-screen for dunker spot) but allow endings to vary based on defensive reactions. This creates unpredictability while maintaining systematic advantages, with players making real-time decisions rather than executing predetermined patterns.</p>
-                </div>
-
-                <h4>Key Golden State Principles</h4>
-                <ul class="implementation-list">
-                    <li><strong>Ball Movement Speed:</strong> Target <0.5 seconds per touch to maintain defensive pressure</li>
-                    <li><strong>Spacing Rules:</strong> Minimum 18-foot spacing between players to create driving lanes</li>
-                    <li><strong>Cutting Priority:</strong> Every pass must trigger movement from at least 2 players</li>
-                    <li><strong>Screen Timing:</strong> Execute screens within 2 seconds of ball entry to maximize effectiveness</li>
-                </ul>
-
-                <h3>Gregg Popovich's San Antonio Philosophy</h3>
-                <div class="highlight-box">
-                    <h4>Team-First Movement Culture</h4>
-                    <p><strong>"Penetrate for a teammate, not necessarily for yourself"</strong> serves as the foundation for elite ball movement. The Spurs consistently assisted on 2,000+ shots per season while taking fewer total attempts than league average, demonstrating how quality passing creates better shot selection.</p>
-                </div>
-
-                <h4>Popovich's Core Concepts</h4>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Principle</th>
-                            <th>Implementation</th>
-                            <th>Measurable Outcome</th>
-                            <th>Youth Application</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Unselfish Play</td>
-                            <td>Pass-first mentality in all situations</td>
-                            <td>League-leading assist rates</td>
-                            <td>Reward passes over scoring</td>
-                        </tr>
-                        <tr>
-                            <td>Constant Motion</td>
-                            <td>No player stationary >2 seconds</td>
-                            <td>Higher shot quality metrics</td>
-                            <td>Movement-based practice design</td>
-                        </tr>
-                        <tr>
-                            <td>Read & React</td>
-                            <td>Decisions based on defense</td>
-                            <td>Lower turnover rates</td>
-                            <td>Constraints-based learning</td>
-                        </tr>
-                        <tr>
-                            <td>Team Success</td>
-                            <td>Individual stats secondary</td>
-                            <td>Championship consistency</td>
-                            <td>Team-first reward systems</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Modern NBA Coaching Evolution</h3>
-                <div class="research-citation">
-                    <strong>Current Trend:</strong> NBA coaching education emphasizes constraints-led approaches over traditional mechanical repetition drills. Modern practice methods use rules-based scrimmaging to force desired behaviors while allowing players to develop decision-making skills.
-                </div>
-
-                <h4>Constraints-Led Training Examples</h4>
-                <ul class="implementation-list">
-                    <li><strong>"No Shot Until Two Screens":</strong> Forces movement and screening actions before scoring attempts</li>
-                    <li><strong>"Ball Must Touch Paint":</strong> Requires interior passing before perimeter shots</li>
-                    <li><strong>"Five Pass Minimum":</strong> Emphasizes ball movement and patient offense</li>
-                    <li><strong>"Cut or Screen Only":</strong> Eliminates standing still as an option after passing</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>🎯 Training Transfer Effectiveness</h4>
-                    <p><strong>Research shows constraints-based methods produce 40% better transfer to game situations than isolated technique practice.</strong> Players develop decision-making skills while naturally learning optimal movement patterns through structured problem-solving.</p>
-                </div>
-            </section>
-
-            <section id="development">
-                <h2>👥 Age-Appropriate Development Progressions</h2>
-
-                <h3>USA Basketball Official Guidelines</h3>
-                <div class="success-box">
-                    <h4>Four Progressive Development Levels</h4>
-                    <p><strong>Evidence-Based Structure:</strong> USA Basketball establishes specific recommendations for passing and movement concepts, with training ratios progressing from 70% individual skills to 75% team-oriented practice as players mature.</p>
-                </div>
-
-                <div class="age-grid">
-                    <div class="age-card">
-                        <h4>🏀 Ages 6-9: Introductory</h4>
-                        <p><strong>Focus:</strong> Fundamental catching and basic two-hand passes</p>
-                        <p><strong>Training Ratio:</strong> 70% individual, 30% competition</p>
-                        <p><strong>Movement Concepts:</strong> Simple pass-and-move patterns</p>
-                        <p><strong>Key Skills:</strong> Hand-eye coordination, basic spatial awareness</p>
+                    <div class="section-content">
+                        <div class="section-title">NBA Player Tracking Reveals:</div>
+                        <ul class="info-list">
+                            <li>Cutting after passing produces <span class="highlight">1.58 PPP</span></li>
+                            <li><span class="highlight">99% more effective</span> than ball screen actions (0.79 PPP)</li>
+                            <li>Most teams utilize cuts on only <span class="highlight">8-9% of possessions</span></li>
+                            <li>Elite programs use cutting on <span class="highlight">20.8% of possessions</span></li>
+                        </ul>
                     </div>
                     
-                    <div class="age-card">
-                        <h4>⭐ Ages 8-12: Foundational</h4>
-                        <p><strong>Focus:</strong> Passing under pressure, simple pass-and-cut</p>
-                        <p><strong>Training Ratio:</strong> 60% individual, 40% competition</p>
-                        <p><strong>Movement Concepts:</strong> Basic cutting, give-and-go actions</p>
-                        <p><strong>Key Skills:</strong> Decision-making, teammate awareness</p>
-                    </div>
-                    
-                    <div class="age-card">
-                        <h4>🎯 Ages 10-14: Development</h4>
-                        <p><strong>Focus:</strong> Motion offense concepts, multiple actions</p>
-                        <p><strong>Training Ratio:</strong> 50% individual, 50% competition</p>
-                        <p><strong>Movement Concepts:</strong> Screen usage, advanced cutting</p>
-                        <p><strong>Key Skills:</strong> Reading defense, multiple option processing</p>
-                    </div>
-                    
-                    <div class="age-card">
-                        <h4>🏆 Ages 14+: Specialization</h4>
-                        <p><strong>Focus:</strong> Sophisticated systems, leadership roles</p>
-                        <p><strong>Training Ratio:</strong> 25% individual, 75% competition</p>
-                        <p><strong>Movement Concepts:</strong> Screen-the-screener, complex actions</p>
-                        <p><strong>Key Skills:</strong> Advanced coordination, system mastery</p>
+                    <button class="collapsible">Cutting Breakdown Analysis</button>
+                    <div class="collapsible-content">
+                        <p><strong>Back-door cuts:</strong> 45% of all successful cutting actions</p>
+                        <p><strong>Baseline cuts:</strong> 30% of successful cuts (second most effective)</p>
+                        <p><strong>Elite vs Average:</strong> Elite programs (20.8% usage) vs league average (8.9%)</p>
+                        <p><strong>Statistical Impact:</strong> Teams implementing motion offense principles consistently achieve top-10 efficiency rankings</p>
                     </div>
                 </div>
-
-                <h3>Critical Development Windows</h3>
-                <div class="warning-box">
-                    <h4>⚠️ Middle School Implementation Key</h4>
-                    <p><strong>Ages 10-14 represent optimal learning windows for motion offense concepts.</strong> Research shows this age group can process 2-3 simultaneous instructions and understand basic defensive reading. The "2-second rule" (don't stand still more than 2 seconds after passing) provides simple structure while encouraging continuous movement.</p>
+                
+                <div class="passing-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">📈</span>
+                        Critical Research Insights
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">95%</div>
+                            <div class="stat-label">Corner 3PT Assisted</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">51%</div>
+                            <div class="stat-label">Paint Pass PPP Increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">0-2s</div>
+                            <div class="stat-label">Optimal Window</div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Key Findings:</div>
+                        <ul class="info-list">
+                            <li>Corner three-point zones generate 95% assisted field goals</li>
+                            <li>Paint passes increase PPP by 51%</li>
+                            <li>Maximum efficiency within 0-2 seconds after pass reception</li>
+                            <li>Higher assist rates show statistical significance (p < 0.001) with winning</li>
+                        </ul>
+                    </div>
                 </div>
-
-                <h4>Age-Specific Training Modifications</h4>
+                
+                <div class="passing-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🎯</span>
+                        Motion Offense Superiority
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Statistical Advantages:</div>
+                        <ul class="info-list">
+                            <li>Teams implementing motion principles: <span class="highlight">115+ offensive rating</span></li>
+                            <li>Static offense systems: <span class="highlight">108 offensive rating</span></li>
+                            <li>Championship teams average <span class="highlight">2.3 more passes</span> per possession</li>
+                            <li>Teams maintaining >0.25 touches per second show higher ratings</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Professional Examples</button>
+                    <div class="collapsible-content">
+                        <p><strong>Golden State Warriors:</strong> 28% corner pass usage in championship seasons</p>
+                        <p><strong>San Antonio Spurs:</strong> 32% paint touch frequency, 2,000+ assisted shots per season</p>
+                        <p><strong>Villanova Championship Teams:</strong> 24% wing pass frequency with high conversion rates</p>
+                        <p><strong>Duke Elite Programs:</strong> 22% top-of-key pass usage with balanced outcomes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">Post-Pass Action Effectiveness (PPP)</div>
+                <canvas id="passingEffectivenessChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+        
+        <!-- PASS LOCATIONS TAB -->
+        <div id="locations" class="content-section">
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">📊</span>
+                        Pass Location Analysis
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Pass Location</th>
+                                <th>Success Rate</th>
+                                <th>PPP</th>
+                                <th>Elite Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Corner 3-Point</strong></td>
+                                <td>95%</td>
+                                <td>1.25</td>
+                                <td>Warriors: 28%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paint Entry</strong></td>
+                                <td>68%</td>
+                                <td>1.189</td>
+                                <td>Spurs: 32%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Skip Pass</strong></td>
+                                <td>47%</td>
+                                <td>1.34</td>
+                                <td>Elite: 8%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Wing Pass</strong></td>
+                                <td>64%</td>
+                                <td>1.12</td>
+                                <td>Villanova: 24%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Top of Key</strong></td>
+                                <td>61%</td>
+                                <td>1.08</td>
+                                <td>Duke: 22%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Post Entry</strong></td>
+                                <td>52%</td>
+                                <td>1.057</td>
+                                <td>Traditional: 18%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">🎯</span>
+                        Post-Pass Action Effectiveness
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Action Type</th>
+                                <th>Success Rate</th>
+                                <th>PPP</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: rgba(231, 76, 60, 0.1);">
+                                <td><strong>Cutting</strong></td>
+                                <td>67%</td>
+                                <td>1.58</td>
+                                <td>Highest</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Screen-the-Screener</strong></td>
+                                <td>58%</td>
+                                <td>1.56</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Give & Go</strong></td>
+                                <td>61%</td>
+                                <td>1.18</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ball Screen</strong></td>
+                                <td>44%</td>
+                                <td>1.2</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Relocating</strong></td>
+                                <td>43%</td>
+                                <td>1.14</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr style="background: rgba(231, 76, 60, 0.1);">
+                                <td><strong>Standing Still</strong></td>
+                                <td>28%</td>
+                                <td>0.87</td>
+                                <td>Avoid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏆</span>
+                        Elite Player Advantages
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Professional Tracking Data:</div>
+                        <ul class="info-list">
+                            <li>Elite players: <span class="highlight">88.3% higher accuracy</span> on bounce passes</li>
+                            <li><span class="highlight">109.2% superior performance</span> on behind-the-back passes</li>
+                            <li>Paul Pierce's teammates shot higher percentages after his passes</li>
+                            <li>Contextual value of high-quality passing demonstrated through tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Location-Specific Strategies</button>
+                    <div class="collapsible-content">
+                        <div class="press-variations">
+                            <div class="press-card pass-location">
+                                <h4>Corner 3-Point Zone</h4>
+                                <p><strong>Primary Outcome:</strong> 3PT Shot (78%), Drive (22%)</p>
+                                <p><strong>Success Factor:</strong> 95% assisted field goals</p>
+                                <p><strong>Elite Usage:</strong> Warriors 28% in championship seasons</p>
+                            </div>
+                            <div class="press-card post-action">
+                                <h4>Paint Entry Passes</h4>
+                                <p><strong>Primary Outcome:</strong> Close shot (65%), Assist (35%)</p>
+                                <p><strong>PPP Impact:</strong> 51% increase in efficiency</p>
+                                <p><strong>Elite Usage:</strong> Spurs 32% paint touch frequency</p>
+                            </div>
+                            <div class="press-card team-chemistry">
+                                <h4>Skip Passes</h4>
+                                <p><strong>High Risk/Reward:</strong> 47% success, 1.34 PPP</p>
+                                <p><strong>Primary Outcome:</strong> 3PT (85%), Reset (15%)</p>
+                                <p><strong>Usage:</strong> Elite teams 8% (requires perfect timing)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TEAM CHEMISTRY TAB -->
+        <div id="chemistry" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">6 Wins</div>
+                    <div class="metric-label">Skills Plus-Minus Impact</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">23%</div>
+                    <div class="metric-label">Fewer Miscommunication TOs</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">200+</div>
+                    <div class="metric-label">Beneficial NBA Trades Possible</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">Nature</div>
+                    <div class="metric-label">Published Research Source</div>
+                </div>
+            </div>
+            
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🔬</span>
+                        Social Network Research
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Nature Human Behaviour Study (2018):</div>
+                        <ul class="info-list">
+                            <li><span class="highlight">Prior shared success</span> among teammates predicts future victories</li>
+                            <li>Shared experience matters <span class="highlight">beyond raw talent</span></li>
+                            <li>NBA games analyzed from <span class="highlight">2002-2013</span></li>
+                            <li>Teams with successful collaboration history <span class="highlight">consistently outperform</span> talent-superior teams</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Implementation Strategy</button>
+                    <div class="collapsible-content">
+                        <p><strong>Chemistry Capital Building:</strong> Prioritize continuity in player combinations during practice and games</p>
+                        <p><strong>Shared Minutes Impact:</strong> Even small increases in shared minutes significantly improve collective passing quality</p>
+                        <p><strong>Practice Structure:</strong> 30-40% of practice time should use fixed combinations to build chemistry</p>
+                        <p><strong>Tracking Method:</strong> Monitor pair-specific assist rates and success patterns</p>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">⚖️</span>
+                        Skills Plus-Minus Framework
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">NYU Research Findings (2013):</div>
+                        <ul class="info-list">
+                            <li>Synergies between skills can account for <span class="highlight">up to 6 wins per season</span></li>
+                            <li>Ball-handling skills show <span class="highlight">strongest correlation</span> with team chemistry</li>
+                            <li>Player value depends on <span class="highlight">other nine players on court</span></li>
+                            <li><span class="highlight">200+ mutually beneficial trades</span> exist based on skill complementarity</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Context-Dependence Analysis</button>
+                    <div class="collapsible-content">
+                        <p><strong>Skill Complementarity:</strong> More valuable than raw talent rankings in many scenarios</p>
+                        <p><strong>Passing Context:</strong> A player's passing value entirely depends on teammates' cutting ability and court movement</p>
+                        <p><strong>System Integration:</strong> Ball-handling (primarily passing) shows strongest team chemistry correlation</p>
+                        <p><strong>Strategic Implications:</strong> Team building should prioritize skill synergy over individual ratings</p>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">📢</span>
+                        Communication Systems
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Research Impact:</div>
+                        <ul class="info-list">
+                            <li>Communication skills <span class="highlight">fully mediate</span> empathy-performance relationship</li>
+                            <li><span class="highlight">23% fewer miscommunication</span> turnovers with comprehensive systems</li>
+                            <li>Faster decision-making under pressure</li>
+                            <li>Must be embedded in every passing drill</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Communication Types & Training</button>
+                    <div class="collapsible-content">
+                        <div class="press-variations">
+                            <div class="press-card pass-location">
+                                <h4>Verbal Cues</h4>
+                                <p><strong>Examples:</strong> "Shot," "Skip," "Switch"</p>
+                                <p><strong>Purpose:</strong> Alert teammates to defensive actions</p>
+                                <p><strong>Training:</strong> Short, clear calls practiced under pressure</p>
+                            </div>
+                            <div class="press-card post-action">
+                                <h4>Non-Verbal Communication</h4>
+                                <p><strong>Elements:</strong> Body language, eye contact, shoulder positioning</p>
+                                <p><strong>Purpose:</strong> Indicate pass intentions without alerting defense</p>
+                                <p><strong>Training:</strong> Mirror drills and recognition exercises</p>
+                            </div>
+                            <div class="press-card team-chemistry">
+                                <h4>Symbolic Communication</h4>
+                                <p><strong>System:</strong> Pre-agreed signals for specific plays</p>
+                                <p><strong>Purpose:</strong> Complex play calls and defensive reads</p>
+                                <p><strong>Training:</strong> Layered system implementation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TIMING TAB -->
+        <div id="timing" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">0-2s</div>
+                    <div class="metric-label">Maximum Effectiveness Window</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3-Phase</div>
+                    <div class="metric-label">Shot Clock Dynamics</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">65-67%</div>
+                    <div class="metric-label">Optimal Window Success Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">35-40%</div>
+                    <div class="metric-label">Late Action Success Rate</div>
+                </div>
+            </div>
+            
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">⏱️</span>
+                        Temporal Network Research
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Complex Adaptive Systems (2025):</div>
+                        <ul class="info-list">
+                            <li>Basketball teams operate as <span class="highlight">complex adaptive systems</span></li>
+                            <li><span class="highlight">Distinct 3-phase dynamics</span> based on shot clock pressure</li>
+                            <li>Different organizational patterns in each phase</li>
+                            <li>Post-pass actions most effective within <span class="highlight">0-2 seconds</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">📊</span>
+                        Optimal Timing Windows
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Time Window</th>
+                                <th>Effectiveness</th>
+                                <th>Best Actions</th>
+                                <th>Success Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: rgba(46, 204, 113, 0.1);">
+                                <td><strong>0-2 seconds</strong></td>
+                                <td>Maximum</td>
+                                <td>Cutting, Give & Go</td>
+                                <td>65-67%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2-4 seconds</strong></td>
+                                <td>High</td>
+                                <td>Screens, Relocating</td>
+                                <td>58-61%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4-8 seconds</strong></td>
+                                <td>Moderate</td>
+                                <td>Screen-the-screener</td>
+                                <td>45-50%</td>
+                            </tr>
+                            <tr style="background: rgba(231, 76, 60, 0.1);">
+                                <td><strong>8+ seconds</strong></td>
+                                <td>Declining</td>
+                                <td>Reset offense</td>
+                                <td>35-40%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">🎯</span>
+                        Three-Phase System
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">24-19</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Early Possession</div>
+                                <p><strong>Pattern:</strong> Structured probing and planned sets<br>
+                                <strong>Focus:</strong> Planned entries and specialized organization<br>
+                                <strong>Training:</strong> Set plays and initial reads</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">19-8</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Mid Possession</div>
+                                <p><strong>Pattern:</strong> Flexible adaptation<br>
+                                <strong>Focus:</strong> Exploit defense-created seams<br>
+                                <strong>Training:</strong> Reactive drills and read options</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">8-0</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Late Possession</div>
+                                <p><strong>Pattern:</strong> Crisis specialization<br>
+                                <strong>Focus:</strong> Pre-practiced late-clock sets<br>
+                                <strong>Training:</strong> Pressure situations and simplified options</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PASS QUALITY TAB -->
+        <div id="quality" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    <div class="metric-value">-0.04</div>
+                    <div class="metric-label">PPP Lost Per Additional Poor Pass</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #27ae60, #229954);">
+                    <div class="metric-value">Quality</div>
+                    <div class="metric-label">Eliminates Negative Correlation</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <div class="metric-value">0.8</div>
+                    <div class="metric-label">More Opponent Points (Fast Breaks)</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                    <div class="metric-value">2s Rule</div>
+                    <div class="metric-label">Timing Precision Target</div>
+                </div>
+            </div>
+            
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">✅</span>
+                        Characteristics of Good Passes
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Quality Framework:</div>
+                        <ul class="info-list">
+                            <li><strong>Timing Precision:</strong> Made within 0-2 second optimal window</li>
+                            <li><strong>Spatial Accuracy:</strong> Leads receiver based on defensive positioning</li>
+                            <li><strong>Decision Quality:</strong> Result from defensive reading, not predetermined patterns</li>
+                            <li><strong>Communication Integration:</strong> Include preparation cues for receivers</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Measurable Quality Metrics</button>
+                    <div class="collapsible-content">
+                        <p><strong>Primary Tracking:</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>Assist-to-turnover ratio per 100 possessions</li>
+                            <li>Pass-to-shot time (optimal <2 seconds)</li>
+                            <li>Lead pass percentage (motion-ready positioning)</li>
+                            <li>Secondary assists correlation with expected points</li>
+                        </ul>
+                        <p><strong>Advanced Analytics:</strong></p>
+                        <ul>
+                            <li>Pass accuracy under defensive pressure</li>
+                            <li>Communication compliance rate during sequences</li>
+                            <li>Decision-making speed in optimal vs. suboptimal windows</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">❌</span>
+                        Characteristics of Bad Passes
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Quality Issues:</div>
+                        <ul class="info-list">
+                            <li><strong>Pressure-Induced:</strong> Made under stress without proper reading</li>
+                            <li><strong>Late Timing:</strong> Attempted after optimal windows close (>4s)</li>
+                            <li><strong>Poor Communication:</strong> Lack of receiver preparation</li>
+                            <li><strong>Positional Ignorance:</strong> Fail to account for defensive help</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">The Over-Passing Problem</button>
+                    <div class="collapsible-content">
+                        <p><strong>Nylon Calculus Research (2021):</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>Each additional pass reduces efficiency by 0.04 PPP (when poorly timed)</li>
+                            <li>Additional passes increase turnover percentage</li>
+                            <li>0.8 more opponent points per 100 possessions through fast breaks</li>
+                        </ul>
+                        <p><strong>Key Insight:</strong> Negative correlation disappears when passes are made within optimal timing windows with proper spacing</p>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #f39c12;">
+                    <div class="card-title">
+                        <span class="card-emoji">⚖️</span>
+                        Quality vs. Quantity Paradox
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Research Findings:</div>
+                        <ul class="info-list">
+                            <li>More passes can <span class="highlight">decrease efficiency</span> when poorly executed</li>
+                            <li>Quality and timing <span class="highlight">eliminate negative correlation</span></li>
+                            <li>Focus on <span class="highlight">constructive passing</span> with clear purpose</li>
+                            <li>Train recognition of when additional passes <span class="highlight">improve vs. diminish</span> shot quality</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Historical Example Analysis</button>
+                    <div class="collapsible-content">
+                        <p><strong>2012-2013 New York Knicks:</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>Ranked first in low turnovers</li>
+                            <li>Ranked last in assists (19.3 per game)</li>
+                            <li>Compared to Spurs: 25.1 assists per game</li>
+                            <li>Demonstrated lack of offensive creativity, not superior ball security</li>
+                        </ul>
+                        <p><strong>Key Lesson:</strong> Extremely low turnover rates often indicate lack of offensive ambition rather than superior passing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ADVANCED SYSTEMS TAB -->
+        <div id="systems" class="content-section">
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #e74c3c;">
+                    <div class="card-title">
+                        <span class="card-emoji">🔄</span>
+                        Motion Offense Implementation
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Core Principles:</div>
+                        <ul class="info-list">
+                            <li><strong>Ball Movement Speed:</strong> Target <0.5 seconds per touch</li>
+                            <li><strong>Spacing Rules:</strong> Minimum 18-foot spacing between players</li>
+                            <li><strong>Cutting Priority:</strong> Every pass triggers movement from 2+ players</li>
+                            <li><strong>Screen Timing:</strong> Execute within 2 seconds of ball entry</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Practice Implementation Rules</button>
+                    <div class="collapsible-content">
+                        <p><strong>Constraint Rules:</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>"No standing still for more than 2 seconds"</li>
+                            <li>"Two cuts before every shot attempt"</li>
+                            <li>"Ball must touch paint before perimeter shots"</li>
+                        </ul>
+                        <p><strong>Statistical Impact:</strong> Teams implementing motion principles consistently achieve 115+ offensive rating vs 108 for static offense</p>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #3498db;">
+                    <div class="card-title">
+                        <span class="card-emoji">⚡</span>
+                        Transition Offense Excellence
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Key Elements:</div>
+                        <ul class="info-list">
+                            <li>Precise outlet passing under fatigue conditions</li>
+                            <li>Lead passing accounting for defender recovery speed</li>
+                            <li>3-on-2 and 2-on-1 decision-making under pressure</li>
+                            <li>Practice outlets under fatigue to simulate game conditions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #27ae60;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏆</span>
+                        Professional Coaching Philosophy
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Steve Kerr (Golden State):</div>
+                        <ul class="info-list">
+                            <li><strong>"Pace and Space"</strong> through motion principles</li>
+                            <li>Specific series with <span class="highlight">variable endings</span></li>
+                            <li>Structured freedom philosophy</li>
+                            <li>Real-time decisions within systematic frameworks</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Gregg Popovich Philosophy</button>
+                    <div class="collapsible-content">
+                        <p><strong>"Penetrate for a teammate, not necessarily for yourself"</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>Spurs consistently assisted 2,000+ shots per season</li>
+                            <li>Took fewer total attempts than league average</li>
+                            <li>Quality passing creates better shot selection</li>
+                            <li>Team-first movement culture</li>
+                        </ul>
+                        <p><strong>Constant Motion Rule:</strong> No player stationary >2 seconds creates higher shot quality and lower turnovers</p>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #f39c12;">
+                    <div class="card-title">
+                        <span class="card-emoji">🏠</span>
+                        Zone Defense Adaptations
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Reality Check:</div>
+                        <ul class="info-list">
+                            <li>Zone defenses neutralize traditional motion by <span class="highlight">35-45%</span></li>
+                            <li>Teams with zone modifications: <span class="highlight">0.99 PPP vs zones</span></li>
+                            <li>vs <span class="highlight">0.96 PPP vs man-to-man</span> - strategic advantage</li>
+                            <li><strong>Philosophy:</strong> Keep cutting culture, change the cuts</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Zone Modification Framework</button>
+                    <div class="collapsible-content">
+                        <table class="zone-modification-table">
+                            <thead>
+                                <tr>
+                                    <th>Original Motion Concept</th>
+                                    <th>Zone Modification</th>
+                                    <th>PPP Change</th>
+                                    <th>Implementation Strategy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Backdoor Cutting</strong></td>
+                                    <td>Flash Cut to High Post</td>
+                                    <td>1.58 → 1.35 PPP</td>
+                                    <td>Quick flash during ball reversal</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pass & Cut to Basket</strong></td>
+                                    <td>Pass & Gap Cut</td>
+                                    <td>1.58 → 1.29 PPP</td>
+                                    <td>Cut to unoccupied zone seams</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Screen Away</strong></td>
+                                    <td>Zone Pin Screen</td>
+                                    <td>1.15 → 1.39 PPP</td>
+                                    <td>Screen zone defenders in place</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Baseline Cuts</strong></td>
+                                    <td>Baseline Zone Cuts</td>
+                                    <td>1.24 → 1.21 PPP</td>
+                                    <td>Cut when baseline defender helps</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ball Screen</strong></td>
+                                    <td>High Post Ball Screen</td>
+                                    <td>1.20 → 1.26 PPP</td>
+                                    <td>Screen from middle of zone</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="press-variations" style="margin-top: 20px;">
+                            <div class="press-card zone-adaptation">
+                                <h4>vs 2-3 Zone</h4>
+                                <p><strong>Modification:</strong> Flash cuts to elbows (1.35 PPP)</p>
+                                <p><strong>Strategy:</strong> Back screens on baseline defenders</p>
+                            </div>
+                            <div class="press-card zone-adaptation">
+                                <h4>vs 3-2 Zone</h4>
+                                <p><strong>Modification:</strong> Zone screens on perimeter (1.38 PPP)</p>
+                                <p><strong>Strategy:</strong> Gap cuts through middle</p>
+                            </div>
+                            <div class="press-card zone-adaptation">
+                                <h4>vs 1-3-1 Zone</h4>
+                                <p><strong>Modification:</strong> Corner overloads (1.24 PPP)</p>
+                                <p><strong>Strategy:</strong> Skip pass actions</p>
+                            </div>
+                            <div class="press-card zone-adaptation">
+                                <h4>vs Matchup Zone</h4>
+                                <p><strong>Modification:</strong> Quick ball movement (1.18 PPP)</p>
+                                <p><strong>Strategy:</strong> Gap recognition cuts during confusion</p>
+                            </div>
+                            <div class="press-card zone-adaptation">
+                                <h4>vs 2-1-2 Zone</h4>
+                                <p><strong>Modification:</strong> High post flash (1.32 PPP)</p>
+                                <p><strong>Strategy:</strong> Wing-to-wing reversal</p>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Modified Motion Offense Rules vs Zones:</strong></p>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Flash First:</strong> Replace backdoor cuts with flash cuts to high post and elbows</li>
+                            <li><strong>Gap Recognition:</strong> Cut to unoccupied spaces, not behind individual defenders</li>
+                            <li><strong>Zone Screens:</strong> Screen zone defenders to pin them in place</li>
+                            <li><strong>Patient Reversal:</strong> Move ball until zone creates gaps (3+ passes minimum)</li>
+                            <li><strong>Timing Awareness:</strong> Cut during 0.8-second zone rotation delays</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DEVELOPMENT TAB -->
+        <div id="development" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">Ages 10-14</div>
+                    <div class="metric-label">Optimal Learning Window</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">70% → 25%</div>
+                    <div class="metric-label">Individual Practice Ratio</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2-Second</div>
+                    <div class="metric-label">Movement Rule Structure</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">USA</div>
+                    <div class="metric-label">Basketball Guidelines</div>
+                </div>
+            </div>
+            
+            <div class="age-progression">
+                <div class="age-card" style="--age-color: #e74c3c;">
+                    <div class="age-title">Ages 6-9: Introductory</div>
+                    <div class="age-subtitle">Foundation Building Phase</div>
+                    <div class="section-content">
+                        <div class="section-title">Development Focus:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Fundamental catching and basic two-hand passes</li>
+                            <li><strong>Training Ratio:</strong> 70% individual, 30% competition</li>
+                            <li><strong>Movement:</strong> Simple pass-and-move patterns</li>
+                            <li><strong>Key Skills:</strong> Hand-eye coordination, spatial awareness</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #f39c12;">
+                    <div class="age-title">Ages 8-12: Foundational</div>
+                    <div class="age-subtitle">Basic Team Concepts</div>
+                    <div class="section-content">
+                        <div class="section-title">Development Focus:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Passing under pressure, simple pass-and-cut</li>
+                            <li><strong>Training Ratio:</strong> 60% individual, 40% competition</li>
+                            <li><strong>Movement:</strong> Basic cutting, give-and-go actions</li>
+                            <li><strong>Key Skills:</strong> Decision-making, teammate awareness</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #3498db;">
+                    <div class="age-title">Ages 10-14: Development</div>
+                    <div class="age-subtitle">Critical Learning Window</div>
+                    <div class="section-content">
+                        <div class="section-title">Development Focus:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Motion offense concepts, multiple actions</li>
+                            <li><strong>Training Ratio:</strong> 50% individual, 50% competition</li>
+                            <li><strong>Movement:</strong> Screen usage, advanced cutting</li>
+                            <li><strong>Key Skills:</strong> Reading defense, multiple option processing</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Critical Development Window</button>
+                    <div class="collapsible-content">
+                        <p><strong>Ages 10-14 represent optimal learning windows for motion offense concepts.</strong></p>
+                        <ul style="margin-bottom: 15px;">
+                            <li>Can process 2-3 simultaneous instructions</li>
+                            <li>Understand basic defensive reading</li>
+                            <li>2-second rule provides simple structure</li>
+                            <li>Encourage continuous movement habits</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="age-card" style="--age-color: #27ae60;">
+                    <div class="age-title">Ages 14+: Specialization</div>
+                    <div class="age-subtitle">Advanced Systems</div>
+                    <div class="section-content">
+                        <div class="section-title">Development Focus:</div>
+                        <ul class="info-list">
+                            <li><strong>Focus:</strong> Sophisticated systems, leadership roles</li>
+                            <li><strong>Training Ratio:</strong> 25% individual, 75% competition</li>
+                            <li><strong>Movement:</strong> Screen-the-screener, complex actions</li>
+                            <li><strong>Key Skills:</strong> Advanced coordination, system mastery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="passing-card" style="--card-color: #9b59b6;">
+                <div class="card-title">
+                    <span class="card-emoji">📚</span>
+                    Age-Specific Training Modifications
+                </div>
                 <table class="data-table">
                     <thead>
                         <tr>
                             <th>Age Group</th>
                             <th>Cutting Focus</th>
-                            <th>Screening Introduction</th>
                             <th>Decision Complexity</th>
-                            <th>Success Metrics</th>
+                            <th>Communication Level</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>6-9 years</td>
+                            <td><strong>6-9 years</strong></td>
                             <td>Straight-line cuts only</td>
-                            <td>None</td>
                             <td>Pass or cut (binary)</td>
-                            <td>Movement attempts</td>
+                            <td>Basic calls</td>
                         </tr>
                         <tr>
-                            <td>8-12 years</td>
+                            <td><strong>8-12 years</strong></td>
                             <td>Backdoor, baseline cuts</td>
-                            <td>Basic pick-and-roll</td>
                             <td>2 options maximum</td>
-                            <td>Successful cuts per game</td>
+                            <td>Simple verbal cues</td>
                         </tr>
                         <tr>
-                            <td>10-14 years</td>
+                            <td><strong>10-14 years</strong></td>
                             <td>All cutting varieties</td>
-                            <td>Multiple screen types</td>
                             <td>3 options, defensive reading</td>
-                            <td>Action success rates</td>
+                            <td>Full communication system</td>
                         </tr>
                         <tr>
-                            <td>14+ years</td>
+                            <td><strong>14+ years</strong></td>
                             <td>Advanced timing, misdirection</td>
-                            <td>Screen-the-screener chains</td>
                             <td>Complex option trees</td>
-                            <td>Team offensive efficiency</td>
+                            <td>Leadership communication</td>
                         </tr>
                     </tbody>
                 </table>
-
-                <h3>Small-Sided Games for Development</h3>
-                <div class="drill-card">
-                    <div class="drill-title">Progressive Game Structures</div>
-                    <p><strong>3v3 Movement Rules:</strong> "Pass and cut" requirement before any shot attempts</p>
-                    <p><strong>4v4 Screen Integration:</strong> Must execute one screen action per possession</p>
-                    <p><strong>5v5 System Play:</strong> Full motion offense concepts with position responsibilities</p>
-                    <p><strong>Benefits:</strong> Maximizes touches, accelerates decision-making development, creates natural learning environment</p>
+            </div>
+        </div>
+        
+        <!-- IMPLEMENTATION TAB -->
+        <div id="implementation" class="content-section">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-value">3-Phase</div>
+                    <div class="metric-label">Development Program</div>
                 </div>
-            </section>
-
-            <section id="research">
-                <h2>📊 Research Foundation & Citations</h2>
-
-                <h3>Primary Data Sources</h3>
-                <div class="research-citation">
-                    <strong>NBA Player Tracking Systems:</strong> Second Spectrum analytics providing real-time player movement, pass accuracy, and post-pass action effectiveness data across 2019-2024 seasons.
+                <div class="metric-card">
+                    <div class="metric-value">12 Weeks</div>
+                    <div class="metric-label">Complete Implementation</div>
                 </div>
-
-                <div class="research-citation">
-                    <strong>Synergy Sports Technology:</strong> Comprehensive basketball statistics platform used by professional and college programs for detailed offensive action analysis and player performance metrics.
+                <div class="metric-card">
+                    <div class="metric-value">20%+</div>
+                    <div class="metric-label">Target Cutting Frequency</div>
                 </div>
-
-                <div class="research-citation">
-                    <strong>Championship Program Analysis:</strong> Statistical examination of offensive systems from Golden State Warriors, San Antonio Spurs, Villanova Basketball, and Duke Basketball championship teams.
+                <div class="metric-card">
+                    <div class="metric-value">1.58 PPP</div>
+                    <div class="metric-label">Effectiveness Target</div>
                 </div>
-
-                <h3>Key Research Findings</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Research Area</th>
-                            <th>Key Finding</th>
-                            <th>Statistical Significance</th>
-                            <th>Practical Application</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Post-Pass Cutting</td>
-                            <td>1.58 PPP effectiveness</td>
-                            <td>p < 0.001</td>
-                            <td>Prioritize in all offensive systems</td>
-                        </tr>
-                        <tr>
-                            <td>Ball Movement Speed</td>
-                            <td>0.25 touches/second optimal</td>
-                            <td>p < 0.01</td>
-                            <td>Training pace requirements</td>
-                        </tr>
-                        <tr>
-                            <td>Assist Rate Correlation</td>
-                            <td>Higher assists = more wins</td>
-                            <td>p < 0.001</td>
-                            <td>Team culture development</td>
-                        </tr>
-                        <tr>
-                            <td>Motion vs Static Offense</td>
-                            <td>115+ vs 108 offensive rating</td>
-                            <td>p < 0.05</td>
-                            <td>System selection criteria</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Supporting Academic Research</h3>
-                <ul class="implementation-list">
-                    <li><strong>Basketball Analytics Research (ResearchGate):</strong> Systematic review of passing effectiveness and post-pass movement patterns in elite basketball</li>
-                    <li><strong>Motion Offense Studies (MDPI):</strong> Evaluation of off-ball screen efficiency using second-order Markov modeling in professional basketball</li>
-                    <li><strong>USA Basketball Guidelines:</strong> Official coaching education principles emphasizing age-appropriate skill development and systematic progression</li>
-                    <li><strong>Player Development Research (PubMed):</strong> Systematic review of basketball passing biomechanics and motor learning applications</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>🔬 Future Research Directions</h4>
-                    <p><strong>Emerging Areas:</strong> Artificial intelligence analysis of optimal cutting patterns, biomechanical efficiency of different movement types, and neurological factors affecting decision-making speed in basketball contexts. Current research gap exists in quantifying the psychological impact of constant movement on defensive players.</p>
-                </div>
-
-                <h3>Methodology Notes</h3>
-                <div class="warning-box">
-                    <h4>📈 Data Limitations</h4>
-                    <p><strong>Sample Considerations:</strong> Statistical analysis primarily based on professional and high-level college basketball. Youth basketball data remains limited, requiring extrapolation and coach observation for validation. Regional variations in playing style may affect generalizability of findings.</p>
-                </div>
-            </section>
-
-            <section id="conclusion">
-                <h2>🏆 Conclusion: Transforming Basketball Through Data</h2>
-
-                <div class="highlight-box">
-                    <h3>The Competitive Imperative</h3>
-                    <p><strong>Basketball success increasingly depends on systematic approaches to passing and post-pass movement rather than individual talent alone.</strong> Teams implementing evidence-based motion offense principles, supported by appropriate age-specific development progressions and enhanced by statistical tracking, gain measurable competitive advantages over traditional approaches.</p>
-                </div>
-
-                <h3>Implementation Roadmap</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">Week 1-2</div>
-                        <div class="stat-label">Foundation</div>
-                        <div class="stat-description">Introduce basic pass-and-cut concepts</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">Week 3-6</div>
-                        <div class="stat-label">Development</div>
-                        <div class="stat-description">Add screening and movement variety</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">Week 7-12</div>
-                        <div class="stat-label">Integration</div>
-                        <div class="stat-description">Implement in live game situations</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">Season</div>
-                        <div class="stat-label">Mastery</div>
-                        <div class="stat-description">Achieve elite usage rates (20%+)</div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1-4</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Phase 1: Pressure Adaptation (Weeks 1-4)</div>
+                        <p><strong>Focus:</strong> Graduated defensive pressure passing drills<br>
+                        <strong>Communication:</strong> Must call name/"got it" for each pass<br>
+                        <strong>Measurement:</strong> Baseline pass accuracy under fatigue</p>
                     </div>
                 </div>
-
-                <h3>Measuring Success</h3>
-                <ul class="implementation-list">
-                    <li><strong>Immediate Metrics:</strong> Cutting frequency per possession, post-pass movement attempts, secondary assist rates</li>
-                    <li><strong>Intermediate Goals:</strong> Team offensive rating improvement, reduced standing-still percentages, faster ball movement</li>
-                    <li><strong>Long-term Outcomes:</strong> Championship-level efficiency ratings (115+), sustained competitive advantage, player development acceleration</li>
-                    <li><strong>Cultural Indicators:</strong> Player buy-in to movement principles, automatic decision-making, system sustainability</li>
-                </ul>
-
-                <div class="success-box">
-                    <h4>🎯 The Ultimate Goal</h4>
-                    <p><strong>Organizations prioritizing systematic development of cutting and post-pass movement—from youth programs through professional levels—position themselves for sustained competitive success in an increasingly analytics-driven sport.</strong> The combination of statistical validation, coaching expertise, and structured implementation provides a comprehensive roadmap for transforming team offensive effectiveness.</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker">5-8</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Phase 2: Timing & Decision Integration (Weeks 5-8)</div>
+                        <p><strong>Focus:</strong> 0-2 second reaction drills<br>
+                        <strong>Video Review:</strong> Decision windows and extra pass opportunities<br>
+                        <strong>Practice:</strong> Reading defensive rotations with immediate movement</p>
+                    </div>
                 </div>
-
-                <div class="warning-box">
-                    <h4>⚡ Call to Action</h4>
-                    <p><strong>The data conclusively shows that cutting after passing represents the single highest-value skill in basketball, yet remains dramatically underutilized across all competitive levels.</strong> Coaches who implement these evidence-based strategies immediately gain significant advantages over programs still relying on traditional static offense principles.</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker">9-12</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Phase 3: Chemistry Development (Weeks 9-12)</div>
+                        <p><strong>Focus:</strong> Fixed practice combinations (30-40% of time)<br>
+                        <strong>Tracking:</strong> Pair-specific assist tracking<br>
+                        <strong>Games:</strong> Small-sided games with passing requirements</p>
+                    </div>
                 </div>
-            </section>
-        </main>
+            </div>
+            
+            <div class="drill-grid">
+                <div class="drill-card" style="--drill-color: #e74c3c;">
+                    <div class="drill-title">Drill 1: Pass & Cut Hierarchy</div>
+                    <div class="drill-description">
+                        4 players, full court, emphasis on immediate post-pass movement with defensive reading
+                    </div>
+                    <div class="drill-focus">
+                        <strong>Focus:</strong> Decision-making speed, reading defensive reactions<br>
+                        <strong>Target:</strong> Track cutting frequency (20%+ possessions)<br>
+                        <strong>Progression:</strong> Add live defense → 5v5 scrimmage
+                    </div>
+                </div>
+                
+                <div class="drill-card" style="--drill-color: #3498db;">
+                    <div class="drill-title">Drill 2: Motion Offense Decision Training</div>
+                    <div class="drill-description">
+                        5v5 half court with constraints like "ball must touch paint" or "2 cuts before shooting"
+                    </div>
+                    <div class="drill-focus">
+                        <strong>Focus:</strong> Forces post-pass movement, develops reading skills<br>
+                        <strong>Analytics:</strong> Track secondary assists, cutting attempts<br>
+                        <strong>Progression:</strong> Reduce constraints, add time pressure
+                    </div>
+                </div>
+                
+                <div class="drill-card" style="--drill-color: #27ae60;">
+                    <div class="drill-title">Drill 3: Screen-the-Screener Series</div>
+                    <div class="drill-description">
+                        3 players focusing on advanced action chains with multiple scoring options
+                    </div>
+                    <div class="drill-focus">
+                        <strong>Focus:</strong> Timing (0-16s window), spatial awareness<br>
+                        <strong>Target:</strong> 58%+ success rate in first 8 seconds<br>
+                        <strong>Progression:</strong> Add rotations, vary screen types
+                    </div>
+                </div>
+            </div>
+            
+            <div class="passing-grid">
+                <div class="passing-card" style="--card-color: #f39c12;">
+                    <div class="card-title">
+                        <span class="card-emoji">📊</span>
+                        Elite Program Benchmarks
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Championship Standards:</div>
+                        <ul class="info-list">
+                            <li><strong>Assist/Turnover Ratio:</strong> 16.13% above baseline (EuroLeague champions)</li>
+                            <li><strong>Cutting Frequency:</strong> 20%+ usage (vs 8.9% league average)</li>
+                            <li><strong>Ball Movement:</strong> >0.25 touches per second</li>
+                            <li><strong>Pass Distribution:</strong> 40-60% through primary handler (not 70%+)</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Historical References</button>
+                    <div class="collapsible-content">
+                        <div class="press-variations">
+                            <div class="press-card pass-location">
+                                <h4>Golden State Warriors</h4>
+                                <p><strong>Championship Seasons:</strong> 28% corner pass usage</p>
+                                <p><strong>System:</strong> Structured freedom with motion</p>
+                            </div>
+                            <div class="press-card post-action">
+                                <h4>San Antonio Spurs</h4>
+                                <p><strong>Paint Frequency:</strong> 32% touch rate</p>
+                                <p><strong>Volume:</strong> 2,000+ assisted shots/season</p>
+                            </div>
+                            <div class="press-card team-chemistry">
+                                <h4>Villanova Championship</h4>
+                                <p><strong>Wing Usage:</strong> 24% with high conversion</p>
+                                <p><strong>Success:</strong> Motion-based championship</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="passing-card" style="--card-color: #9b59b6;">
+                    <div class="card-title">
+                        <span class="card-emoji">⚠️</span>
+                        Risk Management & Common Mistakes
+                    </div>
+                    <div class="section-content">
+                        <div class="section-title">Critical Errors to Avoid:</div>
+                        <ul class="info-list">
+                            <li><strong>Over-Passing Syndrome:</strong> Focus on constructive passing, not quantity</li>
+                            <li><strong>Standing After Passing:</strong> Reduces efficiency by 15-20%</li>
+                            <li><strong>Communication Overload:</strong> Streamlined protocols prevent confusion</li>
+                            <li><strong>Over-Dependence:</strong> Balance chemistry with adaptability (60-70% core)</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="collapsible">Solution Framework</button>
+                    <div class="collapsible-content">
+                        <p><strong>Quality Focus:</strong> Train recognition of when additional passes improve vs diminish shot quality</p>
+                        <p><strong>Movement Rule:</strong> Implement automatic 2-second movement rule with consequences</p>
+                        <p><strong>Communication Hierarchy:</strong> Essential calls first, complexity added after mastery</p>
+                        <p><strong>Balanced Chemistry:</strong> Avoid >60% centralization through single player</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <footer style="background: #2c3e50; color: white; padding: 2rem; text-align: center;">
-            <p><strong>© 2025 Basketball Analytics Research</strong> | Evidence-Based Coaching for the Modern Game</p>
-            <p style="margin-top: 1rem; opacity: 0.8;">For coaching consultations and advanced analytics implementation, contact our research team.</p>
-        </footer>
-
-        <div class="floating-nav">
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to Top">
-                ↑
-            </button>
+        <!-- Footer Section (inside container) -->
+        <div class="footer">
+            <div class="implementation-takeaways">
+                <h3 style="text-align: center; margin-bottom: 20px;">🏀 Key Implementation Takeaways</h3>
+                <div class="takeaway-grid">
+                    <div class="takeaway-item">
+                        <strong>🎯 Priority #1:</strong><br>
+                        <span style="font-size: 0.9rem;">Focus on cutting after passing - 1.58 PPP effectiveness</span>
+                    </div>
+                    <div class="takeaway-item">
+                        <strong>⏱️ Timing Rule:</strong><br>
+                        <span style="font-size: 0.9rem;">0-2 second optimal window for all post-pass actions</span>
+                    </div>
+                    <div class="takeaway-item">
+                        <strong>🤝 Chemistry Building:</strong><br>
+                        <span style="font-size: 0.9rem;">30-40% practice time with fixed player combinations</span>
+                    </div>
+                    <div class="takeaway-item">
+                        <strong>📊 Target Metrics:</strong><br>
+                        <span style="font-size: 0.9rem;">20%+ cutting frequency, 115+ offensive rating</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-cards">
+                <div class="action-card">
+                    <h4 style="color: #e74c3c;">🚀 Start Today</h4>
+                    <ul>
+                        <li><strong>1.</strong> Implement 2-second movement rule</li>
+                        <li><strong>2.</strong> Track cutting frequency per practice</li>
+                        <li><strong>3.</strong> Add "ball must touch paint" constraint</li>
+                        <li><strong>4.</strong> Practice ELC communication system</li>
+                    </ul>
+                </div>
+                
+                <div class="action-card">
+                    <h4 style="color: #3498db;">📈 This Week</h4>
+                    <ul>
+                        <li><strong>1.</strong> Install basic motion positioning</li>
+                        <li><strong>2.</strong> Begin pass-and-cut hierarchy drills</li>
+                        <li><strong>3.</strong> Establish communication protocols</li>
+                        <li><strong>4.</strong> Set defensive efficiency baseline</li>
+                    </ul>
+                </div>
+                
+                <div class="action-card">
+                    <h4 style="color: #27ae60;">🏆 This Month</h4>
+                    <ul>
+                        <li><strong>1.</strong> Complete 3-phase development program</li>
+                        <li><strong>2.</strong> Implement zone modifications</li>
+                        <li><strong>3.</strong> Establish evaluation methods</li>
+                        <li><strong>4.</strong> Build championship passing culture</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="championship-formula">
+                <h3 style="text-align: center; margin-bottom: 20px;">🎯 The Championship Formula</h3>
+                <div class="formula-grid">
+                    <div class="formula-item">
+                        <div class="icon">🏰</div>
+                        <strong>Strong Foundation</strong><br>
+                        <small>Motion offense principles</small>
+                    </div>
+                    <div class="formula-item">
+                        <div class="icon">🔄</div>
+                        <strong>Adaptable Systems</strong><br>
+                        <small>Multiple defensive looks</small>
+                    </div>
+                    <div class="formula-item">
+                        <div class="icon">📚</div>
+                        <strong>Progressive Development</strong><br>
+                        <small>Age-appropriate teaching</small>
+                    </div>
+                    <div class="formula-item">
+                        <div class="icon">🧠</div>
+                        <strong>Evidence-Based Methods</strong><br>
+                        <small>Constraint learning approach</small>
+                    </div>
+                    <div class="formula-item">
+                        <div class="icon">📊</div>
+                        <strong>Data-Driven Decisions</strong><br>
+                        <small>Analytics and evaluation</small>
+                    </div>
+                    <div class="formula-item">
+                        <div class="icon">🏆</div>
+                        <strong>Championship Culture</strong><br>
+                        <small>Passing excellence identity</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quote-section">
+                <p style="font-style: italic; font-size: 1.0rem; color: #2c3e50; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                    <strong>"Every pass creates an opportunity not just for points, but for building the trust, communication, and shared success that define championship-level teams. When passing quality, timing, communication, and chemistry development are systematically integrated, teams achieve performance levels that exceed the sum of their individual parts."</strong>
+                </p>
+            </div>
+            
+            <div class="quote-section" style="background: rgba(102, 126, 234, 0.1); margin-top: 20px;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">📚 Research Sources</h4>
+                <div style="font-size: 0.9rem; color: #555; line-height: 1.5;">
+                    <p><strong>Primary Academic Sources:</strong> Mukherjee et al. (Nature Human Behaviour, 2018), Maymin et al. (NYU, 2013), Bourgeais et al. (2025), Supola (Taylor & Francis, 2022)</p>
+                    <p><strong>Analytics Sources:</strong> NBA Second Spectrum, Synergy Sports Technology, Basketball-Reference, EuroLeague Official Statistics</p>
+                    <p><strong>Professional Insights:</strong> Steve Kerr (Golden State Warriors), Gregg Popovich (San Antonio Spurs), Elite College Programs</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p><strong>© 2025 Valery Lavrov. All Rights Reserved.</strong></p>
+                <p>The Championship Coaching Blueprint™ - Proprietary coaching methodology and systems.</p>
+                <p>Unauthorized reproduction or distribution is strictly prohibited.</p>
+                <div style="margin-top: 15px; font-style: italic; color: #7f8c8d;">
+                    <p>"Success in basketball passing—and basketball overall—requires viewing each action as both an individual skill and a collective opportunity. The data, research, and practical frameworks presented here provide the tools necessary to transform your approach to basketball development."</p>
+                </div>
+            </div>
         </div>
     </div>
-
+    
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Highlight active section in navigation
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        // Tab switching function
+        function showTab(tabName) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
             
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.style.background = 'rgba(255,255,255,0.1)';
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.style.background = 'rgba(255,255,255,0.3)';
-                }
-            });
-        });
-
-        // Add animation to stat cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.stat-card, .drill-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Add CSS animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabName === 'overview') {
+                setTimeout(initOverviewCharts, 100);
             }
-        `;
-        document.head.appendChild(style);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapsibles = document.querySelectorAll('.collapsible');
+            
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+                });
+            });
+            
+            const cards = document.querySelectorAll('.passing-card, .age-card, .drill-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+        
+        function initOverviewCharts() {
+            const ctx = document.getElementById('passingEffectivenessChart');
+            if (ctx && !ctx.chartInitialized) {
+                ctx.chartInitialized = true;
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Cutting', 'Screen-the-Screener', 'Skip Pass', 'Give & Go', 'Ball Screen', 'Relocating', 'Standing Still'],
+                        datasets: [{
+                            label: 'Points Per Possession (PPP)',
+                            data: [1.58, 1.56, 1.34, 1.18, 1.20, 1.14, 0.87],
+                            backgroundColor: [
+                                '#e74c3c', '#3498db', '#f39c12', '#27ae60', 
+                                '#9b59b6', '#34495e', '#95a5a6'
+                            ],
+                            borderColor: [
+                                '#c0392b', '#2980b9', '#e67e22', '#229954', 
+                                '#8e44ad', '#2c3e50', '#7f8c8d'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Post-Pass Action Effectiveness Comparison'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Post-Pass Actions'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Points Per Possession'
+                                },
+                                min: 0,
+                                max: 1.8
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        window.addEventListener('load', function() {
+            setTimeout(initOverviewCharts, 500);
+        });
     </script>
-    <footer style="margin-top: 50px; padding: 20px; border-top: 2px solid #ccc; text-align: center; font-size: 0.9em; color: #666;">
-    <p><strong>© 2025 Valery Lavrov. All Rights Reserved.</strong></p>
-    <p>The Championship Coaching Blueprint™ - Proprietary coaching methodology and systems.</p>
-    <p>Unauthorized reproduction or distribution is strictly prohibited.</p>
-    </footer>
+
 </body>
 </html>
